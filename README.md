@@ -25,11 +25,13 @@ git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
 2. **Commit your changes:**
         git commit -m "Brief description of the changes that you made"
 
-3. **Push the changes to the main branch. (If you need to push to a specific
-        branch, you can add the branch name after push):**
+3. **Push the changes to the main branch:**
+        # Push to main branch
         git push
+        #Push to specific branch
+        git push origin branchName
 
-4. **If you want to download the remote repo with the latest changes:**
+4. **If you want to clone the remote repo with the latest changes:**
         git pull
 
 
