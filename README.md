@@ -11,12 +11,15 @@ Welcome to the Group 29 repository! This is the collaborative space where our te
 To clone this repository to your local machine, open your terminal and run the following command:
 
 ````bash
-git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29
+git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
 
 ### Useful Git Commands
 
 1. **Stage your changes:**
    ```bash
+   #Single File:
+   git add filename.extension
+   #All the Files:
    git add .
 
 2. **Commit your changes:**
@@ -31,6 +34,7 @@ git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29
 4. **If you want to download the remote repo with the latest changes:**
     ```bash
     git pull
+
 
 
 
