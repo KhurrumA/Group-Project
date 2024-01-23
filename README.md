@@ -1,6 +1,4 @@
-## Welcome to your Group GitLab Repository
-
-# Group 29 Repository
+## Group 29 Repository
 
 Welcome to the Group 29 repository! This is the collaborative space where our team works on projects, shares code, and manages our development efforts.
 
