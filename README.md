@@ -23,7 +23,7 @@ git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
    git add .
 
 2. **Commit your changes:**
-   git commit -m "Brief description of the changes that you made"
+   git commit -m "Brief description about the changes that you made"
 
 3. **Push the changes to the main branch:**
    # Push to main branch
