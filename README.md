@@ -8,35 +8,32 @@ Welcome to the Group 29 repository! This is the collaborative space where our te
 
 ### Clone the Repository Locally
 
-To clone this repository to your local machine, open your terminal and run the following command:
+To clone this repository to your local machine and perform basic operations, open your terminal and run the following command:
 
-````bash
+```bash
+#Clone the repository on your local machine
 git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
 
 ### Useful Git Commands
 
 1. **Stage your changes:**
-   ```bash
-   #Single File:
+      #Single File:
    git add filename.extension
    #All the Files:
    git add .
 
 2. **Commit your changes:**
-    ```bash
-    git commit -m "Brief description of the changes that you made"
+        git commit -m "Brief description of the changes that you made"
 
 3. **Push the changes to the main branch. (If you need to push to a specific
         branch, you can add the branch name after push):**
-    ```bash
-    git push
+        git push
 
 4. **If you want to download the remote repo with the latest changes:**
-    ```bash
-    git pull
+        git pull
 
 
 
 
 
-````
+```
