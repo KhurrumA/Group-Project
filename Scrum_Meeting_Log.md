@@ -28,4 +28,4 @@ Discuss the technologies that we are going to use and select the additional user
 
 ### Meeting Notes
 
-Next Meeting will be held on Friday 02/02/2024 where everyone will be asked to show the progress that has been made.
+Next Meeting will be held on Monday 05/02/2024 where everyone will be asked to show the progress that has been made.
