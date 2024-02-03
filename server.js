@@ -24,7 +24,8 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB connection successful!"));
+  .then(() => console.log("DB connection successful!"))
+  .catch((err) => console.error("DB connection error: ", err));
 
 //CONNECTING TO LOCAL DB
 // mongoose
