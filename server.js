@@ -3,6 +3,13 @@ const dotenv = require("dotenv");
 
 const app = require("./app");
 
+//Error handling for uncaught exceptions
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! Shutting down ...");
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
 dotenv.config({ path: "./config.env" });
 
 mongoose
@@ -19,4 +26,13 @@ const port = 3000 || process.env.PORT;
 
 const server = app.listen(3000, "localhost", () => {
   console.log(`Server is running on port ${port}`);
+});
+
+//Error handling for unhandled promise rejections
+process.on("unhandledRejection", (err) => {
+  console.log(err.name, err.message);
+  console.log("UNHANDLES REJECTION! Shutting down...");
+  server.close(() => {
+    process.exit(1); //aboring all pending requests/promises
+  });
 });
