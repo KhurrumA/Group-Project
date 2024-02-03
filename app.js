@@ -2,18 +2,48 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const expressLimit = require("express-rate-limit");
 const helmet = require("helmet");
-const expressSanitize = require("express-mongo-sanitize");
+const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
-const hpp = require("helmet");
+const appError = require("./utils/appError");
+
 const userRoute = require("./routes/userRoute");
-const reviewRoute = require("./routes/reviewRoute");
-const coursesRoute = require("./routes/courseRoute");
+//const reviewRoute = require("./routes/reviewRoute");
+//const coursesRoute = require("./routes/courseRoute");
 
 const app = express();
+//MIDDLEWARES
+//Helmet --> sets security HTTP headers
+app.use(helmet());
+
+//Limit requests from same API
+const limiter = expressLimit({
+  max: 100, //max number of requests per same IP
+  windowMs: 60 * 60 * 1000, //1h => 100 request per hour
+  message: "Too many requests sent from this IP, please try gain in an hour",
+});
+app.use("/v1", limiter);
+
+//Setting the max size to be 10kb
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
+
+//Parse data from cookies
+app.use(cookieParser());
+
+//DATA SANITIZATION against NoSQL query injection
+app.use(mongoSanitize()); //filter all $ signs
+
+//DATA SANITIZATION against XSS
+app.use(xssClean());
 
 //ROUTES
 app.use("/v1/users", userRoute);
-app.use("v1/courses", coursesRoute);
-app.use("v1/reviews", reviewRoute);
+// app.use("/v1/courses", coursesRoute);
+// app.use("/v1/reviews", reviewRoute);
+
+//Handling unhandled requests
+app.all("*", (req, res, next) => {
+  next(new appError(`Can't find ${req.originalUrl} on this server`, 404)); //404 -> Page not found
+});
 
 module.exports = app;
