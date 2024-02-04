@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
     default: true,
     select: false,
   },
+  points: {
+    type: Number,
+    default: 0,
+  },
 });
 
 //Password Encryption using bycrypt
