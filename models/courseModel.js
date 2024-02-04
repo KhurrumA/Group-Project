@@ -49,6 +49,10 @@ const courseSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    coursePoints: {
+      type: Number,
+      default: 20,
+    },
     //It will store the list of the users
     users: [
       {
