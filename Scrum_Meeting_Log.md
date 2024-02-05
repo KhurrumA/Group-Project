@@ -29,3 +29,18 @@ Discuss the technologies that we are going to use and select the additional user
 ### Meeting Notes
 
 Next Meeting will be held on Monday 05/02/2024 where everyone will be asked to show the progress that has been made.
+
+### Meeting Outcomes
+
+- **Manpreet Kaur:**
+  - Have created the scrum log and finished the login, signup page
+  - Start developing the dashboard page
+- **Zainab Patel:**
+  - Due to some changes, Zainab will complete the "add points feature"
+- **David Sarkodie Junior:**
+  - Started developing the record start course feature
+- **Taran Singh, Mahirul Islam:**
+  - Taran has finished the login page
+  - Mahirul has finished the landing page
+- **Khurrum Arif:**
+  - Will now be working on recording the course completion time
