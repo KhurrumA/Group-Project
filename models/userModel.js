@@ -50,6 +50,7 @@ const userSchema = new mongoose.Schema({
 });
 
 
+
 //Password Encryption using bycrypt
 /*Pre save middleware will run between recieving the data saving 
 it into the DB*/
@@ -78,4 +79,5 @@ userSchema.methods.correctPassword = async function (
 };
 
 const User = mongoose.model("User", userSchema);
+
 module.exports = User;
