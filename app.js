@@ -38,7 +38,7 @@ app.use(xssClean());
 
 //ROUTES
 app.use("/v1/users", userRoute);
-// app.use("/v1/courses", coursesRoute);
+app.use("/v1/courses", coursesRoute);
 // app.use("/v1/reviews", reviewRoute);
 
 //Handling unhandled requests
