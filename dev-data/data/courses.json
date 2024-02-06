@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "5c88fa8cf4afda39709c2955",
+    "name": "Web Development",
+    "slug": "web-development-fundamentals",
+    "duration": 30,
+    "difficulty": "beginner",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 10,
+    "price": 49.99,
+    "summary": "Learn the basics of web development from scratch.",
+    "description": "This course covers HTML, CSS, and JavaScript fundamentals, providing a solid foundation for aspiring web developers.",
+    "coursePoints": 50,
+    "users":[
+      "65c1496915d8757760fb818c"
+    ]
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2954",
+    "name": "For the project 1 ",
+    "slug": "web-development-fundamentals",
+    "duration": 30,
+    "difficulty": "beginner",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 10,
+    "price": 49.99,
+    "summary": "Learn the basics of web development from scratch.",
+    "description": "This course covers HTML, CSS, and JavaScript fundamentals, providing a solid foundation for aspiring web developers.",
+    "coursePoints": 20,
+    "users":[
+      "65c1496915d8757760fb818c"
+      
+    ]
+  }
+
+]
+  
