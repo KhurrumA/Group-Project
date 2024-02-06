@@ -3,10 +3,15 @@ const Course = require("../models/courseModel");
 const AppError = require('../utils/appError');
 
 exports.addPoints = async (req, res, next) => {
-    const {courseId } = req.params.id; //assuming given
-    //console.log(req.body)
+    const courseId = req.params.id;
+    const userId = req.user.id;
+    //const user = req;
+    console.log(req.params.id)
+
+    //console.log("this is user" + user);
 
     // getting the course points from the Course model
+    //const courseA = courseId.tostring();
     const course = await Course.findById(courseId);
     console.log(course);
 
@@ -15,11 +20,11 @@ exports.addPoints = async (req, res, next) => {
     }
 
     // Adding course points to user's points in the database
-    const user = await User.findByIdAndUpdate(
-      user._id,
-      { $inc: { points: course.points } },
+    const userPoints = await User.findByIdAndUpdate(
+      userId,
+      { $inc: { points: course.coursePoints } },
       { new: true }
     );
-    res.status(200).json({ status: "success", data: {user}});
+    res.status(200).json({ status: "success", data: {userPoints}});
 
 };
