@@ -6,7 +6,6 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const appError = require("./utils/appError");
 
-
 const userRoute = require("./routes/userRoute");
 //const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
