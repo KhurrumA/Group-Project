@@ -9,6 +9,8 @@ router.post("/signup", authController.registerUser); //only post data so that ne
 router.post("/login", authController.login);
 router.get("/logout", authController.logout); //logout route
 
-router.get("/me/:id", pointsController.addPoints);
+
+router.get("/me/:id", authController.protect, pointsController.addPoints);
+
 
 module.exports = router;
