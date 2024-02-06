@@ -49,6 +49,23 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+//Creating Schemea for click 
+const clickSchema = new mongoose.Schema({
+  url: {
+      type: String,
+      required: [true, "URL is required"]
+  },
+  timestamp: {
+      type: Date,
+      default: Date.now
+  },
+  user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, "Click must belong to a user"]
+  }
+});
+
 //Password Encryption using bycrypt
 /*Pre save middleware will run between recieving the data saving 
 it into the DB*/
@@ -77,4 +94,6 @@ userSchema.methods.correctPassword = async function (
 };
 
 const User = mongoose.model("User", userSchema);
+const Click = mongoose.model('Click', clickSchema);
 module.exports = User;
+module.exports = Click;
