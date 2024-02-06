@@ -6,9 +6,10 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const appError = require("./utils/appError");
 
+
 const userRoute = require("./routes/userRoute");
 //const reviewRoute = require("./routes/reviewRoute");
-//const coursesRoute = require("./routes/courseRoute");
+const courseRoute = require("./routes/courseRoute");
 
 const app = express();
 //MIDDLEWARES
@@ -38,7 +39,7 @@ app.use(xssClean());
 
 //ROUTES
 app.use("/v1/users", userRoute);
-app.use("/v1/courses", coursesRoute);
+app.use("/v1/courses", courseRoute);
 // app.use("/v1/reviews", reviewRoute);
 
 //Handling unhandled requests
