@@ -12,10 +12,10 @@ process.on("uncaughtException", (err) => {
 
 dotenv.config({ path: "./config.env" });
 //CONNECTING TO ATLAS DB
-const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE; //.replace(
+//   "<PASSWORD>",
+//   process.env.DATABASE_PASSWORD
+// );
 
 mongoose
   .connect(DB, {
