@@ -1,6 +1,6 @@
-const  ProgressModel = require('models/progressModel');
-const UserModel = require('models/userModel')
-const courseModel = require('models/courseModel.js')
+adconst  ProgressModel = require('../models/progressModel');
+const UserModel = require('../models/userModel')
+const courseModel = require('../models/courseModel')
 
 exports.Progress = async (req, res, next) =>{
     const userId = req.user.id;
