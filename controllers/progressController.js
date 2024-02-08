@@ -1,4 +1,4 @@
-adconst  ProgressModel = require('../models/progressModel');
+const  ProgressModel = require('../models/progressModel');
 const UserModel = require('../models/userModel')
 const courseModel = require('../models/courseModel')
 
