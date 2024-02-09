@@ -76,14 +76,13 @@ courseSchema.virtual("reviews", {
   ref: "Review", //name of the model
   //forign field - name that is used to reperesent this model inside review model
   foreignField: "course",
-  //local field - where the id is stored in the courrent course model
+  //local field - where the id is stored in the current course model
   localField: "_id",
 });
 
 /*
 Runs before an actual event - DOCUMENT MIDDLEWARE
 It will run before .save() and .create()
-
 */
 courseSchema.post(/^find/, function (docs, next) {
   next();
@@ -93,7 +92,7 @@ courseSchema.post(/^find/, function (docs, next) {
 courseSchema.pre(/^find/, function (next) {
   this.populate({
     path: "users",
-    select: "-__v", //these fields wi   ll be excluded
+    select: "-__v", //these fields will be excluded
   });
   next();
 });
