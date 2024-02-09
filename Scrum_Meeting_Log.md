@@ -35,7 +35,7 @@ Next Meeting will be held on Monday 05/02/2024 where everyone will be asked to s
 - **Week:** 05/02/2024
 - **Meeting Dates:** 05/02/2024, 08/02/2024
 - **Scrum Master:** David Sarkodie Junior (dojs1)
-- **Missing Member(s):** Maclain Apsley-Turner(mat53), Favour Cole(fc182) (05/02/2024)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53)&Favour Cole(fc182) (05/02/2024), Maclain Apsley-Turner(08/02/2024)
 
 ### Purpose of the Meeting
 
@@ -61,3 +61,21 @@ To discuss progress made and what else that needs to be completed
 ### Meeting Notes
 
 To have the user stories completed by end of week, a second meeting to take place 08/02/2024 to see how members are getting along with implementation of user stories
+
+### Meeting 2 Outcomes
+
+- **Taran Singh**
+  - Is to start and complete the review page 
+- **Khurrum Arif:**
+  - To continue working on recording the course completion time
+- **David Sarkodie Junior:**
+  - Has finished the record start course feature
+- **Zainab Patel:**
+  - has completed the "add points feature"
+- **Manpreet Kaur:**
+  - To start dashboard if we don't hear from Maclain in next 24 hours
+- **Favour Cole**
+  - To continue working on register page 
+
+### Meeting 2 Notes
+To have all commits pushed by end of week, to agree SCRUM manager & courses to integrate at next meeting (12/02/2024)
