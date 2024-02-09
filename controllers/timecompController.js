@@ -26,3 +26,6 @@ Progress.findById(progressId, (err, progress) => {
         console.log('Progress document not found');
     }
 });
+//Uses findById method to find a specific "Progress" document by its ID("progressID").
+//completionTime field is updated with current date and time and saves the document
+//code assumes you have the progressID available when user clicks complete
