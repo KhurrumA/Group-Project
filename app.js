@@ -9,7 +9,7 @@ const appError = require("./utils/appError");
 const userRoute = require("./routes/userRoute");
 //const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
-
+const progressRoute = require('./routes/progressRoute');
 const app = express();
 //MIDDLEWARES
 //Helmet --> sets security HTTP headers
