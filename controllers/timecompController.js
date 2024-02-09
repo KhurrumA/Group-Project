@@ -7,3 +7,22 @@ Progress.findById(progressId, (err, progress) => {
         console.error(err);
         return;
     }
+
+    if (progress) {
+        // Update the completionTime field with the current date and time
+        progress.completionTime = new Date(); 
+
+        // Save the updated document
+        progress.save((saveErr) => {
+            if (saveErr) {
+                // Handle save error
+                console.error(saveErr);
+            } else {
+                // Progress document updated successfully
+                console.log('Completion time recorded:', progress.completionTime);
+            }
+        });
+    } else {
+        console.log('Progress document not found');
+    }
+});
