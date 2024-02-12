@@ -7,9 +7,9 @@ const xssClean = require("xss-clean");
 const appError = require("./utils/appError");
 
 const userRoute = require("./routes/userRoute");
-//const reviewRoute = require("./routes/reviewRoute");
+const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
-const progressRoute = require('./routes/progressRoute');
+const progressRoute = require("./routes/progressRoute");
 const app = express();
 //MIDDLEWARES
 //Helmet --> sets security HTTP headers
@@ -39,7 +39,7 @@ app.use(xssClean());
 //ROUTES
 app.use("/v1/users", userRoute);
 app.use("/v1/courses", courseRoute);
-// app.use("/v1/reviews", reviewRoute);
+app.use("/v1/reviews", reviewRoute);
 
 //Handling unhandled requests
 app.all("*", (req, res, next) => {
