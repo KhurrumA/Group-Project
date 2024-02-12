@@ -37,7 +37,6 @@ Next Meeting will be held on Monday 05/02/2024 where everyone will be asked to s
 - **Zainab Patel:**
   - Due to some changes, Zainab will complete the "add points feature"
 - **Taran Singh, Mahirul Islam:**
-  **Taran Singh, Mahirul Islam:**
 
   - Taran has finished the login page
   - Mahirul has finished the landing page
