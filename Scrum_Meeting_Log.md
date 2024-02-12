@@ -79,3 +79,34 @@ To have the user stories completed by end of week, a second meeting to take plac
 
 ### Meeting 2 Notes
 To have all commits pushed by end of week, to agree SCRUM manager & courses to integrate at next meeting (12/02/2024)
+
+  ## Week 3 Details
+
+- **Week:** 12/02/2024
+- **Meeting Dates:** 12/02/2024, 14/02/2024
+- **Scrum Master:** Khurrum Arif (ka382)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53),Favour Cole(fc182),Mahirul Islam(mi210), Manpreet Kaur(mk747) (12/02/2024)
+
+### Purpose of the Meeting
+
+To discuss progress made and what else that needs to be completed
+
+### Meeting Outcomes
+
+- **Manpreet Kaur:**
+  - Connect finished pages to backend
+- **Zainab Patel:**
+  - Connect points page to backend
+- **David Sarkodie Junior:**
+  - Started developing the record start course feature
+- **Taran Singh, Mahirul Islam:**
+  - Taran will connect login page to backend code
+  - Mahirul will connect login page to beackend code
+- **Khurrum Arif and David Sarkodie Junior:**
+  - Work together with front end team to connect the code
+- **Maclain Apsley-Turner, Favour Cole:**
+  - Register and dashboard to be connected to back end
+
+### Meeting Notes
+
+Main objective this week is to connect the front end and back end.
