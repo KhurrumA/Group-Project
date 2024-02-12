@@ -36,3 +36,12 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
   }
   res.status(201).json({ status: "success", data: { course } });
 });
+// Get courses enrolled by user
+exports.getUserCourses = catchAsync(async (req, res, next) => {
+  const { user } = req;
+  console.log(user);
+  // Find all courses where the user is enrolled
+  const courses = await Course.find({ users: user._id });
+
+  res.status(200).json({ status: "success", data: { courses } });
+});
