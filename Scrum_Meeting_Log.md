@@ -30,6 +30,18 @@ Discuss the technologies that we are going to use and select the additional user
 
 Next Meeting will be held on Monday 05/02/2024 where everyone will be asked to show the progress that has been made.
 
+### Meeting 1 Outcomes
+
+- **Manpreet Kaur:**
+  - Has created the scrum log and finished the login, signup page
+- **Zainab Patel:**
+  - Due to some changes, Zainab will complete the "add points feature"
+- **Taran Singh, Mahirul Islam:**
+  **Taran Singh, Mahirul Islam:**
+
+  - Taran has finished the login page
+  - Mahirul has finished the landing page
+
   ## Week 2 Details
 
 - **Week:** 05/02/2024
@@ -44,15 +56,11 @@ To discuss progress made and what else that needs to be completed
 ### Meeting Outcomes
 
 - **Manpreet Kaur:**
-  - Has created the scrum log and finished the login, signup page
   - Start developing the dashboard page
 - **Zainab Patel:**
   - Due to some changes, Zainab will complete the "add points feature"
 - **David Sarkodie Junior:**
   - Started developing the record start course feature
-- **Taran Singh, Mahirul Islam:**
-  - Taran has finished the login page
-  - Mahirul has finished the landing page
 - **Khurrum Arif:**
   - Will now be working on recording the course completion time
 - **Maclain Apsley-Turner, Favour Cole:**
@@ -65,7 +73,7 @@ To have the user stories completed by end of week, a second meeting to take plac
 ### Meeting 2 Outcomes
 
 - **Taran Singh**
-  - Is to start and complete the review page 
+  - Is to start and complete the review page
 - **Khurrum Arif:**
   - To continue working on recording the course completion time
 - **David Sarkodie Junior:**
@@ -75,7 +83,8 @@ To have the user stories completed by end of week, a second meeting to take plac
 - **Manpreet Kaur:**
   - To start dashboard if we don't hear from Maclain in next 24 hours
 - **Favour Cole**
-  - To continue working on register page 
+  - To continue working on register page
 
 ### Meeting 2 Notes
+
 To have all commits pushed by end of week, to agree SCRUM manager & courses to integrate at next meeting (12/02/2024)
