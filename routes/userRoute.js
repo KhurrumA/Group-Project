@@ -3,11 +3,22 @@ const pointsController = require("./../controllers/pointsController");
 const express = require("express");
 
 const router = express.Router();
+//SIGNUP
+router.post("/signup", authController.registerUser);
+//LOGIN
+router.post("/login", authController.login);
+//LOGOUT
+router.get("/logout", authController.protect, authController.logout); //the user can logout only if he is logged in
 
-router.post("/signup", authController.registerUser); //post data so that new user can be created
-router.post("/login", authController.login); //post data so we can authenticate the user
-router.get("/logout", authController.logout); //logout route
-
+//ENROLL ME
+router.post(
+  "/enrollMe/:courseId",
+  authController.protect,
+  userController.enrollMe
+);
+//DASHBOARD
+router.get("/dashboard", authController.protect, userController.getUserCourses);
+//ADD POINTS
 router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
 
 module.exports = router;
