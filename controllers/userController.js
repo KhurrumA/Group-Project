@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
-const functionFactory = require("./functionHandlers");
+const functionFactory = require("./functionHandler");
 const Course = require("../models/courseModel");
 const appError = require("../utils/appError");
 

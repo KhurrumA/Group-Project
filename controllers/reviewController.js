@@ -1,5 +1,5 @@
 const Review = require("../models/reviewModel");
-const functionFactory = require("./functionHandlers");
+const functionFactory = require("./functionHandler");
 
 exports.updateReview = functionFactory.updateOne(Review);
 exports.createReview = functionFactory.createOne(Review);
