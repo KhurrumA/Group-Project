@@ -1,3 +1,4 @@
+const userController = require("../controllers/userController");
 const authController = require("./../controllers/authController");
 const pointsController = require("./../controllers/pointsController");
 const express = require("express");
