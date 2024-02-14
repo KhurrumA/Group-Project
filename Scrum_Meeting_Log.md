@@ -118,3 +118,25 @@ To discuss progress made and what else that needs to be completed
 ### Meeting Notes
 
 Main objective this week is to connect the front end and back end.
+
+### Meeting 2 Outcomes
+
+- **Manpreet Kaur:**
+  - Connect finished pages to backend
+  - Finish the courses
+- **Zainab Patel:**
+  - Connect points page to backend
+- **David Sarkodie Junior:**
+  - Started developing the record start course feature
+- **Taran Singh, Mahirul Islam:**
+  - Taran will connect login page to backend code
+  - Mahirul will connect login page to beackend code
+  - Mahirul will create a table for manual testing
+- **Khurrum Arif and David Sarkodie Junior:**
+  - Work together with front end team to connect the code
+  - Khurrum will recreate the dashboard
+- **Favour Cole:**
+  - Register to be completed by Thursday
+
+### Meeting 2 Notes
+Tasks reassigned and set a time frame of until Friday to push everything so we can connect front end and back end on the weekend.
