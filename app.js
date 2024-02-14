@@ -30,6 +30,8 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 //Parse data from cookies
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname,"public")))
+
 //DATA SANITIZATION against NoSQL query injection
 app.use(mongoSanitize()); //filter all $ signs
 
