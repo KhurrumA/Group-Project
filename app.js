@@ -10,8 +10,19 @@ const path = require("path");
 const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
+const viewRoute = require("./routes/viewsRoute");
 const progressRoute = require("./routes/progressRoute");
 const app = express();
+
+//Defining the view engine
+app.set("view engine", "pug");
+//Definining the location of the templates
+app.set("views", path.join(__dirname, "views"));
+
+//SERVING STATIC FILES accessing the static files
+//app.use(express.static(`${__dirname}/public`));
+app.use(express.static(path.join(__dirname, "public")));
+
 //MIDDLEWARES
 //Helmet --> sets security HTTP headers
 app.use(helmet());
@@ -31,15 +42,26 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 //Parse data from cookies
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname,"public")))
-
 //DATA SANITIZATION against NoSQL query injection
 app.use(mongoSanitize()); //filter all $ signs
 
 //DATA SANITIZATION against XSS
 app.use(xssClean());
 
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  //console.log(req.cookies);
+  next();
+});
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' cdnjs.cloudflare.com"
+  );
+  next();
+});
 //ROUTES
+app.use("/", viewRoute);
 app.use("/v1/users", userRoute);
 app.use("/v1/courses", courseRoute);
 app.use("/v1/reviews", reviewRoute);

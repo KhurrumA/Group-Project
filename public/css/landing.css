@@ -144,6 +144,33 @@ pre {
   font-size: 1em;
   /* 4 */
 }
+.hover-bg-blue-700:hover {
+  background-color: #4d6eec;
+}
+.hover-bg-blue-500:hover{
+  background-color:#4299e1;
+}
+.hover-text-white{
+  color: #fff;
+
+}
+
+
+.nav__el--logout:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease; 
+}
+.username{
+  margin-left: 20px;
+  border-radius:1%;
+  text-shadow: #4d6eec;
+  text-transform: uppercase;
+}
+.username:hover {
+  box-shadow: 0 4px 8px rgba(107, 107, 107, 0.1); /* Adjust the shadow color and size as needed */
+}
+
+
 
 /*
 Add the correct font size in all browsers.
@@ -608,7 +635,7 @@ video {
 }
 
 .mt-72 {
-  margin-top: 18rem;
+  margin-top: 12rem;
 }
 
 .flex {
