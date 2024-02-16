@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const appError = require("./utils/appError");
+const path = require("path");
 
 const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
@@ -42,6 +43,7 @@ app.use(xssClean());
 app.use("/v1/users", userRoute);
 app.use("/v1/courses", courseRoute);
 app.use("/v1/reviews", reviewRoute);
+app.use("/v1/progress", progressRoute);
 
 //Handling unhandled requests
 app.all("*", (req, res, next) => {

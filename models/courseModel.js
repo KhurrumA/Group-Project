@@ -16,7 +16,10 @@ const courseSchema = new mongoose.Schema(
       type: Number,
       required: [true, "A course must have a duration"],
     },
-
+    imageCover:{
+      type: String,
+      required:[true, "A course must have a cover image"],
+    },
     difficulty: {
       type: String,
       required: [true, "A course must have difficulty level"],
