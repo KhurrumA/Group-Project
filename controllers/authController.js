@@ -135,3 +135,36 @@ exports.restrictTo = (...roles) => {
     next();
   };
 };
+
+//used to show a specific layout if the user is logged in
+//ONLY FOR RENDERED PAGES --> NO ERROR
+exports.isLoggedIn = async (req, res, next) => {
+  //If there is no cookie there is no logged in user
+  if (req.cookies.jwt) {
+    try {
+      //1)verifies the token
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
+
+      //2) Check if the user still exists
+      const freshUser = await User.findById(decoded.id);
+      if (!freshUser) {
+        return next();
+      }
+
+      //3)Check if user changed password after the JWT was issued#
+      //iat => issued at
+      if (freshUser.changedPasswordAfter(decoded.iat)) {
+        return next();
+      }
+      //THERE IS A LOGGED IN USER
+      res.locals.user = freshUser;
+      return next();
+    } catch (err) {
+      return next();
+    }
+  }
+  next();
+};
