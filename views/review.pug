@@ -1,0 +1,37 @@
+extends base 
+
+block content
+
+    main.container
+        header
+            h1 Course Review
+            p Hi Taran! Leave your feedback for the XYZ Skill Building Course.
+        br
+        section.review-form
+            form
+                legend.form-legend Rating:
+                .rate
+                    input(type="radio", id="star5", name="rate", value="5", aria-label="5 stars")
+                    label(for="star5") &#9733;
+                    input(type="radio", id="star4", name="rate", value="4", aria-label="4 stars")
+                    label(for="star4") &#9733;
+                    input(type="radio", id="star3", name="rate", value="3", aria-label="3 stars")
+                    label(for="star3") &#9733;
+                    input(type="radio", id="star2", name="rate", value="2", aria-label="2 stars")
+                    label(for="star2") &#9733;
+                    input(type="radio", id="star1", name="rate", value="1", aria-label="1 star")
+                    label(for="star1") &#9733;
+            br
+            br
+            label(for="review") Review:
+            .input-group
+                textarea(id="review", name="review", rows="8", cols="96")
+            button(type="submit") Submit Review
+        section.reviews
+            h2 Reviews
+            .review-item
+            p
+                strong John Doe
+                |  -
+                em Rating: 5 Stars
+            p This course was incredibly helpful. I was able to learn and apply new skills immediately in my job. Highly recommend!
