@@ -1,11 +1,14 @@
 extends base 
 
+block append head
+    link(rel="stylesheet" href="/css/login.css")
+
 block content
 
     main.container
         header
-            h1 Course Review
-            p Hi Taran! Leave your feedback for the XYZ Skill Building Course.
+            h1= courses.name
+            //-sp= `Hi ${user.name}! Leave your feedback for the XYZ Skill Building Course.`
         br
         section.review-form
             form
@@ -27,11 +30,4 @@ block content
             .input-group
                 textarea(id="review", name="review", rows="8", cols="96")
             button(type="submit") Submit Review
-        section.reviews
-            h2 Reviews
-            .review-item
-            p
-                strong John Doe
-                |  -
-                em Rating: 5 Stars
-            p This course was incredibly helpful. I was able to learn and apply new skills immediately in my job. Highly recommend!
+        
