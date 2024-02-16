@@ -11,5 +11,6 @@ router.get("/courses", authController.protect, viewsController.getCourses);
 router.get("/course/:slug", authController.protect, viewsController.getCourse);
 router.get("/login", authController.isLoggedIn, viewsController.getLoginForm);
 router.get("/signup", viewsController.getSignupForm);
+router.get("/:slug/review", viewsController.postReview)
 
 module.exports = router;
