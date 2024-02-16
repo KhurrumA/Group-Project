@@ -59,3 +59,7 @@ exports.getLanding = (req, res) => {
     title: "Welcome",
   });
 };
+
+exports.postReview = (req, res) => {
+  res.status(200).render("review", {title:"Post Review"})
+}
