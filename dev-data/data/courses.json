@@ -1,37 +1,43 @@
 [
   {
-    "_id": "5c88fa8cf4afda39709c2955",
-    "name": "Web Development",
-    "slug": "web-development-fundamentals",
-    "duration": 30,
+    "name": "Getting Started with Enterprise-grade Ai",
+    "duration": 20,
+    "imageCover": "course-1.png",
     "difficulty": "beginner",
-    "ratingsAverage": 4.5,
-    "ratingsQuantity": 10,
-    "price": 49.99,
-    "summary": "Learn the basics of web development from scratch.",
-    "description": "This course covers HTML, CSS, and JavaScript fundamentals, providing a solid foundation for aspiring web developers.",
-    "coursePoints": 50,
-    "users":[
-      "65c1496915d8757760fb818c"
-    ]
+    "summary": "This course covers the foundations of Artificial Intelligence for business, including the following topics: AI Evolution, AI Industry Adoption Trends, Natural Language Processing and Virtual Agents.",
+    "description": "Sed eu ex vulputate, gravida elit eget, rhoncus ipsum. Quisque rhoncus augue at nisi luctus, in placerat enim cursus. In semper cursus nulla sed ultrices. Morbi placerat leo quis neque consectetur, quis aliquam risus viverra. Fusce porttitor ipsum at accumsan porta. Aliquam fermentum justo nec feugiat ultricies. Quisque vitae volutpat felis. Phasellus ac sodales massa. Donec dapibus orci eget fermentum sodales. Ut vestibulum, justo quis convallis porta, lectus felis scelerisque risus, vitae laoreet odio ex nec tortor. Integer pulvinar pharetra eros, accumsan auctor erat posuere et.",
+    "coursePoints": 50
   },
   {
-    "_id": "5c88fa8cf4afda39709c2954",
-    "name": "For the project 1 ",
-    "slug": "web-development-fundamentals",
-    "duration": 30,
-    "difficulty": "beginner",
-    "ratingsAverage": 4.5,
-    "ratingsQuantity": 10,
-    "price": 49.99,
-    "summary": "Learn the basics of web development from scratch.",
-    "description": "This course covers HTML, CSS, and JavaScript fundamentals, providing a solid foundation for aspiring web developers.",
-    "coursePoints": 20,
-    "users":[
-      "65c1496915d8757760fb818c"
-      
-    ]
-  }
+    "name":"Enterprise Data Science in Practice",
+    "duration":60,
+    "imageCover":"course-2.png",
+    "difficulty":"intermediate",
+    "summary":"This is a survey course, exposing the learner to the data science methodology. The course covers the following topics: data science team roles, data science method, data analysis tools, and real-world use cases.",
+    "description": "Sed eu ex vulputate, gravida elit eget, rhoncus ipsum. Quisque rhoncus augue at nisi luctus, in placerat enim cursus. In semper cursus nulla sed ultrices. Morbi placerat leo quis neque consectetur, quis aliquam risus viverra. Fusce porttitor ipsum at accumsan porta. Aliquam fermentum justo nec feugiat ultricies. Quisque vitae volutpat felis. Phasellus ac sodales massa. Donec dapibus orci eget fermentum sodales. Ut vestibulum, justo quis convallis porta, lectus felis scelerisque risus, vitae laoreet odio ex nec tortor. Integer pulvinar pharetra eros, accumsan auctor erat posuere et.",
+    "coursePoints":80,
+    "users":[ "65c2426b94eb8859a0dfb13", "65cf61248abe2f4a6e41737e"]
+},
+{
+  "name":"IBM Congos Framework Manager - Design Metadata Models",
+  "duration":160,
+  "imageCover":"course-3.png",
+  "difficulty":"expert",
+  "summary":"This course provides an introduction to advanced knowledge of metadata modeling concepts, and how to model metadata for predictable reporting and analysis results using IBM Cognos Framework Manager.",
+  "description": "Sed eu ex vulputate, gravida elit eget, rhoncus ipsum. Quisque rhoncus augue at nisi luctus, in placerat enim cursus. In semper cursus nulla sed ultrices. Morbi placerat leo quis neque consectetur, quis aliquam risus viverra. Fusce porttitor ipsum at accumsan porta. Aliquam fermentum justo nec feugiat ultricies. Quisque vitae volutpat felis. Phasellus ac sodales massa. Donec dapibus orci eget fermentum sodales. Ut vestibulum, justo quis convallis porta, lectus felis scelerisque risus, vitae laoreet odio ex nec tortor. Integer pulvinar pharetra eros, accumsan auctor erat posuere et.",
+  "coursePoints":200,
+  "users":[ "65c2426b94eb8859a0dfb13"]
+},
+{
+  "name":"Security Operations Center in Practice",
+  "duration":60,
+  "imageCover":"course-4.png",
+  "difficulty":"intermediate",
+  "summary":"This course will empower you to techniques, technologies, roles and scenarios needed to establish the foundations of a (SOC) – Security Operations Center within your organization.",
+  "description": "Sed eu ex vulputate, gravida elit eget, rhoncus ipsum. Quisque rhoncus augue at nisi luctus, in placerat enim cursus. In semper cursus nulla sed ultrices. Morbi placerat leo quis neque consectetur, quis aliquam risus viverra. Fusce porttitor ipsum at accumsan porta. Aliquam fermentum justo nec feugiat ultricies. Quisque vitae volutpat felis. Phasellus ac sodales massa. Donec dapibus orci eget fermentum sodales. Ut vestibulum, justo quis convallis porta, lectus felis scelerisque risus, vitae laoreet odio ex nec tortor. Integer pulvinar pharetra eros, accumsan auctor erat posuere et.",
+  "coursePoints":30,
+  "users":[ "5c88fa8cf4afda39709c2954"]
+}
+
 
 ]
-  
