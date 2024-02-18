@@ -3,12 +3,8 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
 exports.dashboard = catchAsync(async (req, res, next) => {
-  //1) GET cpurse DATA FROM COLLECTION
-  const courses = await Course.find();
-  //2) BUILD TEMPLATE
-
-  //3) RENDER THAT TEMPLATE USING Course DATA FROM STEP 1
-
+  const userId = req.user._id;
+  const courses = await Course.find({ users: userId }).populate("users");
   //all course data will retrieved and passed to the template
   res.status(200).render("dashboard", {
     title: "Dashboard",
@@ -42,7 +38,6 @@ exports.getCourse = catchAsync(async (req, res, next) => {
 });
 
 exports.getLoginForm = (req, res) => {
-  console.log("I am in view controller");
   res.status(200).render("login", {
     title: "Log into your account",
   });
@@ -60,6 +55,18 @@ exports.getLanding = (req, res) => {
   });
 };
 
-exports.postReview = (req, res) => {
-  res.status(200).render("review", {title:"Post Review"})
-}
+exports.postReview = catchAsync(async (req, res) => {
+  const course = await Course.findOne({ slug: req.params.slug });
+  res.status(200).render("review", {
+    title: "Review",
+    course,
+  });
+});
+
+exports.getCourseOverview = catchAsync(async (req, res) => {
+  const course = await Course.findOne({ slug: req.params.slug });
+  res.status(200).render("courseOverview", {
+    title: course.name,
+    course,
+  });
+});
