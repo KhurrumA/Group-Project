@@ -1,12 +1,16 @@
 /* easlint-disable */
 //console.log('Hello from parcel ');
 import "@babel/polyfill";
-import { login, logout } from "./login";
+import { login, logout, reviews } from "./login";
+import { signup, enroll } from "./register";
 
 //DOM ELEMENTS
 console.log("i am in index");
 const loginForm = document.querySelector(".form--login");
 const logoutBtn = document.querySelector(".nav__el--logout");
+const signupForm = document.querySelector(".form--signup");
+const enrollMe = document.querySelector(".enroll__btn");
+const reviewForm = document.querySelector(".review-form");
 
 if (loginForm) {
   console.log("i am inside loginform");
@@ -22,3 +26,38 @@ if (loginForm) {
 
 //LOGGING OUT THE USER
 if (logoutBtn) logoutBtn.addEventListener("click", logout);
+
+//REGISTERING THE USER
+if (signupForm) {
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const cpassword = document.getElementById("cpassword").value;
+    signup(name, email, password, cpassword);
+  });
+}
+
+//ENROLL USER INTO COURSE
+if (enrollMe) {
+  enrollMe.addEventListener("click", () => {
+    const courseId = enrollButton.dataset.courseId;
+    console.log(courseId); // Output: 5c88fa8cf4afda39709c2955
+    enroll(courseId);
+  });
+}
+
+// POST REVIEW
+if (reviewForm) {
+  reviewForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const review = document.getElementById("review").value;
+    const selectedRating = document.querySelector(
+      'input[name="rate"]:checked'
+    ).value;
+    const courseId = submit.dataset.courseId;
+    reviews(review, selectedRating, courseId);
+    // Do something with the review data
+  });
+}
