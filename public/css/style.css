@@ -497,6 +497,7 @@ h2{
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
+  color: black;
   
 }
 .reviews__rating {
