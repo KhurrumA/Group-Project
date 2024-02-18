@@ -54,3 +54,29 @@ export const logout = async () => {
     showAlert("error", "Error logging out! Try again.");
   }
 };
+
+export const reviews = async (review, rating, courseId) => {
+  console.log("I am in review.js");
+  try {
+    console.log("i am inside catch");
+    const res = await axios({
+      method: "POST",
+      url: `http://localhost:3000/v1/reviews/${courseId}`,
+      data: {
+        review,
+        rating,
+        courseId,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "Thanks for your review");
+      window.setTimeout(() => {
+        location.assign("/dashboard");
+      }, 1500); //take 1.5 sec to load the home page
+    }
+  } catch (err) {
+    window.setTimeout(() => {
+      location.assign("/dashboard");
+    }, 1500); //take 1.5 sec to load the home page
+  }
+};
