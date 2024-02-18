@@ -5,7 +5,7 @@ block content
     section.section-description
         .left-detail 
             h1.heading-secondary.ma-bt-lg.course-name= course.name
-            img(src=`/img/courses/course-1.png`, alt=`${course.name}`)
+            img(src=`/img/courses/${course.imageCover}`, alt=`${course.name}`)
         .description-box
             - const paragraphs = course.description.split('\n')
             each p in paragraphs
