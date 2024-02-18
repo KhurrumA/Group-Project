@@ -154,7 +154,12 @@ pre {
   color: #fff;
 
 }
-
+.signup:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    background-color: #4299e1;
+    color:white;
+}
 
 .nav__el--logout:hover {
   transform: scale(1.05);
@@ -795,6 +800,7 @@ video {
 .shadow-gray-400 {
   --tw-shadow-color: #9ca3af;
   --tw-shadow: var(--tw-shadow-colored);
+  margin-bottom: 10px;
 }
 
 .hover\:bg-blue-500:hover {
