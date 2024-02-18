@@ -1,5 +1,6 @@
 const Review = require("../models/reviewModel");
 const functionFactory = require("./functionHandler");
+const catchAsync = require("../utils/catchAsync");
 
 exports.updateReview = functionFactory.updateOne(Review);
 exports.getAllReviews = functionFactory.getAll(Review);
