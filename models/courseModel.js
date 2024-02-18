@@ -16,9 +16,9 @@ const courseSchema = new mongoose.Schema(
       type: Number,
       required: [true, "A course must have a duration"],
     },
-    imageCover:{
+    imageCover: {
       type: String,
-      required:[true, "A course must have a cover image"],
+      required: [true, "A course must have a cover image"],
     },
     difficulty: {
       type: String,
@@ -31,7 +31,7 @@ const courseSchema = new mongoose.Schema(
     ratingsAverage: {
       type: Number,
       default: 0,
-      min: [1, "Rating must be above 1.0"],
+      min: [0, "Rating must be above 1.0"],
       max: [5, "Rating must be below 5.0"],
       set: (val) => Math.round(val * 10) / 10,
     },
