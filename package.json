@@ -28,6 +28,7 @@
     "hpp": "^0.2.3",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
+    "mode": "^0.3.2",
     "mongodb": "^6.3.0",
     "mongoose": "^5.13.21",
     "nodemon": "^3.0.3",
