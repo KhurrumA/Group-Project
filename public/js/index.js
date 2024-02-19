@@ -1,7 +1,7 @@
 /* easlint-disable */
 //console.log('Hello from parcel ');
 import "@babel/polyfill";
-import { login, logout, reviews } from "./login";
+import { login, logout, reviews,completeCourse } from "./login";
 import { signup, enroll } from "./register";
 
 //DOM ELEMENTS
@@ -11,6 +11,7 @@ const logoutBtn = document.querySelector(".nav__el--logout");
 const signupForm = document.querySelector(".form--signup");
 const enrollMe = document.querySelector(".enroll__btn");
 const reviewForm = document.querySelector(".review-form");
+const completeCourseBtn = document.querySelector('.complete-course');
 
 if (loginForm) {
   console.log("i am inside loginform");
@@ -60,4 +61,12 @@ if (reviewForm) {
     reviews(review, selectedRating, courseId);
     // Do something with the review data
   });
+
+  if (completeCourseBtn) {
+    completeCourseBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const courseId = completeCourseBtn.dataset.courseId;
+      completeCourse(courseId);
+    });
+  }
 }

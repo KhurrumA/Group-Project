@@ -4,6 +4,6 @@ const progressController = require('./../controllers/progressController')
 
 const router = express.Router();
 //Route for controller 
-router.post('/course-click', authController.protect, progressController.Progress);
+router.post('/recordprogress', authController.protect, progressController.Progress);
 
 module.exports = router;

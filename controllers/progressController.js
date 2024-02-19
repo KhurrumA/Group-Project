@@ -5,8 +5,8 @@ const catchAsync = require("../utils/catchAsync");
 const appError = require("../utils/appError");
 
 exports.Progress = catchAsync(async (req, res, next) => {
-  const userId = req.user.id;
-  const courseId = req.body;
+  const userId = req.user._id;
+  const courseId = req.body.courseId;
 
   //Validating if the user and course exsit
   const user = await User.findById(userId);
@@ -23,8 +23,8 @@ exports.Progress = catchAsync(async (req, res, next) => {
   res.status(200).json({ status: "success", data: progress });
 
   // Creating the record with the current date and time as default for clickedAt
-  const time = await Progress.create({ user: userId, course: courseId });
-  time.timeCompleted = Date.now(); // Update the timeCompleted field with the current date and time
-  await time.save();
-  res.status(200).json({ status: "success", data: time });
+//  const time = await Progress.create({ user: userId, course: courseId });
+ // time.timeCompleted = Date.now(); // Update the timeCompleted field with the current date and time
+//  await time.save();
+ // res.status(200).json({ status: "success", data: time });
 });

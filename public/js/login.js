@@ -54,7 +54,20 @@ export const logout = async () => {
     showAlert("error", "Error logging out! Try again.");
   }
 };
-
+ export const completeCourse = async (courseId) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: `http://localhost:3000/v1/users/completeCourse/${courseId}`,
+    });
+    if (res.data.status === 'success') {
+      alert('Course completed! Points added.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Error completing course. Please try again.');
+  }
+};
 export const reviews = async (review, rating, courseId) => {
   console.log("I am in review.js");
   try {
@@ -79,4 +92,5 @@ export const reviews = async (review, rating, courseId) => {
       location.assign("/dashboard");
     }, 1500); //take 1.5 sec to load the home page
   }
+ 
 };
