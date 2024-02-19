@@ -2,4 +2,4 @@ Ensure data is secure.
 All testing to be completed.
 All code to be reviewed by another team member.
 Ensure all code is readable. 
-Ensure you received feedback on project from at least 3 people who are not affiliated with the project. 
+Ensure webpage is compatible with Chrome and Safari.
