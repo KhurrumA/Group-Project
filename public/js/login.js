@@ -54,20 +54,7 @@ export const logout = async () => {
     showAlert("error", "Error logging out! Try again.");
   }
 };
- export const completeCourse = async (courseId) => {
-  try {
-    const res = await axios({
-      method: 'POST',
-      url: `http://localhost:3000/v1/users/completeCourse/${courseId}`,
-    });
-    if (res.data.status === 'success') {
-      alert('Course completed! Points added.');
-    }
-  } catch (err) {
-    console.error(err);
-    alert('Error completing course. Please try again.');
-  }
-};
+
 export const reviews = async (review, rating, courseId) => {
   console.log("I am in review.js");
   try {
@@ -92,5 +79,42 @@ export const reviews = async (review, rating, courseId) => {
       location.assign("/dashboard");
     }, 1500); //take 1.5 sec to load the home page
   }
- 
+};
+
+// START COURSE
+export const start = async (courseId) => {
+  console.log("hello start from login");
+  console.log(courseId);
+
+  const res = await axios({
+    method: "POST",
+    url: `http://localhost:3000/v1/courses/start/${courseId}`,
+    data: {
+      courseId,
+    },
+  });
+};
+
+// FINISH COURSE
+export const complete = async (courseId) => {
+  console.log("hello finish");
+
+  try {
+    console.log("i am inside course catch");
+    const res = await axios({
+      method: "PATCH",
+      url: `http://localhost:3000/v1/courses/complete/${courseId}`,
+      data: {
+        courseId,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "You have completed your course");
+      window.setTimeout(() => {
+        location.assign("/dashboard");
+      }, 1500); //take 1.5 sec to load the home page
+    }
+  } catch (err) {
+    console.log(err);
+  }
 };
