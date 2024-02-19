@@ -65,5 +65,6 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
     { $inc: { points: course.coursePoints } },
     { new: true }
   );
+  console.log(userPoints);
   res.status(200).json({ status: "success", data: { userPoints, progress } });
 });
