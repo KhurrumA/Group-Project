@@ -3,6 +3,7 @@
 import "@babel/polyfill";
 import { login, logout, reviews } from "./login";
 import { signup, enroll } from "./register";
+//import "./course";//course.js
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -11,6 +12,12 @@ const logoutBtn = document.querySelector(".nav__el--logout");
 const signupForm = document.querySelector(".form--signup");
 const enrollMe = document.querySelector(".enroll__btn");
 const reviewForm = document.querySelector(".review-form");
+//const finishbutton = document.querySelector(".nav__el-courses")//new
+
+//CALLING COURSE.JS
+//if (finishbutton) {//new
+  //finishbutton.addEventListener("click", finishCourse);//new
+//}
 
 if (loginForm) {
   console.log("i am inside loginform");
