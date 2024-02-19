@@ -1,9 +1,8 @@
 /* easlint-disable */
 //console.log('Hello from parcel ');
 import "@babel/polyfill";
-import { login, logout, reviews,completeCourse } from "./login";
+import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
-//import "./course";//course.js
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -12,16 +11,8 @@ const logoutBtn = document.querySelector(".nav__el--logout");
 const signupForm = document.querySelector(".form--signup");
 const enrollMe = document.querySelector(".enroll__btn");
 const reviewForm = document.querySelector(".review-form");
-<<<<<<< HEAD
-const completeCourseBtn = document.querySelector('.complete-course');
-=======
-//const finishbutton = document.querySelector(".nav__el-courses")//new
-
-//CALLING COURSE.JS
-//if (finishbutton) {//new
-  //finishbutton.addEventListener("click", finishCourse);//new
-//}
->>>>>>> 15bcbe0f7af7f6c1e3aa0c17f275853fa1fa76bb
+const finishCourse = document.querySelector(".finish");
+const startCourse = document.querySelectorAll(".startCourse");
 
 if (loginForm) {
   console.log("i am inside loginform");
@@ -59,7 +50,7 @@ if (enrollMe) {
   });
 }
 
-// POST REVIEW
+// Event listener for the form submit
 if (reviewForm) {
   reviewForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -71,12 +62,25 @@ if (reviewForm) {
     reviews(review, selectedRating, courseId);
     // Do something with the review data
   });
+}
 
-  if (completeCourseBtn) {
-    completeCourseBtn.addEventListener('click', e => {
-      e.preventDefault();
-      const courseId = completeCourseBtn.dataset.courseId;
-      completeCourse(courseId);
+//FINISH COURSE
+if (finishCourse) {
+  console.log("hello from finishcourse");
+  finishCourse.addEventListener("click", () => {
+    const courseId = finishCourse.dataset.courseId;
+    console.log(courseId); // Output: 5c88fa8cf4afda39709c2955
+    complete(courseId);
+  });
+}
+
+//START COURSE
+if (startCourse) {
+  for (const btn of startCourse) {
+    btn.addEventListener("click", () => {
+      const courseId = btn.dataset.courseId;
+
+      start(courseId);
     });
   }
 }
