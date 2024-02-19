@@ -11,7 +11,6 @@ const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
 const viewRoute = require("./routes/viewsRoute");
-const progressRoute = require("./routes/progressRoute");
 const app = express();
 
 //Defining the view engine
@@ -35,7 +34,7 @@ const limiter = expressLimit({
 });
 app.use("/v1", limiter);
 
-//Setting the max size to be 10kb
+//Setting the max size to be 100kb
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
@@ -65,7 +64,6 @@ app.use("/", viewRoute);
 app.use("/v1/users", userRoute);
 app.use("/v1/courses", courseRoute);
 app.use("/v1/reviews", reviewRoute);
-app.use("/v1/progress", progressRoute);
 
 //Handling unhandled requests
 app.all("*", (req, res, next) => {
