@@ -158,6 +158,6 @@ Tasks reassigned and set a time frame of until Friday to push everything so we c
 - **Favour Cole:**
   - Register to be completed today
 
-### Meeting 3Notes
+### Meeting 3 Notes
 Front end and back end should be connected by Monday
 
