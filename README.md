@@ -32,8 +32,25 @@ git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
 4. **If you want to clone the remote repo with the latest changes:**
    git pull
 
+```
 
+# Running the Program
 
+To run the program, follow these steps in command line:
 
+```bash
+## Step 1: Install all the required packages
+npm install or npm i
+
+## Step 2: Start the server
+npm start
+
+##Step 3: Build the JavaScript files
+npm run build: js
+
+Once the build is complete, close it from the comman line using ctrl+c
+
+##Step 4: Watch for changes in JS files
+npm run watch:js
 
 ```
