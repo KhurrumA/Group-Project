@@ -8,7 +8,7 @@ exports.getUser = functionFactory.getOne(User);
 
 // Enroll user in a course
 exports.enrollMe = catchAsync(async (req, res, next) => {
-  const { courseId } = req.params; //getting it from the url
+  const courseId = req.params.courseId; //getting it from the url
   const { user } = req; //getting it from the req
 
   const course = await Course.findById(courseId);
@@ -16,10 +16,8 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
   if (!course) {
     return next(new appError("Course not found", 404));
   }
-  // Add user to the course's enrolled users list
   course.users.push(user._id);
   await course.save();
-
   res.status(201).json({ status: "success", data: { course } });
 });
 // Get courses enrolled by user

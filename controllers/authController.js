@@ -45,9 +45,7 @@ exports.registerUser = catchAsync(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-    passwordChangedAt: req.body.passwordChangedAt,
-    role: req.body.role,
+    passwordConfirm: req.body.cpassword,
   });
 
   //sending the jwt token for the new user

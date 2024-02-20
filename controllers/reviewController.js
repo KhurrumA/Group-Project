@@ -5,7 +5,8 @@ const catchAsync = require("../utils/catchAsync");
 exports.updateReview = functionFactory.updateOne(Review);
 exports.getAllReviews = functionFactory.getAll(Review);
 exports.getReview = functionFactory.getOne(Review);
-//POST REVIEW
+
+//SIGNUP
 exports.postReview = catchAsync(async (req, res, next) => {
   const regReview = await Review.create({
     review: req.body.review,

@@ -20,6 +20,6 @@ router.post(
 //DASHBOARD
 router.get("/dashboard", authController.protect, userController.getUserCourses);
 //ADD POINTS
-router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
+//router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
 
 module.exports = router;

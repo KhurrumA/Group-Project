@@ -116,5 +116,8 @@ export const complete = async (courseId) => {
     }
   } catch (err) {
     console.log(err);
+    // window.setTimeout(() => {
+    //   location.assign("/dashboard");
+    // }, 1500); //take 1.5 sec to load the home page
   }
 };

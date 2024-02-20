@@ -49,16 +49,12 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-
-
 //Password Encryption using bycrypt
 /*Pre save middleware will run between recieving the data saving 
 it into the DB*/
 //This middleware is used for hashing the password at SIGNUP
 userSchema.pre("save", async function (next) {
   //If the password has not been modified return
-  // console.log("This is encryption middleware");
-  //console.log(this.isModified("password"));
   if (!this.isModified("password")) return next();
 
   //higher the cost - higher CPU power needed

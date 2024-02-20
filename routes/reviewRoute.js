@@ -14,6 +14,7 @@ router.route("/").get(reviewController.getAllReviews);
 router.post(
   "/:id",
   authController.restrictTo("user"), //only the users can post reviews
+
   reviewController.postReview
 );
 //GET/EDIT REVIEWS WITH GIVEN ID

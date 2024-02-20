@@ -8,7 +8,6 @@ export const hideAlert = () => {
 
 //TYPE: success or error
 export const showAlert = (type, message) => {
-  console.log(message);
   hideAlert();
   const markup = `<div class="alert alert--${type}"}>${message}</div>`;
   //inside of the body right at the beginning

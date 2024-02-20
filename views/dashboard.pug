@@ -33,3 +33,33 @@ block content
     else
         h2.heading-secondary.heading-quick.ma-bt-lg.heading You are not enrolled in any course. 
    
+
+
+//- block content 
+    include _header
+    .container-dashboard
+        .text 
+            h1 Welcome to your SkillsBuild Dashboard!
+            p= `Your current points balance is ${user.points}.`
+    .line
+    if courses 
+        h2.heading-secondary.heading-quick.ma-bt-lg.heading= `Your are currently enrolled in ${courses.length} course/s.`
+        .card-wrapper
+            each course in courses
+                - let progress = progresses.find(p => p.course.toString() === course._id.toString())
+                .card.mb-3(style="max-width: 540px")
+                    .row.g-0 
+                        .col-md-4 
+                            img.img-fluid-rounded-start(src=`img/courses/${course.imageCover}` alt=`${course.name}`)
+                        .col-md-8 
+                            .card-body 
+                                h5.card-title= course.name
+                                p.card-text= course.summary 
+                                if progress && progress.timeStart
+                                    p.card-text= `Course started on ${new Date(progress.timeStart).toLocaleDateString()}`
+                    .card__footer__dashboard
+                        p= progress
+                        a.card__footer.ml-4.text-blue-500.border.rev.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/review/${course.slug}`) Review
+                        a.startCourse.card
+    
+

@@ -101,7 +101,7 @@ reviewSchema.pre(/^findOneAnd/, async function (next) {
 reviewSchema.post(/^findOneAnd/, async function () {
   //The query finished and review has been updated
   //this.revi is as the first post
-  //await this.findOne(); does not work here, query has already executed
+  //await this.findOne(); does not work here, quert has already executed
   await this.revi.constructor.calAverageRatings(this.revi.course);
 });
 

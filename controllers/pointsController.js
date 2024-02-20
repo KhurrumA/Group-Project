@@ -4,6 +4,7 @@ const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 
 exports.addPoints = catchAsync(async (req, res, next) => {
+  console.log("I am in add points");
   const courseId = req.body.courseId;
   const userId = req.user._id;
   //const user = req;

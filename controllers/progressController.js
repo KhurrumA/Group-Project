@@ -53,7 +53,6 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
   await progress.save();
 
   const course = await Course.findById(courseId);
-  console.log("hello course from progress", course);
 
   if (!course) {
     return next(new appError("Course not found", 404));
@@ -65,6 +64,6 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
     { $inc: { points: course.coursePoints } },
     { new: true }
   );
-  console.log(userPoints);
+
   res.status(200).json({ status: "success", data: { userPoints, progress } });
 });

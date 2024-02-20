@@ -1,3 +1,4 @@
+const { MongoDBCollectionNamespace } = require("mongodb");
 const mongoose = require("mongoose");
 
 //Creating the schema for the courses
@@ -8,7 +9,7 @@ const courseSchema = new mongoose.Schema(
       required: [true, "A course must have a name"],
       unique: true,
       trim: true,
-      maxLength: [250, "The max length is 250 characters"],
+      maxLength: [50, "The max length is 50 characters"],
       minLength: [10, "The min length is 10 characters"],
     },
     slug: String,
@@ -16,10 +17,7 @@ const courseSchema = new mongoose.Schema(
       type: Number,
       required: [true, "A course must have a duration"],
     },
-    imageCover: {
-      type: String,
-      required: [true, "A course must have a cover image"],
-    },
+
     difficulty: {
       type: String,
       required: [true, "A course must have difficulty level"],
@@ -35,6 +33,10 @@ const courseSchema = new mongoose.Schema(
       max: [5, "Rating must be below 5.0"],
       set: (val) => Math.round(val * 10) / 10,
     },
+    imageCover: {
+      type: String, //reference to the image
+      required: [true, "A course must have a cover image"],
+    },
     ratingsQuantity: {
       type: Number,
       default: 0,
@@ -45,7 +47,7 @@ const courseSchema = new mongoose.Schema(
     },
     summary: {
       type: String,
-      required: [true, "A course must have a description"],
+      required: [true, "A course must have a summary"],
       trim: true,
     },
     description: {
