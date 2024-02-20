@@ -1,4 +1,5 @@
 extends base
+include _progress
 
 block content 
     include _header
@@ -20,9 +21,15 @@ block content
                                 h5.card-title= course.name
                                 p.card-text= course.summary 
                     .card__footer__dashboard
+                        - let progressI = progress.find(p => p.course.toString() === course._id.toString())
+                        if progressI && progressI.timeStart && progressI.timeCompleted
+                            p.card-text= `Start: ${new Date(progressI.timeStart).toLocaleDateString()} End:  ${new Date(progressI.timeCompleted).toLocaleDateString()}`
+                        else if progressI && progressI.timeStart
+                            p.card-text= `Course started on ${new Date(progressI.timeStart).toLocaleDateString()}`
+
                         a.card__footer.ml-4.text-blue-500.border.rev.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/review/${course.slug}`) Review
-                        a.startCourse.card__footer.ml-4.border.revc.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(data-course-id=course._id href=`/courseOverview/${course.slug}`) Continue 
+                        a.startCourse.card__footer.ml-4.border.revc.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(data-course-id=course._id href=`/courseOverview/${course.slug}`) Continue
+                         
     else
         h2.heading-secondary.heading-quick.ma-bt-lg.heading You are not enrolled in any course. 
-    
-
+   
