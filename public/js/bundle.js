@@ -11971,7 +11971,6 @@ var hideAlert = exports.hideAlert = function hideAlert() {
 
 //TYPE: success or error
 var showAlert = exports.showAlert = function showAlert(type, message) {
-  console.log(message);
   hideAlert();
   var markup = "<div class=\"alert alert--".concat(type, "\"}>").concat(message, "</div>");
   //inside of the body right at the beginning
@@ -12191,6 +12190,9 @@ var complete = exports.complete = /*#__PURE__*/function () {
           _context5.prev = 9;
           _context5.t0 = _context5["catch"](1);
           console.log(_context5.t0);
+          // window.setTimeout(() => {
+          //   location.assign("/dashboard");
+          // }, 1500); //take 1.5 sec to load the home page
         case 12:
         case "end":
           return _context5.stop();
@@ -12552,7 +12554,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58350" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54502" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
