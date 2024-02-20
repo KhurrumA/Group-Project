@@ -161,3 +161,38 @@ Tasks reassigned and set a time frame of until Friday to push everything so we c
 ### Meeting 3 Notes
 Front end and back end should be connected by Monday
 
+## Week 4 Details
+
+- **Week:** 19/02/2024
+- **Meeting Dates:** 19/02/2024
+- **Scrum Master:** Mahirul Islam (mi210)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53), Favour Cole(fc182) (19/02/2024)
+
+### Purpose of the Meeting
+
+To finalise everything and check if there’s anything left to do, once everything is completed do the demo.
+
+### Meeting 1 Outcomes
+
+- **Manpreet Kaur:**
+  - Help Karrum with the dashboard to speed things up.
+  - Helped junior code the completion time.
+- **David Sarkodie Junior:**
+  - Worked with Manpreet to code the completion time.
+- **Mahirul Islam:**
+  - Create the testing log.
+- **Khurrum Arif:**
+  - Work with Manpreet to create the dashboard.
+
+### Meeting Notes
+
+Main objective this week is to finish everything off.
+
+### Meeting 2 Outcomes
+
+- **Everyone in the group:**
+  - Everyone will present the work that they have completed.
+
+### Meeting Notes
+
+Main objective for this meeting is to finish the demo.
