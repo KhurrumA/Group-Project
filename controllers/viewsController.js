@@ -1,17 +1,20 @@
 const Course = require("../models/courseModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
-
 const Progress = require("../models/progressModel");
 
 exports.dashboard = catchAsync(async (req, res, next) => {
   //1) GET course DATA FROM COLLECTION
   const userId = req.user._id;
   const courseId = req.body.courseId;
+  console.log(courseId);
 
   const courses = await Course.find({ users: userId }).populate("users");
-  const progress = await Progress.find({ users: userId, course: courseId });
-  console.log(progress);
+  console.log(courses._id);
+  const progress = await Progress.find({
+    user: userId,
+  });
+  console.log("This is progress view controller", progress);
 
   //all course data will retrieved and passed to the template
   res.status(200).render("dashboard", {
@@ -20,6 +23,7 @@ exports.dashboard = catchAsync(async (req, res, next) => {
     progress,
   });
 });
+
 exports.getCourses = catchAsync(async (req, res, next) => {
   const courses = await Course.find();
 
@@ -46,6 +50,7 @@ exports.getCourse = catchAsync(async (req, res, next) => {
 });
 
 exports.getLoginForm = (req, res) => {
+  console.log("I am in view controller");
   res.status(200).render("login", {
     title: "Log into your account",
   });
