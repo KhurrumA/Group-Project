@@ -93,7 +93,7 @@ To have all commits pushed by end of week, to agree SCRUM manager & courses to i
 - **Week:** 12/02/2024
 - **Meeting Dates:** 12/02/2024, 14/02/2024
 - **Scrum Master:** Khurrum Arif (ka382)
-- **Missing Member(s):** Maclain Apsley-Turner(mat53),Favour Cole(fc182),Mahirul Islam(mi210), Manpreet Kaur(mk747) (12/02/2024)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53),Favour Cole(fc182),Mahirul Islam(mi210), Manpreet Kaur(mk747) (12/02/2024), Maclain Apsley-Turner(mat53)(16/02/2024)
 
 ### Purpose of the Meeting
 
@@ -140,3 +140,59 @@ Main objective this week is to connect the front end and back end.
 
 ### Meeting 2 Notes
 Tasks reassigned and set a time frame of until Friday to push everything so we can connect front end and back end on the weekend.
+
+### Meeting 3 Outcomes
+
+- **Manpreet Kaur:**
+  - Connect finished pages to backend
+  - Finish the courses
+- **Zainab Patel:**
+  - Connect points page to backend
+- **Taran Singh, Mahirul Islam:**
+  - Taran will connect login page to backend code
+  - Mahirul will connect login page to beackend code
+  - Mahirul will create a table for manual testing
+- **Khurrum Arif and David Sarkodie Junior:**
+  - Work together with front end team to connect the code
+  - Khurrum will recreate the dashboard and should be finished by Monday
+- **Favour Cole:**
+  - Register to be completed today
+
+### Meeting 3 Notes
+Front end and back end should be connected by Monday
+
+## Week 4 Details
+
+- **Week:** 19/02/2024
+- **Meeting Dates:** 19/02/2024
+- **Scrum Master:** Mahirul Islam (mi210)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53), Favour Cole(fc182) (19/02/2024)
+
+### Purpose of the Meeting
+
+To finalise everything and check if there’s anything left to do, once everything is completed do the demo.
+
+### Meeting 1 Outcomes
+
+- **Manpreet Kaur:**
+  - Help Karrum with the dashboard to speed things up.
+  - Helped junior code the completion time.
+- **David Sarkodie Junior:**
+  - Worked with Manpreet to code the completion time.
+- **Mahirul Islam:**
+  - Create the testing log.
+- **Khurrum Arif:**
+  - Work with Manpreet to create the dashboard.
+
+### Meeting Notes
+
+Main objective this week is to finish everything off.
+
+### Meeting 2 Outcomes
+
+- **Everyone in the group:**
+  - Everyone will present the work that they have completed.
+
+### Meeting Notes
+
+Main objective for this meeting is to finish the demo.
