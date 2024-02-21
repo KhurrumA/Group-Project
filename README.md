@@ -53,4 +53,14 @@ Once the build is complete, close it from the comman line using ctrl+c
 ##Step 4: Watch for changes in JS files
 npm run watch:js
 
+##Step 5: Visit the following website
+localhost:3000
+
+##If you want to login use:
+Email: sara@example.com
+Password: test1234
+
+## No DB available error:
+If in case you face this error please use VPN or mobile data to run the application and do not use University Wi-Fi
+
 ```
