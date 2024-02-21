@@ -56,7 +56,7 @@ npm run watch:js
 ##Step 5: Visit the following website
 localhost:3000
 
-##If you want to login use:
+##If you want to login directly:
 Email: sara@example.com
 Password: test1234
 
