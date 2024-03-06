@@ -23,7 +23,7 @@ Discuss and assign the user stories to each member.
   - Maclain : can choose who you want to work with
 - **Backend team**
   - Manpreet : finish delete review function and create regular expression to get the username from the email.
-  - Khurrum and David Junior : start working on displaying the top 3 courses.
+  - Khurrum and David Junior : start working on adding friends feature.
 
 ### Meeting Notes
 
