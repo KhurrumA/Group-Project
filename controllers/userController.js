@@ -3,8 +3,7 @@ const catchAsync = require("../utils/catchAsync");
 const functionFactory = require("./functionHandler");
 const Course = require("../models/courseModel");
 const appError = require("../utils/appError");
-const mongoose = require("mongoose");
-//hello
+
 exports.getUser = functionFactory.getOne(User);
 
 // Enroll user in a course
