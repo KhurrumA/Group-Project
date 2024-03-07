@@ -3,6 +3,7 @@ const catchAsync = require("../utils/catchAsync");
 const functionFactory = require("./functionHandler");
 const Course = require("../models/courseModel");
 const appError = require("../utils/appError");
+const mongoose = require("mongoose");
 
 exports.getUser = functionFactory.getOne(User);
 
@@ -10,12 +11,24 @@ exports.getUser = functionFactory.getOne(User);
 exports.enrollMe = catchAsync(async (req, res, next) => {
   const courseId = req.params.courseId; //getting it from the url
   const { user } = req; //getting it from the req
+  const userId = user._id;
 
   const course = await Course.findById(courseId);
 
   if (!course) {
     return next(new appError("Course not found", 404));
   }
+
+  const isEnrolled = course.users.some(
+    (userId) => userId.toString() === userId.toString()
+  );
+
+  //Check if the user is already enrolled in the course
+  if (isEnrolled) {
+    return next(new appError("You are already enrolled in this course", 400));
+  }
+
+  //if not enrolled and the couse exists --> enroll user
   course.users.push(user._id);
   await course.save();
   res.status(201).json({ status: "success", data: { course } });
