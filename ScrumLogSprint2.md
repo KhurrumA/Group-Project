@@ -20,7 +20,7 @@ Discuss and assign the user stories to each member.
   - Zainab : once Taran has done the basic structure start the leaderboard and the friends page. As both have the same structure you can also work on the comments page for the admin after @Mahirul made the changes to the basic structure for the admin
   - Favour : finish the courses page by adding a new section for top 3 courses.
   - Mahirul : Add the course stats page and the improvements page.
-  - Maclain : can choose who you want to work with
+  - Maclain : work with @Zainab.
 - **Backend team**
   - Manpreet : finish delete review function and create regular expression to get the username from the email.
   - Khurrum and David Junior : start working on adding friends feature.
