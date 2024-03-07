@@ -47,6 +47,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  username: String,
 });
 
 //Password Encryption using bycrypt
