@@ -41,11 +41,13 @@ const createJWT = (user, statusCode, res) => {
 
 //SIGNUP
 exports.registerUser = catchAsync(async (req, res, next) => {
+  const username = req.body.email.split("@")[0]; //extracting user name from the email
   const regUser = await User.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.cpassword,
+    username: username,
   });
 
   //sending the jwt token for the new user
