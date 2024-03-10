@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   // Feild to for friends 
   friends: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'User'
   }],
 });
