@@ -52,6 +52,11 @@ const userSchema = new mongoose.Schema({
     default: 0,
   },
   username: String,
+  // Feild to for friends 
+  friends: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
 });
 
 //Password Encryption using bycrypt
