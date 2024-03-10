@@ -8,6 +8,8 @@ const router = express.Router(); //creating the router
 
 router.get("/", authController.protect, courseController.getAllCourse); //home route
 
+router.get("/top-3-courses", authController.protect, courseController.getTop3Courses); // Get top 3 courses
+
 router.get("/:id", authController.protect, courseController.getCourse); //get one course
 
 router.post(
