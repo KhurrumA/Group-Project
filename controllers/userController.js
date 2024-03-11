@@ -3,6 +3,8 @@ const catchAsync = require("../utils/catchAsync");
 const functionFactory = require("./functionHandler");
 const Course = require("../models/courseModel");
 const appError = require("../utils/appError");
+const multer = require("multer");
+const sharp = require("sharp");
 
 exports.getUser = functionFactory.getOne(User);
 
@@ -41,3 +43,68 @@ exports.getUserCourses = catchAsync(async (req, res, next) => {
 
   res.status(200).json({ status: "success", data: { courses } });
 });
+
+//IMAGE STORED AS A BUFFER
+const multerStorage = multer.memoryStorage();
+
+//MULTER FILTER - Upload files that are only images
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    //the mimetype will always be image
+    cb(null, true);
+  } else {
+    cb(
+      new appError("Not an image file! Please upload only images.", 400),
+      false
+    );
+  }
+};
+
+//CONFIGURE MULTER
+const upload = multer({ storage: multerStorage, fileFilter: multerFilter }); //folder where you want to save the images that are being uploaded
+exports.uploadUserPhoto = upload.single("photo");
+
+//IMAGE PROCESSING - RESIZING THE FILE AND SAVE TO BUFFER/MEMORY
+exports.resizeUserPhoto = (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`; //the format: user-userId-date.jpeg
+
+  sharp(req.file.buffer)
+    .resize(500, 500) //the size if 500x500
+    .toFormat("jpeg")
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/users/${req.file.filename}`); //resizing the images, changing the extension, compressing it
+
+  next();
+};
+
+//UPDATE USER IMAGE
+exports.updateMe = catchAsync(async (req, res, next) => {
+  //2) Filter out unwanted fields names that are not allowed to be updated
+  //name and email are fields that we want to keep
+  const filterBody = filterObj(req.body, "name", "email");
+  //if in case there is a file then  add the file
+  if (req.file) filterBody.photo = req.file.filename;
+
+  //3)Update the user document
+  const updatedUser = await User.findByIdAndUpdate(req.user.id, filterBody, {
+    new: true,
+    runValidators: true,
+  });
+  res.status(200).json({
+    status: "success",
+    data: {
+      user: updatedUser,
+    },
+  });
+});
+const filterObj = (obj, ...allowedFields) => {
+  const newObj = {};
+  //loop through all the fields of the object and add them to newObj if they are in the
+  //allowedfields array
+  Object.keys(obj).forEach((el) => {
+    if (allowedFields.includes(el)) newObj[el] = obj[el];
+  });
+  return newObj;
+};
