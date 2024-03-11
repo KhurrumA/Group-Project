@@ -28,3 +28,7 @@ Discuss and assign the user stories to each member.
 ### Meeting Notes
 
 Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked to show the progress that has been made. For those who have to create multiple pages, make sure at least one is completed.
+
+### Meeting 1 Outcome
+
+- Everyone is up to date with their work
