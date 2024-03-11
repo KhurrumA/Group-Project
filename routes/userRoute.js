@@ -19,7 +19,14 @@ router.post(
 );
 //DASHBOARD
 router.get("/dashboard", authController.protect, userController.getUserCourses);
-//ADD POINTS
-//router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
+
+//ADD/UPDATE PROFILE PICTURE
+router.patch(
+  "/updateMe",
+  authController.protect, //allows access to the logged in users.
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
+  userController.updateMe
+);
 
 module.exports = router;
