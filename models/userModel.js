@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   }],
+  Rank: {
+    type: Number,
+    default: 0,
+  },
 });
 
 //Password Encryption using bycrypt
