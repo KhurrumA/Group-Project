@@ -31,4 +31,9 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 
 ### Meeting 1 Outcome
 
-- Everyone is up to date with their work
+- **Manpreet:**
+  - Has created the scrum log for second sprint and finished the delete review function. The setup of the username is also completed.
+- **David and Khurrum:**
+  - Have finished the top 3 courses and the add friends functionality.
+- **Taran Singh:**
+  - Has almost complete the landing profile page.
