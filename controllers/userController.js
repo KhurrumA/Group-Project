@@ -89,3 +89,17 @@ exports.addFriend = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+//GET TOTAL NUMBER OF STUDENTS
+exports.totalStundents = catchAsync(async (req, res, next) => {
+  const courseId = req.params.courseId; //getting the course ID
+  const course = await Course.findById(courseId); //getting the course
+  const totUser = course.users.length; //total enrolled students in that course
+
+  //Check if the array is empty or equal to zero
+  if (totUser == 0) {
+    return res.status(200).json({ status: "success", data: 0 });
+  } else {
+    return res.status(200).json({ status: "success", data: totUser });
+  }
+});
