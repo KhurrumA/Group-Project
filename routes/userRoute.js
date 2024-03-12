@@ -10,7 +10,8 @@ router.post("/signup", authController.registerUser);
 router.post("/login", authController.login);
 //LOGOUT
 router.get("/logout", authController.protect, authController.logout); //the user can logout only if he is logged in
-
+//DASHBOARD
+router.get("/dashboard", authController.protect, userController.getUserCourses);
 //ENROLL ME
 router.post(
   "/enrollMe/:courseId",
@@ -23,8 +24,6 @@ router.patch(
   authController.protect,
   userController.addFriend
 );
-//DASHBOARD
-router.get("/dashboard", authController.protect, userController.getUserCourses);
 
 //RESTRICTED TO THE ADMIN
 //GET STUDENTS DATA
