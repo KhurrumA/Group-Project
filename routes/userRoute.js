@@ -31,7 +31,7 @@ router.get(
   "/analytics/:courseId",
   authController.protect,
   authController.restrictTo("admin"),
-  userController.totalStundents
+  userController.analytics
 );
 
 //ADD POINTS
