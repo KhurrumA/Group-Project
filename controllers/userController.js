@@ -19,8 +19,8 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
     return next(new appError("Course not found", 404));
   }
 
-  const isEnrolled = course.users.some(
-    (userId) => userId.toString() === userId.toString()
+  const isEnrolled = course.users.some((userInCourse) =>
+    userInCourse._id.equals(userId)
   );
 
   //Check if the user is already enrolled in the course
@@ -65,7 +65,9 @@ exports.addFriend = catchAsync(async (req, res, next) => {
 
   // Check if the user is already a friend
   const user = await User.findById(userId);
-  const isAlreadyFriend = user.friends.some(friend => friend.toString() === friendId);
+  const isAlreadyFriend = user.friends.some(
+    (friend) => friend.toString() === friendId
+  );
   if (isAlreadyFriend) {
     return next(new appError("This user is already your friend", 400));
   }
@@ -82,8 +84,8 @@ exports.addFriend = catchAsync(async (req, res, next) => {
       user: {
         id: user._id,
         name: user.name,
-        friends: user.friends // This will return the updated list of friends
-      }
-    }
+        friends: user.friends, // This will return the updated list of friends
+      },
+    },
   });
-});  
+});
