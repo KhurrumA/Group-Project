@@ -43,7 +43,7 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 ## Week 2 Details
 
 - **Week:** 11/03/2024
-- **Meeting Date:** 11/03/2024
+- **Meeting Date:** 11/03/2024, 13/03/2024
 - **Scrum Master:** Zainab Patel (zp81)
 - **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
 
@@ -63,7 +63,22 @@ To discuss progress made and what else that needs to be completed.
 - **Maclain:**
   - Will be working on frontend admin comments page.
 
-
 ### Meeting Notes
 Main objective is to complete the frontend and backend for user stories.
+
+
+### Meeting 2 Outcomes
+- **Manpreet Kaur:**
+  - Admin analytics page is now complete.
+- **David and Khurrum:**
+  - Ranking feature completed.
+- **Mahirul:**
+  - Completed admin review page.
+- **Taran:**
+  - User profile page is complete.
+- **Zainab:**
+  - Completed leaderboard page and friends page.
+
+### Meeting 2 Notes
+Most of backend is completed. Next scrum master has also been agreed.
 
