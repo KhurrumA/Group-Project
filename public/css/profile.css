@@ -502,3 +502,24 @@ button,
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+.table-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    
+  }
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+td{
+    text-align: center;
+}
