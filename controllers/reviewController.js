@@ -2,10 +2,9 @@ const Review = require("../models/reviewModel");
 const functionFactory = require("./functionHandler");
 const catchAsync = require("../utils/catchAsync");
 
-exports.updateReview = functionFactory.updateOne(Review);
 exports.getAllReviews = functionFactory.getAll(Review);
 exports.getReview = functionFactory.getOne(Review);
-
+exports.deleteReview = functionFactory.deleteOne(Review); //DELETE REVIEW - ADMIN ONLY
 //SIGNUP
 exports.postReview = catchAsync(async (req, res, next) => {
   const regReview = await Review.create({
