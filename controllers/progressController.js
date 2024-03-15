@@ -35,21 +35,6 @@ exports.progressStart = catchAsync(async (req, res, next) => {
   }
 });
 
-const updateUserRank = async (userId) => {
-  const user = await User.findById(userId);
-
-  // Calculate new rank based on current points
-  const newRank = Math.floor(user.points / 100);
-
-  // Update user's rank
-  const updatedUser = await User.findByIdAndUpdate(
-    userId,
-    { Rank: newRank },
-    { new: true }
-  );
-
-  return updatedUser;
-};
 exports.progressComplete = catchAsync(async (req, res, next) => {
   const userId = req.user._id;
   const courseId = req.body.courseId;
@@ -79,8 +64,6 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
     { $inc: { points: course.coursePoints } },
     { new: true }
   );
-  await updateUserRank(userId);
 
   res.status(200).json({ status: "success", data: { userPoints, progress } });
-
 });
