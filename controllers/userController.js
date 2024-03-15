@@ -20,8 +20,8 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
     return next(new appError("Course not found", 404));
   }
 
-  const isEnrolled = course.users.some((userInCourse) =>
-    userInCourse._id.equals(userId)
+  const isEnrolled = course.users.some(
+    (userId) => userId.toString() === userId.toString()
   );
 
   //Check if the user is already enrolled in the course

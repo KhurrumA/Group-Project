@@ -6,7 +6,6 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const appError = require("./utils/appError");
 const path = require("path");
-const errorHandler = require("./controllers/errorController");
 
 const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
@@ -72,8 +71,5 @@ app.use("/v1/reviews", reviewRoute);
 app.all("*", (req, res, next) => {
   next(new appError(`Can't find ${req.originalUrl} on this server`, 404)); //404 -> Page not found
 });
-
-//Express error handler
-app.use(errorHandler);
 
 module.exports = app;

@@ -10,31 +10,23 @@ router.post("/signup", authController.registerUser);
 router.post("/login", authController.login);
 //LOGOUT
 router.get("/logout", authController.protect, authController.logout); //the user can logout only if he is logged in
-//DASHBOARD
-router.get("/dashboard", authController.protect, userController.getUserCourses);
+
 //ENROLL ME
 router.post(
   "/enrollMe/:courseId",
   authController.protect,
   userController.enrollMe
 );
-//ADDING A FRIEND
+//DASHBOARD
+router.get("/dashboard", authController.protect, userController.getUserCourses);
+
+//ADD/UPDATE PROFILE PICTURE
 router.patch(
-  "/addFriend/:friendId",
-  authController.protect,
-  userController.addFriend
+  "/updateMe",
+  authController.protect, //allows access to the logged in users.
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
+  userController.updateMe
 );
-
-//RESTRICTED TO THE ADMIN
-//GET STUDENTS DATA
-router.get(
-  "/analytics/:courseId",
-  authController.protect,
-  authController.restrictTo("admin"),
-  userController.analytics
-);
-
-//ADD POINTS
-//router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
 
 module.exports = router;
