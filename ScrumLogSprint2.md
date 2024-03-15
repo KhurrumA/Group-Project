@@ -101,9 +101,8 @@ To discuss progress made and what else that needs to be completed.
 - **Frontend Team**
   - Taran : Finish working on the ranking and leaderboard page.
   - Zainab : Complete remaining pages.
-  - Favour : Finish the courses page by adding a new section for top 3 courses.
-  - Mahirul : Add the course stats page and the improvements page.
-  - Maclain : Work with @Zainab.
+  - Mahirul : Finish remaining pages.
+  - Maclain : Will be working on frontend admin comments page.
 - **Backend team**
   - Manpreet : Finish error handling.
   - Khurrum and David Junior : Finish working on the leaderboard.
