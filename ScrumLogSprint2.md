@@ -82,3 +82,34 @@ Main objective is to complete the frontend and backend for user stories.
 ### Meeting 2 Notes
 Most of backend is completed. Next scrum master has also been agreed.
 
+
+
+
+## Week 3 Details
+
+- **Week:** 18/03/2024
+- **Meeting Date:** 13/03/2024
+- **Scrum Master:** Taran Singh (ts444)
+- **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
+
+### Purpose of the Meeting
+
+To discuss progress made and what else that needs to be completed.
+
+### Tasks Assigned to Each Member
+
+- **Frontend Team**
+  - Taran : Finish working on the ranking and leaderboard page.
+  - Zainab : Complete remaining pages.
+  - Favour : Finish the courses page by adding a new section for top 3 courses.
+  - Mahirul : Add the course stats page and the improvements page.
+  - Maclain : Work with @Zainab.
+- **Backend team**
+  - Manpreet : Finish error handling.
+  - Khurrum and David Junior : Finish working on the leaderboard.
+
+### Meeting Notes
+
+Next Meeting will be held on Monday 18/02/2024 where everything should be completed so that we can start to integrate front-end and back-end.
+
+
