@@ -140,3 +140,51 @@ exports.analytics = catchAsync(async (req, res, next) => {
       .json({ status: "success", data: { totUser, totStart, totCompleted } });
   }
 });
+
+//ADDING FRIENDS
+exports.addFriend = catchAsync(async (req, res, next) => {
+  const friendId = req.params.friendId; // Getting the friend's ID from the URL
+  const userId = req.user._id; // Getting the current user's ID from the request object
+
+  // Prevent users from adding themselves as a friend
+  if (friendId === userId.toString()) {
+    return next(new appError("You cannot add yourself as a friend", 400));
+  }
+
+  // Check if the friendId is valid
+  if (!mongoose.Types.ObjectId.isValid(friendId)) {
+    return next(new appError("Invalid friend ID", 400));
+  }
+
+  // Check if the friend to add exists
+  const friendExists = await User.findById(friendId);
+  if (!friendExists) {
+    return next(new appError("Friend not found", 404));
+  }
+
+  // Check if the user is already a friend
+  const user = await User.findById(userId);
+  const isAlreadyFriend = user.friends.some(
+    (friend) => friend.toString() === friendId
+  );
+  if (isAlreadyFriend) {
+    return next(new appError("This user is already your friend", 400));
+  }
+
+  // Add friend to the user's friends list
+  const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    { $addToSet: { friends: friendId } }, // $addToSet adds a value to an array unless the value is already present
+    { new: true }
+  );
+  res.status(201).json({
+    status: "success",
+    data: {
+      user: {
+        id: user._id,
+        name: user.name,
+        friends: user.friends, // This will return the updated list of friends
+      },
+    },
+  });
+});
