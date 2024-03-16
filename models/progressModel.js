@@ -9,7 +9,6 @@ const progressSchema = new mongoose.Schema({
     default: Date.now, // Automatically set to the current date and time when a new document is created
   },
   timeCompleted: Date,
-
   user: {
     type: mongoose.Schema.ObjectId, // The ID of the user who clicked the link
     ref: "User", // References the User model

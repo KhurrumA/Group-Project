@@ -34,7 +34,4 @@ router.get(
   userController.analytics
 );
 
-//ADD POINTS
-//router.get("/me/:id", authController.protect, pointsController.addPoints); //protecting the route so only the logged in user can see their points
-
 module.exports = router;

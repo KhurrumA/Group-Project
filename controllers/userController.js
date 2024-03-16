@@ -7,6 +7,8 @@ const multer = require("multer");
 const sharp = require("sharp");
 const Progress = require("../models/progressModel");
 const mongoose = require("mongoose");
+const Progress = require("../models/progressModel");
+const mongoose = require("mongoose");
 
 exports.getUser = functionFactory.getOne(User);
 
