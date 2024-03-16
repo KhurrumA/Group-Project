@@ -88,7 +88,7 @@ Most of backend is completed. Next scrum master has also been agreed.
 - **Week:** 18/03/2024
 - **Meeting Date:** 13/03/2024
 - **Scrum Master:** Taran Singh (ts444)
-- **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
+- **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Purpose of the Meeting
 
