@@ -14,11 +14,15 @@ router.post(
   authController.restrictTo("user"), //only the users can post reviews
   reviewController.postReview
 );
-
-//DELETE REVIEWS WITH GIVEN ID
+//DELETE REVIEW WITH GIVEN ID
 router
   .route("/:id")
   .get(reviewController.getReview)
   .delete(authController.restrictTo("admin"), reviewController.deleteReview);
+
+// //GET REVIEW <=3
+// router
+//   .route("/review-stats")
+//   .get(authController.restrictTo("admin"), reviewController.getCourseStats);
 
 module.exports = router;

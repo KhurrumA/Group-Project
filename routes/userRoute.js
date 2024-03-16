@@ -18,14 +18,22 @@ router.post(
   authController.protect,
   userController.enrollMe
 );
+
+//ADD/UPDATE PROFILE PICTURE
+router.patch(
+  "/updateMe",
+  authController.protect, //allows access to the logged in users.
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
+  userController.updateMe
+);
+
 //ADDING A FRIEND
 router.patch(
   "/addFriend/:friendId",
   authController.protect,
   userController.addFriend
 );
-
-//RESTRICTED TO THE ADMIN
 //GET STUDENTS DATA
 router.get(
   "/analytics/:courseId",
@@ -33,5 +41,4 @@ router.get(
   authController.restrictTo("admin"),
   userController.analytics
 );
-
 module.exports = router;
