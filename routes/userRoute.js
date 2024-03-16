@@ -33,7 +33,7 @@ router.patch(
   "/addFriend/:friendId",
   authController.protect,
   userController.addFriend
-);a
+);
 //GET STUDENTS DATA
 router.get(
   "/analytics/:courseId",
