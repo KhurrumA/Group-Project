@@ -181,7 +181,7 @@ exports.addFriend = catchAsync(async (req, res, next) => {
     status: "success",
     data: {
       user: {
-        id: updatesUser._id,
+        id: updatedUser._id,
         name: updatedUser.name,
         friends: updatedUser.friends, // This will return the updated list of friends
       },
