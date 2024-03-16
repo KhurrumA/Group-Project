@@ -5,7 +5,8 @@ const catchAsync = require("../utils/catchAsync");
 exports.getAllCourse = functionFactory.getAll(Course);
 exports.getCourse = functionFactory.getOne(Course);
 
-exports.getTop3Courses = async (req, res) => {
+//Get Top 3 Courses
+exports.getTop3Courses = catchAsync(async (req, res, next) => {
   try {
     const topCourses = await Course.aggregate([
       {
@@ -30,7 +31,7 @@ exports.getTop3Courses = async (req, res) => {
       message: err,
     });
   }
-};
+});
 
 //COURSES WITH RATING <=3
 exports.getStats = catchAsync(async (req, res, next) => {

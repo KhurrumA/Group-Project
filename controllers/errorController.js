@@ -1,19 +1,17 @@
 const AppError = require("../utils/appError");
 
-//Handle casting errors --> DB
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
   return new AppError(message, 400);
 };
 
-//Handle dupplicate keys error --> DB
 const handleDuplicateErrorDB = (err) => {
   const value = err.message.match(/(["'])(\\?.)*?\1/)[0];
+  //console.log(value);
   const message = `Duplicate field value: ${value}. Please use another value`;
   return new AppError(message, 400);
 };
 
-//Handle validation errors --> DB
 const handleValidationErrorDB = (err) => {
   //loop through all the object values field and only get the corrispondent message
 
@@ -22,15 +20,12 @@ const handleValidationErrorDB = (err) => {
   return new AppError(message, 400);
 };
 
-//Handle JWT (Json Web Token) error --> Login
 const handleJWTError = () =>
   new AppError("Invalid token. Please login again", 401);
 
-//Handle expired JWT errors
 const handleExpiredJWTError = () =>
   new AppError("Your token has expired! Please log in again", 401);
 
-//Error MESSAGE details in DEVELOPMENT mode
 const sendErrorDev = (err, req, res) => {
   //a) API
   if (req.originalUrl.startsWith("/api")) {
@@ -49,10 +44,9 @@ const sendErrorDev = (err, req, res) => {
   });
 };
 
-//Error MESSAGE details in PRODUCTION mode
 const sendErrorProd = (err, req, res) => {
-  //a) V1
-  if (req.originalUrl.startsWith("/v1")) {
+  //a) API
+  if (req.originalUrl.startsWith("/api")) {
     //a)  Operational, trusted error: send message to client
     if (err.isOperational) {
       return res.status(err.statusCode).json({
@@ -71,7 +65,7 @@ const sendErrorProd = (err, req, res) => {
     });
   }
 
-  //b) RENDERED WEBSITE --> error.pug
+  //b) RENDERED WEBSITE
   if (err.isOperational) {
     return res.status(err.statusCode).render("error", {
       title: "Something went wrong!", //title of the error page
@@ -99,7 +93,6 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, req, res);
   } else if (process.env.NODE_ENV.trim() === "production") {
     let error = {
-      //unpacking the error message
       ...err,
       name: err.name,
       code: err.code,

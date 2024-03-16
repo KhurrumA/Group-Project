@@ -5,6 +5,8 @@ const Course = require("../models/courseModel");
 const appError = require("../utils/appError");
 const multer = require("multer");
 const sharp = require("sharp");
+const Progress = require("../models/progressModel");
+const mongoose = require("mongoose");
 
 exports.getUser = functionFactory.getOne(User);
 
@@ -68,7 +70,7 @@ exports.uploadUserPhoto = upload.single("photo");
 exports.resizeUserPhoto = (req, res, next) => {
   if (!req.file) return next();
 
-  req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`; //the format: user-userId-date.jpeg
+  req.file.filename = `user-${req.user._id}-${Date.now()}.jpg`; //the format: user-userId-date.jpeg
 
   sharp(req.file.buffer)
     .resize(500, 500) //the size if 500x500
@@ -108,3 +110,109 @@ const filterObj = (obj, ...allowedFields) => {
   });
   return newObj;
 };
+
+//GET TOTAL NUMBER OF STUDENTS THAT ARE ENROLLED,  STARTED, COMPLETED THE COURSE
+exports.analytics = catchAsync(async (req, res, next) => {
+  const courseId = req.params.courseId; //getting the course ID
+  const course = await Course.findById(courseId); //getting the course
+  console.log(course);
+  const totUser = course.users.length; //total enrolled students in that course
+  console.log(totUser);
+
+  //STUDENTS WHO STARTED THE COURSE
+  const totStart = await Progress.countDocuments(courseId);
+  console.log(totStart);
+
+  //STUDENTS WHO COMPLETED THE COURSE
+  console.log("This is the couseId", courseId);
+  //counts the document that have got the timeCompleted field
+  const totCompleted = await Progress.countDocuments({
+    timeCompleted: { $exists: true },
+    course: mongoose.Types.ObjectId(courseId),
+  });
+  console.log(totCompleted);
+
+  if (totUser == 0 && totCompleted == 0 && totStart == 0) {
+    return res.status(200).json({ status: "success", data: 0 });
+  } else {
+    return res
+      .status(200)
+      .json({ status: "success", data: { totUser, totStart, totCompleted } });
+  }
+});
+
+//ADDING FRIENDS
+exports.addFriend = catchAsync(async (req, res, next) => {
+  const friendId = req.params.friendId; // Getting the friend's ID from the URL
+  const userId = req.user._id; // Getting the current user's ID from the request object
+
+  // Prevent users from adding themselves as a friend
+  if (friendId === userId.toString()) {
+    return next(new appError("You cannot add yourself as a friend", 400));
+  }
+
+  // Check if the friendId is valid
+  if (!mongoose.Types.ObjectId.isValid(friendId)) {
+    return next(new appError("Invalid friend ID", 400));
+  }
+
+  // Check if the friend to add exists
+  const friendExists = await User.findById(friendId);
+  if (!friendExists) {
+    return next(new appError("Friend not found", 404));
+  }
+
+  // Check if the user is already a friend
+  const user = await User.findById(userId);
+  const isAlreadyFriend = user.friends.some(
+    (friend) => friend.toString() === friendId
+  );
+  if (isAlreadyFriend) {
+    return next(new appError("This user is already your friend", 400));
+  }
+
+  // Add friend to the user's friends list
+  const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    { $addToSet: { friends: friendId } }, // $addToSet adds a value to an array unless the value is already present
+    { new: true }
+  );
+  res.status(201).json({
+    status: "success",
+    data: {
+      user: {
+        id: updatesUser._id,
+        name: updatedUser.name,
+        friends: updatedUser.friends, // This will return the updated list of friends
+      },
+    },
+  });
+});
+
+//GET ANALYTICS: Total student, started, completed
+exports.analytics = catchAsync(async (req, res, next) => {
+  const courseId = req.params.courseId; //getting the course ID
+  const course = await Course.findById(courseId); //getting the course
+  const totUser = course.users.length; //total enrolled students in that course
+
+  //STUDENTS WHO STARTED THE COURSE
+  const totStart = await Progress.countDocuments(courseId);
+  console.log(totStart);
+
+  //STUDENTS WHO COMPLETED THE COURSE
+  console.log("This is the couseId", courseId);
+  //counts the document that have got the timeCompleted field
+  const totCompleted = await Progress.countDocuments({
+    timeCompleted: { $exists: true },
+    course: mongoose.Types.ObjectId(courseId),
+  });
+  console.log(totCompleted);
+
+  if (totUser == 0 && totCompleted == 0 && totStart == 0) {
+    return res.status(200).json({ status: "success", data: 0 });
+  } else {
+    return res
+      .status(200)
+      .json({ status: "success", data: { totUser, totCompleted, totStart } });
+  }
+});

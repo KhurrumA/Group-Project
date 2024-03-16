@@ -11,7 +11,6 @@ exports.progressStart = catchAsync(async (req, res, next) => {
   try {
     // Find the progress document based on the user and course IDs
     let progress = await Progress.findOne({ user: userId, course: courseId });
-    console.log(progress);
 
     if (!progress) {
       // If progress document doesn't exist, create a new one
@@ -20,7 +19,6 @@ exports.progressStart = catchAsync(async (req, res, next) => {
         course: courseId,
         timeStart: new Date(), // Set the start time to the current date and time
       });
-      console.log("Progress record created:", progress);
     } else {
       // If progress document exists but timeStart is not set, update it
       progress.timeStart = new Date();
@@ -30,8 +28,8 @@ exports.progressStart = catchAsync(async (req, res, next) => {
     res.status(200).json({ status: "success", data: progress });
   } catch (err) {
     // Handle any errors
-    console.error("Error starting progress:", err);
-    res.status(500).json({ status: "error", message: "Internal server error" });
+    // console.error("Error starting progress:", err);
+    return next(new appError("Internal server error", 500));
   }
 });
 
@@ -50,12 +48,13 @@ const updateUserRank = async (userId) => {
 
   return updatedUser;
 };
+
 exports.progressComplete = catchAsync(async (req, res, next) => {
   const userId = req.user._id;
   const courseId = req.body.courseId;
 
   // Find the relevant progress document
-  const progress = await Progress.findOne({ user: userId });
+  const progress = await Progress.findOne({ user: userId, course: courseId });
 
   if (!progress) {
     return next(new appError("Progress not found", 404));
@@ -82,5 +81,4 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
   await updateUserRank(userId);
 
   res.status(200).json({ status: "success", data: { userPoints, progress } });
-
 });

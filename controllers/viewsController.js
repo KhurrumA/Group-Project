@@ -6,15 +6,12 @@ const Progress = require("../models/progressModel");
 exports.dashboard = catchAsync(async (req, res, next) => {
   //1) GET course DATA FROM COLLECTION
   const userId = req.user._id;
-  const courseId = req.body.courseId;
-  console.log(courseId);
 
   const courses = await Course.find({ users: userId }).populate("users");
   console.log(courses._id);
   const progress = await Progress.find({
     user: userId,
   });
-  console.log("This is progress view controller", progress);
 
   //all course data will retrieved and passed to the template
   res.status(200).render("dashboard", {
