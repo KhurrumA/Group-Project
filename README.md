@@ -57,7 +57,7 @@ npm run watch:js
 localhost:3000
 
 ##If you want to login directly:
-Email: sara@example.com
+Email: monica53@example.com
 Password: test1234
 
 ## No DB available error:
