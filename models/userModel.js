@@ -93,3 +93,10 @@ userSchema.methods.correctPassword = async function (
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+// Middleware to calculate rank based on points
+userSchema.pre("save", function (next) {
+  if (this.points >= 100) {
+    this.Rank = 5;
+  } else if (this.points >= 75) {
+    this.Rank = 4;
