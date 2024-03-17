@@ -94,18 +94,3 @@ const User = mongoose.model("User", userSchema);
 
 module.exports = User;
 
-// Middleware to calculate rank based on points
-userSchema.pre("save", function (next) {
-  if (this.points >= 100) {
-    this.Rank = 5;
-  } else if (this.points >= 75) {
-    this.Rank = 4;
-  } else if (this.points >= 50) {
-    this.Rank = 3;
-  } else if (this.points >= 25) {
-    this.Rank = 2;
-  } else {
-    this.Rank = 1;
-  }
-  next();
-});

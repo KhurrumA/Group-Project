@@ -216,3 +216,9 @@ exports.analytics = catchAsync(async (req, res, next) => {
       .json({ status: "success", data: { totUser, totCompleted, totStart } });
   }
 });
+// Middleware to calculate rank based on points
+userSchema.pre("save", function (next) {
+  if (this.points >= 100) {
+    this.Rank = 5;
+  } else if (this.points >= 75) {
+    this.Rank = 4;
