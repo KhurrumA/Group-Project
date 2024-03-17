@@ -32,21 +32,35 @@ exports.progressStart = catchAsync(async (req, res, next) => {
     return next(new appError("Internal server error", 500));
   }
 });
-
+//UPDATING USER RANK
 const updateUserRank = async (userId) => {
   const user = await User.findById(userId);
 
-  // Calculate new rank based on current points
-  const newRank = Math.floor(user.points / 100);
+  // Calculates new rank based on current points
+  let newRank;
+  if (user.points >= 100) {
+    newRank = 5;
+  } else if (user.points >= 75) {
+    newRank = 4;
+  } else if (user.points >= 50) {
+    newRank = 3;
+  } else if (user.points >= 25) {
+    newRank = 2;
+  } else {
+    newRank = 1;
+  }
+  // Updates user's rank
+  if (user.Rank !== newRank) {
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { Rank: newRank },
+      { new: true }
+    );
+    return updatedUser;
+  }
 
-  // Update user's rank
-  const updatedUser = await User.findByIdAndUpdate(
-    userId,
-    { Rank: newRank },
-    { new: true }
-  );
-
-  return updatedUser;
+  // Returns the user as is if the rank hasn't changed
+  return user;
 };
 
 exports.progressComplete = catchAsync(async (req, res, next) => {
@@ -78,6 +92,7 @@ exports.progressComplete = catchAsync(async (req, res, next) => {
     { $inc: { points: course.coursePoints } },
     { new: true }
   );
+  //calling fuction to update users rank
   await updateUserRank(userId);
 
   res.status(200).json({ status: "success", data: { userPoints, progress } });

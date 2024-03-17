@@ -216,21 +216,7 @@ exports.analytics = catchAsync(async (req, res, next) => {
       .json({ status: "success", data: { totUser, totCompleted, totStart } });
   }
 });
-// Middleware to calculate rank based on points
-userSchema.pre("save", function (next) {
-  if (this.points >= 100) {
-    this.Rank = 5;
-  } else if (this.points >= 75) {
-    this.Rank = 4;
-  } else if (this.points >= 50) {
-    this.Rank = 3;
-  } else if (this.points >= 25) {
-    this.Rank = 2;
-  } else {
-    this.Rank = 1;
-  }
-  next();
-});
+
 // Friend leaderboard
 exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   const userId = req.user._id; // Getting user id

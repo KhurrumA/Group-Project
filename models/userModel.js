@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
   ],
   Rank: {
     type: Number,
-    default: 0,
+    default: 1,
   },
 });
 
