@@ -24,24 +24,41 @@ exports.dashboard = catchAsync(async (req, res, next) => {
 
 exports.getCourses = catchAsync(async (req, res, next) => {
   const courses = await Course.find();
-  const topCourses = await Course.aggregate([
+
+  const top3Courses = await Course.aggregate([
     {
-      $project: {
-        name: 1, // Include the name
-        summary: 1, // Include the summary
-        imageCover: 1, // Include the picture
-        coursePoints: 1, // Include the points
-        slug: 1,
-        numberOfUsers: { $size: "$users" }, // Count the number of users enrolled
+      $lookup: {
+        from: "progresses", // The collection to join
+        localField: "_id", // Field from the courses collection
+        foreignField: "course", // Field from the progresses collection matching localField
+        as: "completedProgresses", // The array field name where the joined documents will be placed
       },
     },
-    { $sort: { numberOfUsers: -1 } }, // Sort by numberOfUsers in descending order
-    { $limit: 3 }, // Limit to top 3
+    {
+      $project: {
+        name: 1,
+        summary: 1,
+        slug: 1,
+        imageCover: 1,
+        coursePoints: 1,
+        completedCount: {
+          $size: {
+            $filter: {
+              input: "$completedProgresses",
+              as: "progress",
+              cond: { $ne: ["$$progress.timeCompleted", null] }, // Only count progresses with a non-null timeCompleted
+            },
+          },
+        },
+      },
+    },
+    { $sort: { completedCount: -1 } }, // Sort by completedCount in descending order
+    { $limit: 3 }, // Limit to the top 3
   ]);
 
   res
     .status(200)
-    .render("courses", { title: "All courses", courses, topCourses });
+    .render("courses", { title: "All courses", courses, top3Courses });
 });
 
 exports.getCourse = catchAsync(async (req, res, next) => {
@@ -149,51 +166,5 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
   } else {
     // Handle the case where no file was uploaded
     res.status(400).send("No file uploaded.");
-  }
-});
-//TOP 3 COURSES
-exports.getTop3Courses = catchAsync(async (req, res, next) => {
-  try {
-    const topCourses = await Course.aggregate([
-      {
-        $lookup: {
-          from: "progresses", // The collection to join
-          localField: "_id", // Field from the courses collection
-          foreignField: "course", // Field from the progresses collection matching `localField`
-          as: "completedProgresses", // The array field name where the joined documents will be placed
-        },
-      },
-      {
-        $project: {
-          name: 1,
-          summary: 1,
-          imageCover: 1,
-          coursePoints:1,
-          completedCount: {
-            $size: {
-              $filter: {
-                input: "$completedProgresses",
-                as: "progress",
-                cond: { $ne: ["$$progress.timeCompleted", null] }, // Only count progresses with a non-null `timeCompleted`
-              },
-            },
-          },
-        },
-      },
-      { $sort: { completedCount: -1 } }, // Sort by completedCount in descending order
-      { $limit: 3 }, // Limit to the top 3
-    ]);
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        courses: topCourses,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      message: err,
-    });
   }
 });

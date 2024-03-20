@@ -22,7 +22,7 @@ router.get(
 router.get(
   "/top-3-courses",
   authController.protect,
-  viewsController.getTop3Courses
+  viewsController.getCourses
 );
 router.get(
   "/account/uploadPhoto",
