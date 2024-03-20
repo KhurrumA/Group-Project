@@ -128,21 +128,6 @@ exports.getUploadPhoto = (req, res) => {
   });
 };
 
-// exports.uploadPhoto = catchAsync(async (req, res) => {
-//   console.log(" i am in upload views");
-//   console.log(req);
-//   const user = req.user._id;
-//   console.log(user);
-//   const updatedUser = await User.findByIdAndUpdate(user, {
-//     photo: req.params.photo,
-//   });
-//   console.log(updatedUser);
-//   res.status(200).render("updatePicture", {
-//     title: "Upload Picture",
-//     user: updatedUser,
-//   });
-// });
-
 exports.uploadPhoto = catchAsync(async (req, res) => {
   console.log(req);
   // Assuming 'photo' is the name of your file input field and multer is set up correctly
