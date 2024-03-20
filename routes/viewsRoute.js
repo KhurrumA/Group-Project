@@ -18,6 +18,12 @@ router.get(
   authController.protect,
   viewsController.getCourseOverview
 );
+// Get top 3 courses
+router.get(
+  "/top-3-courses",
+  authController.protect,
+  viewsController.getTop3Courses
+);
 router.get(
   "/account/uploadPhoto",
   authController.protect,

@@ -135,3 +135,46 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
     res.status(400).send("No file uploaded.");
   }
 });
+//TOP 3 COURSES
+exports.getTop3Courses = catchAsync(async (req, res, next) => {
+  try {
+    const topCourses = await Course.aggregate([
+      {
+        $lookup: {
+          from: "progresses", // The collection to join
+          localField: "_id", // Field from the courses collection
+          foreignField: "course", // Field from the progresses collection matching `localField`
+          as: "completedProgresses", // The array field name where the joined documents will be placed
+        },
+      },
+      {
+        $project: {
+          name: 1,
+          completedCount: {
+            $size: {
+              $filter: {
+                input: "$completedProgresses",
+                as: "progress",
+                cond: { $ne: ["$$progress.timeCompleted", null] }, // Only count progresses with a non-null `timeCompleted`
+              },
+            },
+          },
+        },
+      },
+      { $sort: { completedCount: -1 } }, // Sort by completedCount in descending order
+      { $limit: 3 }, // Limit to the top 3
+    ]);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        courses: topCourses,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+});
