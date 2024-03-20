@@ -1,4 +1,5 @@
 const Course = require("../models/courseModel");
+const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const Progress = require("../models/progressModel");
@@ -79,4 +80,58 @@ exports.getCourseOverview = catchAsync(async (req, res) => {
     title: course.name,
     course,
   });
+});
+
+//Get user account
+exports.getAccount = (req, res) => {
+  res.status(200).render("account", {
+    title: "Your account",
+  });
+};
+
+exports.getUploadPhoto = (req, res) => {
+  res.status(200).render("updatePicture", {
+    title: "Update Picture",
+  });
+};
+
+// exports.uploadPhoto = catchAsync(async (req, res) => {
+//   console.log(" i am in upload views");
+//   console.log(req);
+//   const user = req.user._id;
+//   console.log(user);
+//   const updatedUser = await User.findByIdAndUpdate(user, {
+//     photo: req.params.photo,
+//   });
+//   console.log(updatedUser);
+//   res.status(200).render("updatePicture", {
+//     title: "Upload Picture",
+//     user: updatedUser,
+//   });
+// });
+
+exports.uploadPhoto = catchAsync(async (req, res) => {
+  console.log(req);
+  // Assuming 'photo' is the name of your file input field and multer is set up correctly
+  if (req.file) {
+    const user = req.user._id;
+    const updatedUser = await User.findByIdAndUpdate(
+      user,
+      {
+        photo: req.file.filename, // Use the filename from the uploaded file
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    res.status(200).render("updatePicture", {
+      title: "Upload Picture",
+      user: updatedUser,
+    });
+  } else {
+    // Handle the case where no file was uploaded
+    res.status(400).send("No file uploaded.");
+  }
 });
