@@ -31,6 +31,7 @@ exports.getCourses = catchAsync(async (req, res, next) => {
         summary: 1, // Include the summary
         imageCover: 1, // Include the picture
         coursePoints: 1, // Include the points
+        slug: 1,
         numberOfUsers: { $size: "$users" }, // Count the number of users enrolled
       },
     },
