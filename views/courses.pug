@@ -13,7 +13,7 @@ block content
 
     h2.heading-secondary.heading-quick.ma-bt-lg.heading  OUR Top 3 Courses Are:
     .card-wrapper
-        each course in topCourses
+        each course in top3Courses
             .card.mb-3
                 .row.g-0 
                     .col-md-4 
@@ -28,8 +28,8 @@ block content
                         span.card__footer-text  points
                     p.card__ratings
                         s
-                        span.card__footer-value= course.numberOfUsers
-                        span.card__footer-text  enrolled users  
+                        span.card__footer-value= course.completedCount
+                        span.card__footer-text   users finished  
                     a.card__footer.btn.btn-primary.detail(href=`/course/${course.slug}`) Details  
                             
 
