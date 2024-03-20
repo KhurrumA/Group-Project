@@ -20,9 +20,4 @@ router
   .get(reviewController.getReview)
   .delete(authController.restrictTo("admin"), reviewController.deleteReview);
 
-// //GET REVIEW <=3
-// router
-//   .route("/review-stats")
-//   .get(authController.restrictTo("admin"), reviewController.getCourseStats);
-
 module.exports = router;
