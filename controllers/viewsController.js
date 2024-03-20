@@ -75,7 +75,7 @@ exports.postReview = catchAsync(async (req, res) => {
 
 exports.getCourseOverview = catchAsync(async (req, res) => {
   const course = await Course.findOne({ slug: req.params.slug });
-  res.status(200).render("courseOverview", {
+  res.status(200).render("ibmCourse", {
     title: course.name,
     course,
   });
