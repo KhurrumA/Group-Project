@@ -24,8 +24,23 @@ exports.dashboard = catchAsync(async (req, res, next) => {
 
 exports.getCourses = catchAsync(async (req, res, next) => {
   const courses = await Course.find();
+  const topCourses = await Course.aggregate([
+    {
+      $project: {
+        name: 1, // Include the name
+        summary: 1, // Include the summary
+        imageCover: 1, // Include the picture
+        coursePoints: 1, // Include the points
+        numberOfUsers: { $size: "$users" }, // Count the number of users enrolled
+      },
+    },
+    { $sort: { numberOfUsers: -1 } }, // Sort by numberOfUsers in descending order
+    { $limit: 3 }, // Limit to top 3
+  ]);
 
-  res.status(200).render("courses", { title: "All courses", courses });
+  res
+    .status(200)
+    .render("courses", { title: "All courses", courses, topCourses });
 });
 
 exports.getCourse = catchAsync(async (req, res, next) => {
