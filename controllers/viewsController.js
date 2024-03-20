@@ -166,6 +166,9 @@ exports.getTop3Courses = catchAsync(async (req, res, next) => {
       {
         $project: {
           name: 1,
+          summary: 1,
+          imageCover: 1,
+          coursePoints:1,
           completedCount: {
             $size: {
               $filter: {
