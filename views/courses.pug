@@ -10,6 +10,29 @@ block content
             h1 Build your future today!
             p Explore new technologies, build skills that are foundational for the workplace, and earn digital credentials to show what you’ve learned—all for free.
 
+
+    h2.heading-secondary.heading-quick.ma-bt-lg.heading Top 3 Courses Are:
+    .card-wrapper
+        each course in courses.slice(0,1)
+            .card.mb-3
+                .row.g-0 
+                    .col-md-4 
+                        img.img-fluid-rounded-start(src=`img/courses/${course.imageCover}` alt='Course image')
+                    .col-md-8 
+                        .card-body 
+                            h5.card-title= course.name 
+                            p.card-text= course.summary 
+                .card__footer 
+                    p 
+                        span.card__footer-value= course.coursePoints
+                        span.card__footer-text  points
+                    p.card__ratings
+                        span.card__footer-value= course.ratingsAverage
+                        span.card__footer-text=  ` rating(${course.ratingsQuantity})`  
+                    a.card__footer.btn.btn-primary.detail(href=`/course/${course.slug}`) Details  
+                            
+
+
     h2.heading-secondary.heading-quick.ma-bt-lg.heading Explore the courses below!
     .card-wrapper
         each course in courses
@@ -30,16 +53,4 @@ block content
                         span.card__footer-text=  ` rating(${course.ratingsQuantity})`  
                     a.card__footer.btn.btn-primary.detail(href=`/course/${course.slug}`) Details  
                             
-                        
-
-
-
-
-
-
-
-
-
-
-
-      
+                    
