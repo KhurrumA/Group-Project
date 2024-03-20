@@ -1,22 +1,20 @@
-.main-container
-    .sidebar
-        a(href="#" class="button hover:bg-blue-700") Add Friend
-        br
-        br
-        a(href="#" class="button hover:bg-blue-700") Leaderboard
-        br
-        br
-        a(href="#" class="button hover:bg-blue-700") Ranking
-        br
-        br
-        a(href="#" class="button hover:bg-blue-700") Friends
-        br
-        br
-        a(href="#" class="button hover:bg-blue-700") Upload Picture
-        br
-        br
-      .content
-        .welcome= `Welcome, ${user.name.toUpperCase()} (Level: ${user.rank})`
-        p.description Welcome back! It's great to see you again. Explore your profile and make the most of our features.
+block append head 
+    link(rel='stylesheet' href='/css/profile.css')
+    link(rel='stylesheet' href='/css/style.css')
+
+
+.sidebar
+    h2.heading-secondary.ma-bt-md.setting Your account settings
+    a.button.hover.border-green-500.link(href='/account/uploadPhoto') Update Picture
+    br
+    a.button.hover.border-green-500.link(href="#") Add Friend
+    br
+    a.button.hover.border-green-500.link(href="#") Leaderboard
+    br
+    a.button.hover.border-green-500.button.hover.border-green-500.link(href="#") Friends
+    br
+    a.button.hover.border-green-500.link(href="#") Ranking
+    br
+  
 
          

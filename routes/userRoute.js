@@ -4,6 +4,9 @@ const pointsController = require("./../controllers/pointsController");
 const express = require("express");
 
 const router = express.Router();
+
+//ACCOUNT
+router.get("/me", userController.getMe, userController.getUser);
 //SIGNUP
 router.post("/signup", authController.registerUser);
 //LOGIN
@@ -42,5 +45,9 @@ router.get(
   userController.analytics
 );
 //GET FRIEND LEADERBOARD
-router.get("/friendsLeaderboard", authController.protect, userController.friendsLeaderboard);
+router.get(
+  "/friendsLeaderboard",
+  authController.protect,
+  userController.friendsLeaderboard
+);
 module.exports = router;

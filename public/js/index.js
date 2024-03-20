@@ -3,6 +3,7 @@
 import "@babel/polyfill";
 import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
+import { updateSettings } from "./userAccount";
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -13,6 +14,7 @@ const enrollMe = document.querySelector(".enroll__btn");
 const reviewForm = document.querySelector(".review-form");
 const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
+const uploadPhoto = document.querySelector(".form-user-data");
 
 if (loginForm) {
   console.log("i am inside loginform");
@@ -83,4 +85,19 @@ if (startCourse) {
       start(courseId);
     });
   }
+}
+
+//Upload/Update Profile Picture
+if (uploadPhoto) {
+  console.log(" i am in upload photo");
+  uploadPhoto.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // const photo = document.getElementById("photo").file[0];
+    // updateSettings(photo);
+    const form = new FormData();
+    //append all the data to the form
+    form.append("photo", document.getElementById("photo").files[0]);
+    console.log(form);
+    updateSettings(form, "photo");
+  });
 }
