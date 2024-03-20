@@ -13,7 +13,7 @@ router.get("/login", authController.isLoggedIn, viewsController.getLoginForm);
 router.get("/signup", viewsController.getSignupForm);
 router.get("/review/:slug", authController.protect, viewsController.postReview);
 router.get(
-  "/courseOverview/:slug",
+  "/ibmCourse/:slug",
   authController.protect,
   viewsController.getCourseOverview
 );
