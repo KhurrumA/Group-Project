@@ -66,7 +66,6 @@ app.use("/", viewRoute);
 app.use("/v1/users", userRoute);
 app.use("/v1/courses", courseRoute);
 app.use("/v1/reviews", reviewRoute);
-//app.use("/v1/progress", progressRoute);
 
 //Handling unhandled requests
 app.all("*", (req, res, next) => {
