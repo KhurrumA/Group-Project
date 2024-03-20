@@ -222,25 +222,36 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   const userId = req.user._id; // Getting user id
 
   // Find the user with their friends' details populated
-  const userWithFriends = await User.findById(userId).populate('friends', 'name points Rank');
+  const userWithFriends = await User.findById(userId).populate(
+    "friends",
+    "name points Rank"
+  );
 
   if (!userWithFriends) {
     return next(new appError("User not found", 404));
   }
 
   // Sorting the friends based on points in descending order
-  const sortedFriends = userWithFriends.friends.sort((a, b) => b.points - a.points);
+  const sortedFriends = userWithFriends.friends.sort(
+    (a, b) => b.points - a.points
+  );
 
   // Returning the sorted friends list, including their ranks
   res.status(200).json({
     status: "success",
     data: {
-      leaderboard: sortedFriends.map(friend => ({
+      leaderboard: sortedFriends.map((friend) => ({
         id: friend._id,
         name: friend.name,
         points: friend.points,
-        rank: friend.Rank
+        rank: friend.Rank,
       })),
     },
   });
 });
+
+// /ME ENDPOINT
+exports.getMe = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
