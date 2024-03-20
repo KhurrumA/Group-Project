@@ -3,10 +3,21 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     height: 100%;
 }
 
+
+.save__settings{
+    background-color: green;
+    color: white;;
+  }
+
+
+.upload{
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
 .navbar .logo {
     display: flex;
     align-items: center;
@@ -63,12 +74,12 @@ body {
     padding-bottom: 10px;
     height: calc(100vh - 70px);
     margin: 0;
-    width: 100%;
+    width: auto;
 }
 
 .sidebar {
-    width: 200px;
-    height: 85%;
+    width: auto;
+    height: auto;
     background-color: white;
     padding: 22px;
     position: relative;
@@ -80,18 +91,23 @@ body {
 
 .content {
     width: calc(100% - 400px);
-    background-color: white;
+    background-color: rgba(66, 151, 225, 0.1);
     padding: 20px;
-    height: 85%;
+    height: 100%;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 2px 4px gray;
     margin-left: 10px;
     margin-right: 75px;
     flex-grow: 1;
-    padding: 20px;
     max-width: calc(100% - 220px);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center the content */
+    justify-content: center; /* Vertically center the content */
+    text-align: center; /* Center the text */
+
 }
 
 .button {
@@ -108,14 +124,31 @@ body {
 }
 
 .welcome {
-    font-size: 24px;
+    font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 20px; 
+    background-image: linear-gradient(to right, #180375, #1d2061);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 0.1rem;
 }
 
 .description {
-    font-size: 16px;
+    font-size: 25px;
     margin-bottom: 20px;
+    
+}
+.setting{
+    background-image: linear-gradient(to right, #180375, #1d2061);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.link{
+    font-family: "Heiti SC";
 }
 
 *,

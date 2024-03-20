@@ -693,7 +693,80 @@ h2{
 .heading-secondary--error {
   font-size: 3.5rem;
 }
+.form__label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
 
+.form__photo-upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.form__user-photo {
+  height: 7.5rem;
+  width: 7.5rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.form__upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.form__upload:focus + label {
+  outline: 3px solid #3f2ce3;
+  outline-offset: 3px;
+}
+
+.form__upload + label {
+  color: #4b495d;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  padding: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.form__upload + label:hover {
+  color: #555555;
+  border-radius: 3%;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.save__settings{
+  background-color: green;
+  color: white;
+  width: auto;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+.save__settings:hover{
+  border-radius: 5%;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+
+}
 
 
 
