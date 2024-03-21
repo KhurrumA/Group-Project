@@ -117,13 +117,13 @@ exports.getCourseOverview = catchAsync(async (req, res) => {
 
 //Get user account
 exports.getUserAccount = (req, res) => {
-  res.status(200).render("userAccount", {
+  res.status(200).render("user/userAccount", {
     title: "Your account",
   });
 };
 
 exports.getUploadPhoto = (req, res) => {
-  res.status(200).render("updatePicture", {
+  res.status(200).render("user/updatePicture", {
     title: "Update Picture",
   });
 };
@@ -144,7 +144,7 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
       }
     );
 
-    res.status(200).render("updatePicture", {
+    res.status(200).render("user/updatePicture", {
       title: "Upload Picture",
       user: updatedUser,
     });
@@ -156,16 +156,21 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
 
 //ADMIN
 
-//Get ADMIN account
-
+//Dashboard
 exports.adminDashboard = catchAsync(async (req, res, next) => {
-  res.status(200).render("adminDashboard", {
+  res.status(200).render("admin/adminDashboard", {
     title: "Dashboard",
   });
 });
 
+//Account
 exports.getAdminAccount = (req, res) => {
-  res.status(200).render("adminAccount", {
+  res.status(200).render("admin/adminAccount", {
     title: "Your account",
   });
 };
+exports.adminCOurses = catchAsync(async (req, res, next) => {
+  res.status(200).render("admin/adminCourses", {
+    title: "Admin",
+  });
+});
