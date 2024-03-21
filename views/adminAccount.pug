@@ -1,0 +1,9 @@
+extends base
+
+
+block content 
+    include headerCourse 
+    include navAdmin
+        .content 
+            .welcome= `Welcome, ${user.name.toUpperCase()} (Level: ${user.Rank})`
+            p.description Welcome back! It's great to see you again. Explore your profile and make the most of our features.
