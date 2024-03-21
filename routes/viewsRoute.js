@@ -6,7 +6,19 @@ const router = express.Router();
 
 //RENDERING pug file
 router.get("/", authController.isLoggedIn, viewsController.getLanding);
-router.get("/account", authController.protect, viewsController.getAccount);
+router.get("/account", authController.protect, viewsController.getUserAccount);
+router.get(
+  "/admin",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.getAdminAccount
+);
+router.get(
+  "/admin-dashboard",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.adminDashboard
+);
 router.get("/dashboard", authController.protect, viewsController.dashboard);
 router.get("/courses", authController.protect, viewsController.getCourses);
 router.get("/course/:slug", authController.protect, viewsController.getCourse);
