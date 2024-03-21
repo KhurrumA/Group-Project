@@ -16,9 +16,12 @@ export const login = async (email, password) => {
     });
     if (res.data.status === "success") {
       showAlert("success", "Logged in successfully");
+      const userRole = res.data.data.user.role;
+      const dashboardPath =
+        userRole === "admin" ? "/admin-dashboard" : "/dashboard"; //get the correct dashboard based on the user role
       window.setTimeout(() => {
-        location.assign("/dashboard");
-      }, 1500); //take 1.5 sec to load the home page
+        location.assign(dashboardPath);
+      }, 1500);
     }
   } catch (err) {
     const htmlContent = err.response.data;
