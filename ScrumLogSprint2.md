@@ -78,7 +78,7 @@ Main objective is to complete the frontend and backend for user stories.
   - User profile page is complete.
 - **Zainab:**
   - Completed leaderboard page and friends page.
-  - Backend has been completed and the remaining front end will be completed before Wednesday. 
+- Backend has been completed and the remaining front end will be completed before Wednesday. 
 
 ### Meeting 2 Notes
 
