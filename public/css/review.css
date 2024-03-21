@@ -127,3 +127,13 @@ button:hover {
 .rev{
     margin-left: 0rem;
 }
+
+.remove-review-btn {
+    background-color: #0F62FE;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}

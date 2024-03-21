@@ -42,7 +42,7 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 
 - **Week:** 11/03/2024
 - **Meeting Date:** 11/03/2024, 13/03/2024
-- **Scrum Master:** Zainab Patel (zp81)
+- **Scrum Master:** Zainab Patel (zp81)(11/03/2024), Taran Singh (ts444)(13/04/2024)
 - **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Purpose of the Meeting
@@ -78,17 +78,12 @@ Main objective is to complete the frontend and backend for user stories.
   - User profile page is complete.
 - **Zainab:**
   - Completed leaderboard page and friends page.
+- Backend has been completed and the remaining front end will be completed before Wednesday. 
 
 ### Meeting 2 Notes
 
 Most of backend is completed. Next scrum master has also been agreed.
 
-## Week 3 Details
-
-- **Week:** 18/03/2024
-- **Meeting Date:** 13/03/2024
-- **Scrum Master:** Taran Singh (ts444)
-- **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Purpose of the Meeting
 
@@ -105,6 +100,39 @@ To discuss progress made and what else that needs to be completed.
   - Manpreet : Finish error handling.
   - Khurrum and David Junior : Finish working on the leaderboard.
 
-### Meeting Notes
+### Meeting 3 Notes
 
 Next Meeting will be held on Monday 18/02/2024 where everything should be completed so that we can start to integrate front-end and back-end.
+
+## Week 3 Details
+
+- **Week:** 18/03/2024
+- **Meeting Date:** 18/03/2024, 20/03/2024
+- **Scrum Master:** Favour Cole (fc182)(18/03/2024), David Sarkodie Junior(dojs1) (20/03/2024)
+- **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Taran(ts444)
+
+### Purpose of the Meeting
+
+To discuss progress made and how to start integration.
+
+### Tasks Assigned to Each Member
+
+**Frontend Team**
+
+To work on the user manual.
+
+  - Taran : To work on login & registration pages
+  - Zainab : To work on dashboard & course pages 
+  - Mahirul : To work on cover, contents, landing, points pages.
+  
+**Backend team**
+
+To work on missing front end pages & integration.
+
+  - Manpreet : To complete basic structure for user & admin and also work on upload picture, courses and course stats integration.
+  - Khurrum: To convert badges html to pug and also work on add review & improvements pages integration.
+  - David Junior : To work on the add friends, friends & leaderboard integration.
+
+### Meeting Notes
+
+To try and have the user manual and integration completed by next Monday (25/03/2024)
