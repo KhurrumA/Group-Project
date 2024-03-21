@@ -17,8 +17,6 @@ header
                     a.nav__el(href='/admin')
                         img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
                         span.nav__el.username= user.name.split(' ')[0]
-
-
         else 
             div
                 a.text-white.bg-blue-500.hover-bg-blue-700.font-medium.py-2.px-4.rounded(href='/login') Login
