@@ -47,4 +47,7 @@ router.patch(
   viewsController.uploadPhoto
 );
 
+//ADMIN
+router.get("/admin/courses", viewsController.adminCOurses);
+
 module.exports = router;
