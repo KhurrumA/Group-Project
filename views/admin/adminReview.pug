@@ -9,13 +9,13 @@
         button.my-2.px-4.py-2.bg-blue-500.duration-200.text-white(class='hover:bg-blue-700') Delete
         
 //- new code starts here
-extends base 
+extends ../../views/base 
 
 block append head 
     link(rel='stylesheet' href='/css/review.css')
 
 block content
-    include headerCourse
+    include ../../views/headerCourse
     .container-revform
         header
             h1.review-title Share your thoughts with us
