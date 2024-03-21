@@ -116,8 +116,8 @@ exports.getCourseOverview = catchAsync(async (req, res) => {
 });
 
 //Get user account
-exports.getAccount = (req, res) => {
-  res.status(200).render("account", {
+exports.getUserAccount = (req, res) => {
+  res.status(200).render("userAccount", {
     title: "Your account",
   });
 };
@@ -153,3 +153,19 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
     res.status(400).send("No file uploaded.");
   }
 });
+
+//ADMIN
+
+//Get ADMIN account
+
+exports.adminDashboard = catchAsync(async (req, res, next) => {
+  res.status(200).render("adminDashboard", {
+    title: "Dashboard",
+  });
+});
+
+exports.getAdminAccount = (req, res) => {
+  res.status(200).render("adminAccount", {
+    title: "Your account",
+  });
+};
