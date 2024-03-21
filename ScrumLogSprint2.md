@@ -116,14 +116,15 @@ To discuss progress made and how to start integration.
 
 ### Tasks Assigned to Each Member
 
-- **Frontend Team**
+**Frontend Team**
 
 To work on the user manual.
 
   - Taran : To work on login & registration pages
   - Zainab : To work on dashboard & course pages 
   - Mahirul : To work on cover, contents, landing, points pages.
-- **Backend team**
+  
+**Backend team**
 
 To work on missing front end pages & integration.
 
