@@ -3,7 +3,7 @@ TESTED BY: MANPREET KAUR
 TESTED ON: 20th March
 
     - TEST #1 - Is the route only accesible by the admin?
-        [Expected] Only the admin should be to access this route (http://localhost:3000/account/uploadPhoto)
+        [Expected] Only the admin should be to access this route (http://localhost:3000/admin/comments)
         [Actual] The access has been garanted only to the admin .
         [Test Result]   Pass ✅
 
