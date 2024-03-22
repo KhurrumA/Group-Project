@@ -4,6 +4,7 @@ import "@babel/polyfill";
 import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
 import { updateSettings } from "./userAccount";
+import { deleteReviews } from "./adminAccount";
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -15,7 +16,9 @@ const reviewForm = document.querySelector(".review-form");
 const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
+const deleteReview = document.querySelectorAll(".delete_btns");
 
+/***************************  USER  ************************************** */
 if (loginForm) {
   console.log("i am inside loginform");
   //the .form is the class that has been used in the loginForm.pug file
@@ -101,3 +104,27 @@ if (uploadPhoto) {
     updateSettings(form, "photo");
   });
 }
+
+/***************************  ADMIN  ************************************** */
+
+//Delete reviews
+if (deleteReview) {
+  for (const btn of deleteReview) {
+    btn.addEventListener("click", () => {
+      const reviewId = btn.dataset.reviewId;
+      deleteReviews(reviewId);
+    });
+  }
+  // deleteReview.addEventListener("click", () => {
+  //   const reviewId = deleteReview.dataset.reviewId;
+  //   deleteReviews(reviewId);
+  // });
+}
+
+// document.addEventListener("click", function (event) {
+//   if (event.target.classList.contains("delete_btns")) {
+//     // Handle delete button click
+//     const reviewId = event.target.dataset.reviewId;
+//     deleteReviews(reviewId);
+//   }
+// });
