@@ -9,15 +9,18 @@ router.use(authController.protect); //protecting the below routes
 
 //GET ALL THE REVIEWS AND CREATE A REVIEW
 router.route("/").get(reviewController.getAllReviews);
+
 router.post(
   "/:id",
   authController.restrictTo("user"), //only the users can post reviews
   reviewController.postReview
 );
+
 //DELETE REVIEW WITH GIVEN ID
-router
-  .route("/:id")
-  .get(reviewController.getReview)
-  .delete(authController.restrictTo("admin"), reviewController.deleteReview);
+router.delete(
+  "/:id",
+  authController.restrictTo("admin"),
+  reviewController.deleteReview
+);
 
 module.exports = router;

@@ -7,18 +7,6 @@ const router = express.Router();
 //RENDERING pug file
 router.get("/", authController.isLoggedIn, viewsController.getLanding);
 router.get("/account", authController.protect, viewsController.getUserAccount);
-router.get(
-  "/admin",
-  authController.protect,
-  authController.restrictTo("admin"),
-  viewsController.getAdminAccount
-);
-router.get(
-  "/admin-dashboard",
-  authController.protect,
-  authController.restrictTo("admin"),
-  viewsController.adminDashboard
-);
 router.get("/dashboard", authController.protect, viewsController.dashboard);
 router.get("/courses", authController.protect, viewsController.getCourses);
 router.get("/course/:slug", authController.protect, viewsController.getCourse);
@@ -36,11 +24,13 @@ router.get(
   authController.protect,
   viewsController.getCourses
 );
+//Upload picture form
 router.get(
   "/account/uploadPhoto",
   authController.protect,
   viewsController.getUploadPhoto
 );
+//Upload picture
 router.patch(
   "/account/uploadPhoto",
   authController.protect,
@@ -48,6 +38,40 @@ router.patch(
 );
 
 //ADMIN
-router.get("/admin/courses", viewsController.adminCOurses);
+
+//Get dashboard
+router.get(
+  "/admin-dashboard",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.adminDashboard
+);
+
+//Get account
+router.get(
+  "/admin",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.getAdminAccount
+);
+
+//Get all comments
+router.get(
+  "/admin/comments",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.getAllReviews
+);
+
+//Delete review
+router.delete(
+  "/reviews/:id",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.deleteReview
+);
+
+//Get the courses and details
+router.get("/admin/courses", viewsController.adminCourses);
 
 module.exports = router;
