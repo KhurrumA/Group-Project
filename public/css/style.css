@@ -767,6 +767,12 @@ h2{
   transform: translateY(-2px);
 
 }
+.nav__el-courses:disabled {
+  opacity: 0.5; /* makes the button look faded */
+  cursor: not-allowed; /* changes the cursor to indicate the button is disabled */
+  pointer-events: none; /* ensures the button cannot be clicked */
+}
+
 
 
 

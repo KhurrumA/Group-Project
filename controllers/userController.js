@@ -31,6 +31,11 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
     return next(new appError("You are already enrolled in this course", 400));
   }
 
+  //check if the user is admin
+  if (user.role === "admin") {
+    return next(new appError("You do not have the permission to enroll.", 400));
+  }
+
   //if not enrolled and the couse exists --> enroll user
   course.users.push(user._id);
   await course.save();

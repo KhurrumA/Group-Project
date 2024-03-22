@@ -23,7 +23,8 @@ export const signup = async (name, email, password, cpassword) => {
       }, 1500); //take 1.5 sec to load the home page
     }
   } catch (err) {
-    showAlert("error", "Wrong email or password");
+    console.log("i am err", err);
+    showAlert("error", "Email already in use!");
   }
 };
 
@@ -38,13 +39,15 @@ export const enroll = async (courseId) => {
     });
     if (res.data.status === "success") {
       console.log("Enrollment completed");
+      showAlert("success", "Enrollment completed");
       window.setTimeout(() => {
         location.assign("/dashboard");
-      }, 1500); //take 1.5 sec to load the home page
+      }, 1000); //take 1.5 sec to load the home page
     }
   } catch (err) {
+    showAlert("error", "You are already enrolled!");
     window.setTimeout(() => {
       location.assign("/dashboard");
-    }, 1500); //take 1.5 sec to load the home page
+    }, 1000); //take 1.5 sec to load the home page
   }
 };

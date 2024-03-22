@@ -4,6 +4,7 @@ import "@babel/polyfill";
 import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
 import { updateSettings } from "./userAccount";
+import { deleteReviews } from "./adminAccount";
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -15,7 +16,9 @@ const reviewForm = document.querySelector(".review-form");
 const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
+const deleteReview = document.querySelectorAll(".delete_btns");
 
+/***************************  USER  ************************************** */
 if (loginForm) {
   console.log("i am inside loginform");
   //the .form is the class that has been used in the loginForm.pug file
@@ -37,9 +40,33 @@ if (signupForm) {
     e.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const cpassword = document.getElementById("cpassword").value;
-    signup(name, email, password, cpassword);
+    const password = document.getElementById("password");
+    const cpassword = document.getElementById("cpassword");
+
+    // Create a message container
+    let messageContainer = document.getElementById("message-container");
+    if (!messageContainer) {
+      messageContainer = document.createElement("div");
+      messageContainer.id = "message-container";
+      signupForm.appendChild(messageContainer);
+    }
+
+    // Check if passwords match
+    if (password.value !== cpassword.value) {
+      // Highlight fields in red
+      password.style.borderColor = "red";
+      cpassword.style.borderColor = "red";
+      // Display a message to the user
+      messageContainer.textContent =
+        "Passwords do not match. Please try again.";
+      messageContainer.style.color = "red";
+    } else {
+      // Remove the red border and clear previous messages
+      password.style.borderColor = "";
+      cpassword.style.borderColor = "";
+      messageContainer.textContent = "";
+      signup(name, email, password.value, cpassword.value);
+    }
   });
 }
 
@@ -100,4 +127,16 @@ if (uploadPhoto) {
     console.log(form);
     updateSettings(form, "photo");
   });
+}
+
+/***************************  ADMIN  ************************************** */
+
+//Delete reviews
+if (deleteReview) {
+  for (const btn of deleteReview) {
+    btn.addEventListener("click", () => {
+      const reviewId = btn.dataset.reviewId;
+      deleteReviews(reviewId);
+    });
+  }
 }

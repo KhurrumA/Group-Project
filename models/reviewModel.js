@@ -55,54 +55,79 @@ reviewSchema.pre(/^find/, function (next) {
 
 //CALCULATE AVERAGE RATING Middleware - Static methods
 //calcAverageRatings is the name given to the function
-
 reviewSchema.statics.calAverageRatings = async function (courseId) {
   const stats = await this.aggregate([
     {
-      //1)Select all the reviews that have the same course ID
       $match: { course: courseId },
     },
     {
-      //Calculate the statistics and group the reviews by course
       $group: {
         _id: "$course",
-        nRating: { $sum: 1 }, //add 1 for each course matched
-        average: { $avg: "$rating" }, //name of the field where you want to calculate the average from
+        nRating: { $sum: 1 },
+        totalRating: { $sum: "$rating" }, // Sum of all ratings
       },
     },
-  ]); //this points directly to the model and aggregate is always called on the model
-  console.log(stats);
+  ]);
+
   if (stats.length > 0) {
+    const nRating = stats[0].nRating;
+    const totalRating = stats[0].totalRating;
+
+    const average = totalRating / nRating;
+
     await Course.findByIdAndUpdate(courseId, {
-      ratingsAverage: stats[0].average,
-      ratingsQuantity: stats[0].nRating,
+      ratingsAverage: average,
+      ratingsQuantity: nRating,
     });
   } else {
+    // If there are no reviews, set ratingsAverage to 0 and ratingsQuantity to 0
     await Course.findByIdAndUpdate(courseId, {
       ratingsAverage: 0,
-      ratingsQuantity: 4.5,
+      ratingsQuantity: 0,
     });
   }
 };
 
-reviewSchema.post("save", function () {
+reviewSchema.pre(
+  "remove",
+  { document: true, query: false },
+  async function (next) {
+    // Access the current review document
+    const review = this;
+
+    try {
+      // Find the associated course and remove the review from its 'reviews' array
+      await Course.findByIdAndUpdate(review.course, {
+        $inc: { ratingsQuantity: -1 }, // Decrement ratingsQuantity by 1
+      });
+
+      // Recalculate the ratingsAverage of the course
+      await Course.calAverageRatings(review.course);
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+reviewSchema.post(["save", "remove"], function () {
   //this points to the current review constructor is the model that created that document
   this.constructor.calAverageRatings(this.course);
 });
 
-//FindByIdAndUpdate/FindByIdAndDelete
+// Pre hook for findOneAndDelete and findOneAndUpdate
 reviewSchema.pre(/^findOneAnd/, async function (next) {
-  //access the current review document
-  //created the property on revi
-  this.revi = await this.findOne();
+  this.revi = await this.clone().findOne();
   next();
 });
 
+// Post hook for findOneAndDelete and findOneAndUpdate
 reviewSchema.post(/^findOneAnd/, async function () {
-  //The query finished and review has been updated
-  //this.revi is as the first post
-  //await this.findOne(); does not work here, quert has already executed
-  await this.revi.constructor.calAverageRatings(this.revi.course);
+  // If revi is set, call calAverageRatings
+  if (this.revi) {
+    await this.revi.constructor.calAverageRatings(this.revi.course);
+  }
 });
 
 const Review = mongoose.model("Review", reviewSchema);
