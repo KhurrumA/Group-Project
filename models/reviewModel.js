@@ -71,7 +71,7 @@ reviewSchema.statics.calAverageRatings = async function (courseId) {
       },
     },
   ]); //this points directly to the model and aggregate is always called on the model
-  console.log(stats);
+  // console.log(stats);
   if (stats.length > 0) {
     await Course.findByIdAndUpdate(courseId, {
       ratingsAverage: stats[0].average,
@@ -94,7 +94,7 @@ reviewSchema.post("save", function () {
 reviewSchema.pre(/^findOneAnd/, async function (next) {
   //access the current review document
   //created the property on revi
-  this.revi = await this.findOne();
+  this.revi = await this.findOne().clone();
   next();
 });
 
