@@ -1,4 +1,3 @@
-//create update data function
 /* easlint-disable */
 import axios from "axios";
 import { showAlert } from "./alerts";
