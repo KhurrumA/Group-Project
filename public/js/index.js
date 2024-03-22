@@ -139,16 +139,4 @@ if (deleteReview) {
       deleteReviews(reviewId);
     });
   }
-  // deleteReview.addEventListener("click", () => {
-  //   const reviewId = deleteReview.dataset.reviewId;
-  //   deleteReviews(reviewId);
-  // });
 }
-
-// document.addEventListener("click", function (event) {
-//   if (event.target.classList.contains("delete_btns")) {
-//     // Handle delete button click
-//     const reviewId = event.target.dataset.reviewId;
-//     deleteReviews(reviewId);
-//   }
-// });
