@@ -137,3 +137,7 @@ button:hover {
     cursor: pointer;
     float: right;
 }
+
+.title{
+    margin-bottom: 20px;;
+}

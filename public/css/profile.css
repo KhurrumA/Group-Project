@@ -147,6 +147,84 @@ body {
     font-style: italic;
 }
 
+.title{
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.reviews-user{
+    font-weight: bold;
+    margin-top: -2.5rem;
+}
+
+.delete_btns {
+    background-color: #ff4d4d; /* Red color for delete */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: -2.5rem;
+  }
+  
+.delete_btns:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #ff4d4d;
+  }
+  
+.delete__reviews {
+    width: 29rem;
+    height: auto;
+    padding: 4rem;
+    margin: 5px;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    scroll-snap-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.content_delete {
+    width: calc(100% - 400px);
+    background-color: rgba(66, 151, 225, 0.1);
+    padding: 20px;
+    height: 100%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px gray;
+    margin-left: 10px;
+    margin-right: 75px;
+    flex-grow: 1;
+    max-width: calc(100% - 220px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row; /* Align children in a row */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: flex-start; /* Align items to the start of the container */
+    align-items: flex-start; /* Align items to the start of the cross axis */
+    gap: 10px; /* This sets a gap between the cards */
+    text-align: center; /* Center the text */
+
+}
+
+
 *,
 ::before,
 ::after {
