@@ -22,10 +22,13 @@ block content
                                 p.card-text= course.summary 
                     .card__footer__dashboard
                         - let progressI = progress.find(p => p.course.toString() === course._id.toString())
-                        if progressI && progressI.timeStart && progressI.timeCompleted
+                        if progressI && progressI.timeStart
+                            p.card-text= `Start: ${new Date(progressI.timeStart).toLocaleDateString()}`
+                            a.card__footer.ml-4.bg-green-500.text-white.border.revc.border-green-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/dashboard`) Complete
+                        if progressI && progressI.timeComplete
                             p.card-text= `Start: ${new Date(progressI.timeStart).toLocaleDateString()} End:  ${new Date(progressI.timeCompleted).toLocaleDateString()}`
                             a.card__footer.ml-4.text-blue-500.border.rev.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/review/${course.slug}`) Review
-                            a.card__footer.ml-4.bg-green-500.text-white.border.revc.border-green-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/dashboard`) Complete
+                            a.card__footer.ml-4.bg-green-500.text-white.border.revc.border-green-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/dashboard`) Completed
                        
                         else
                             a.card__footer.ml-4.text-blue-500.border.rev.border-blue-500.font-medium.py-2.px-4.rounded.nav__el-courses(href=`/review/${course.slug}`) Review
