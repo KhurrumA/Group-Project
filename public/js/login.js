@@ -24,16 +24,7 @@ export const login = async (email, password) => {
       }, 1500);
     }
   } catch (err) {
-    const htmlContent = err.response.data;
-    // Extract error message from HTML content
-    const errorRegex = /Error:\s(.*?)<br>/;
-    const match = htmlContent.match(errorRegex);
-    if (match && match[1]) {
-      const errorMessage = match[1];
-      showAlert("error", errorMessage); // Pass the error message to showAlert
-    } else {
-      console.log("Error message not found in HTML content.");
-    }
+    showAlert("error", "Incorrect email or password!");
   }
 };
 
@@ -75,12 +66,13 @@ export const reviews = async (review, rating, courseId) => {
       showAlert("success", "Thanks for your review");
       window.setTimeout(() => {
         location.assign("/dashboard");
-      }, 1500); //take 1.5 sec to load the home page
+      }, 1000); //take 1.5 sec to load the home page
     }
   } catch (err) {
+    showAlert("error", "You cannot review a course twice!");
     window.setTimeout(() => {
       location.assign("/dashboard");
-    }, 1500); //take 1.5 sec to load the home page
+    }, 1000); //take 1.5 sec to load the home page
   }
 };
 
