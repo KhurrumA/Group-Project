@@ -1,0 +1,14 @@
+Upload Picture (Issue #17)
+TESTED BY: MANPREET KAUR
+TESTED ON: 20th March
+
+    - TEST #1 - Is the route only accesible by the admin?
+        [Expected] Only the admin should be to access this route (http://localhost:3000/account/uploadPhoto)
+        [Actual] The access has been garanted only to the admin .
+        [Test Result]   Pass ✅
+
+    -TEST #2 - Can the admin delete review?
+        [Expected] The admin should be able to delete the review when he clicks on the delete button.
+        [Actual] The review has been successfully deleted from the databse.
+        [Test Result]   Pass ✅
+
