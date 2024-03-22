@@ -1,9 +1,13 @@
 const Course = require("../models/courseModel");
 const User = require("../models/userModel");
+const Review = require("../models/reviewModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const Progress = require("../models/progressModel");
 
+//USER
+
+//User dashboard
 exports.dashboard = catchAsync(async (req, res, next) => {
   //1) GET course DATA FROM COLLECTION
   const userId = req.user._id;
@@ -22,6 +26,7 @@ exports.dashboard = catchAsync(async (req, res, next) => {
   });
 });
 
+//Get all the courses
 exports.getCourses = catchAsync(async (req, res, next) => {
   const courses = await Course.find();
 
@@ -61,6 +66,7 @@ exports.getCourses = catchAsync(async (req, res, next) => {
     .render("courses", { title: "All courses", courses, top3Courses });
 });
 
+//Get specific course page
 exports.getCourse = catchAsync(async (req, res, next) => {
   //1) GET THE DATA including reviews and users
   const course = await Course.findOne({ slug: req.params.slug }).populate({
@@ -80,6 +86,7 @@ exports.getCourse = catchAsync(async (req, res, next) => {
   });
 });
 
+// Get login form
 exports.getLoginForm = (req, res) => {
   console.log("I am in view controller");
   res.status(200).render("login", {
@@ -87,18 +94,21 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
+//Get sign up form
 exports.getSignupForm = (req, res) => {
   res.status(200).render("register", {
     title: "Register Now",
   });
 };
 
+//Get the landing page
 exports.getLanding = (req, res) => {
   res.status(200).render("landing", {
     title: "Welcome",
   });
 };
 
+//Post review
 exports.postReview = catchAsync(async (req, res) => {
   const course = await Course.findOne({ slug: req.params.slug });
   res.status(200).render("review", {
@@ -107,6 +117,7 @@ exports.postReview = catchAsync(async (req, res) => {
   });
 });
 
+//Get the course (Simulation)
 exports.getCourseOverview = catchAsync(async (req, res) => {
   const course = await Course.findOne({ slug: req.params.slug });
   res.status(200).render("ibmCourse", {
@@ -122,21 +133,22 @@ exports.getUserAccount = (req, res) => {
   });
 };
 
+//Get photo upload page
 exports.getUploadPhoto = (req, res) => {
   res.status(200).render("user/updatePicture", {
     title: "Update Picture",
   });
 };
 
-exports.uploadPhoto = catchAsync(async (req, res) => {
+//Upload picture
+exports.uploadPhoto = catchAsync(async (req, res, next) => {
   console.log(req);
-  // Assuming 'photo' is the name of your file input field and multer is set up correctly
   if (req.file) {
     const user = req.user._id;
     const updatedUser = await User.findByIdAndUpdate(
       user,
       {
-        photo: req.file.filename, // Use the filename from the uploaded file
+        photo: req.file.filename,
       },
       {
         new: true,
@@ -149,27 +161,41 @@ exports.uploadPhoto = catchAsync(async (req, res) => {
       user: updatedUser,
     });
   } else {
-    // Handle the case where no file was uploaded
-    res.status(400).send("No file uploaded.");
+    next(new AppError("No file uplaoded", 400));
   }
 });
 
 //ADMIN
 
-//Dashboard
+//Admin Dashboard
 exports.adminDashboard = catchAsync(async (req, res, next) => {
   res.status(200).render("admin/adminDashboard", {
     title: "Dashboard",
   });
 });
 
-//Account
+//Get admin account
 exports.getAdminAccount = (req, res) => {
   res.status(200).render("admin/adminAccount", {
     title: "Your account",
   });
 };
-exports.adminCOurses = catchAsync(async (req, res, next) => {
+
+//Get all the reviews
+exports.getAllReviews = catchAsync(async (req, res, next) => {
+  const reviews = await Review.find()
+    .populate("user", "name")
+    .populate("course", "name");
+  res.status(200).render("admin/reviews", {
+    title: "Reviews",
+    reviews,
+  });
+});
+
+//Delete Review
+exports.deleteReview = async (req, res) => {};
+
+exports.adminCourses = catchAsync(async (req, res, next) => {
   res.status(200).render("admin/adminCourses", {
     title: "Admin",
   });
