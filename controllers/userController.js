@@ -248,6 +248,8 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
       })),
     },
   });
+  res.render('friendsLeaderboard', { leaderboard: sortedFriends });
+
 });
 
 // /ME ENDPOINT

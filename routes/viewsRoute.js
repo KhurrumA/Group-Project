@@ -34,5 +34,10 @@ router.patch(
   authController.protect,
   viewsController.uploadPhoto
 );
+router.get(
+  "/friendsLeaderboard",
+  authController.protect,
+  viewsController.friendsLeaderboard
+);
 
 module.exports = router;
