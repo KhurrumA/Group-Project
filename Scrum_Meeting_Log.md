@@ -202,7 +202,7 @@ Main objective for this meeting is to finish the demo.
 - **Week:** 18/03/2024
 - **Meeting Dates:** 18/03/2024
 - **Scrum Master:** Favour Cole (fc182)
-- **Missing Member(s):** Maclain Apsley-Turner(mat53), Taran Singh(ts444), Favour Cole(fc182) (18/03/2024)
+- **Missing Member(s):** Maclain Apsley-Turner(mat53), Taran Singh(ts444)
 
 ### Purpose of the Meeting
 
