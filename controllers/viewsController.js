@@ -187,6 +187,23 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   res.status(200).render("user/friendsLeaderboard", { leaderboard: sortedFriends });
 
 });
+//View Friends
+exports.friends = catchAsync(async (req, res, next) => {
+  const userId = req.user._id; // Getting user id
+
+  // Find the user with their friends' details populated
+  const userWithFriends = await User.findById(userId).populate(
+    "friends",
+    "name Rank"
+  );
+
+  if (!userWithFriends) {
+    return next(new AppError("User not found", 404));
+  }
+  // Returning the sorted friends list, including their ranks
+  res.status(200).render("user/friends", { friend: userWithFriends.friends });
+
+});
 
 //ADMIN
 

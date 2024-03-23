@@ -45,9 +45,4 @@ router.get(
   userController.analytics
 );
 //GET FRIEND LEADERBOARD
-router.get(
-  "/friendsLeaderboard",
-  authController.protect,
-  userController.friendsLeaderboard
-);
 module.exports = router;

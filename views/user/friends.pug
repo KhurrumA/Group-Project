@@ -1,0 +1,18 @@
+extends ../../views/base
+
+block content
+  include ../../views/headerCourse
+  .main-container
+    include navUser
+    .content
+      .table-title Friends
+      br
+      table#friends-table
+        thead
+          tr
+            th Username
+            th Rank
+          each user in friend
+            tr
+              td #{user.name}
+              td #{user.Rank} 

@@ -36,12 +36,18 @@ router.patch(
   authController.protect,
   viewsController.uploadPhoto
 );
+//GET FRIEND LEADERBOARD
 router.get(
   "/account/friendsLeaderboard",
   authController.protect,
   viewsController.friendsLeaderboard
 );
-
+//GET FRIENDS
+router.get(
+  "/account/friends",
+  authController.protect,
+  viewsController.friends
+);
 //ADMIN
 
 //Get dashboard
