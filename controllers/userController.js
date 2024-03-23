@@ -188,8 +188,9 @@ exports.addFriend = catchAsync(async (req, res, next) => {
       user: {
         id: updatedUser._id,
         name: updatedUser.name,
-      friends: updatedUser.friends
-    }
+        friends: updatedUser.friends, // This will return the updated list of friends
+      },
+    },
   });
 });
 
