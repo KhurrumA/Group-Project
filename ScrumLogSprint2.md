@@ -108,8 +108,8 @@ Next Meeting will be held on Monday 18/02/2024 where everything should be comple
 
 - **Week:** 18/03/2024
 - **Meeting Date:** 18/03/2024, 20/03/2024
-- **Scrum Master:** Favour Cole (fc182)(18/03/2024), David Sarkodie Junior(dojs1) (20/03/2024)
-- **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Taran(ts444)
+- **Scrum Master:** Favour Cole (fc182)(18/03/2024)
+- **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh(ts444)
 
 ### Purpose of the Meeting
 
