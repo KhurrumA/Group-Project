@@ -1,0 +1,19 @@
+extends ../../views/base
+
+block content
+  include  ../../views/headerCourse
+  .main-container
+    include navUser 
+    .content
+      .table-title Leaderboard
+      br
+      table#Leaderboard_table
+        tr
+          th Username
+          th Points
+          th Rank
+        each user in leaderboard
+          tr
+            td= user.name
+            td= user.points
+            td= user.Rank

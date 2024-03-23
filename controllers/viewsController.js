@@ -175,7 +175,7 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   );
 
   if (!userWithFriends) {
-    return next(new appError("User not found", 404));
+    return next(new AppError("User not found", 404));
   }
 
   // Sorting the friends based on points in descending order
@@ -184,7 +184,7 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   );
 
   // Returning the sorted friends list, including their ranks
-  res.status(200).render("friendsLeaderboard", { leaderboard: sortedFriends });
+  res.status(200).render("user/friendsLeaderboard", { leaderboard: sortedFriends });
 
 });
 

@@ -37,7 +37,7 @@ router.patch(
   viewsController.uploadPhoto
 );
 router.get(
-  "/friendsLeaderboard",
+  "/account/friendsLeaderboard",
   authController.protect,
   viewsController.friendsLeaderboard
 );
