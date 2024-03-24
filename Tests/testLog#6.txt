@@ -1,0 +1,25 @@
+TESTED BY: KHURRUM ARIF
+TESTED ON: 24th March
+
+    - TEST #1 - Is the route loading?
+        [Expected] Correct route should loading
+        [Actual] 
+        [Test Result]   
+
+    -TEST #2 - Are the badges that are locked the correct colour?
+        [Expected] The badges that are not achieved should be greyed out.
+        [Actual] 
+        [Test Result]   
+        
+    -TEST #3 - Are the badges that are unlocked the correct colour?
+        [Expected] The badges that are unlocked should not be greyed out and should be in full colour.
+        [Actual] 
+        [Test Result]   
+             
+    -TEST #3 - Is the page only accessible if the user is logged in?
+        [Expected] The will not be able to access this page if they are not logged in
+        [Actual] 
+        [Test Result]   
+
+
+
