@@ -5,7 +5,6 @@ import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
 import { updateSettings } from "./userAccount";
 import { deleteReviews } from "./adminAccount";
-import {searchUserByUsername, addFriend} from "./addFriend";
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -18,8 +17,6 @@ const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
 const deleteReview = document.querySelectorAll(".delete_btns");
-const addFriendButton = document.querySelectorAll(".addfriend");
-const searchForm = document.querySelectorAll(".search-container");
 
 /***************************  USER  ************************************** */
 if (loginForm) {
@@ -131,21 +128,7 @@ if (uploadPhoto) {
     updateSettings(form, "photo");
   });
 }
-//search for user
-if (searchForm) {
-  searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    searchUserByUsername(username);
-  });
-}
-//Add Friend
-if (addFriendButton) {
-  addFriendButton.addEventListener("click", () => {
-    const friendId = addFriendButton.dataset.friendId;
-    addFriend(friendId);
-  });
-}
+
 /***************************  ADMIN  ************************************** */
 
 //Delete reviews
