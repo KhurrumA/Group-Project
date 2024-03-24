@@ -1,0 +1,61 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Profile Page
+    link(rel='stylesheet', href='badges.css')
+    style.
+      /* Additional styling to display images as backgrounds for badge containers */
+      .badge-container .badge {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .badge-container .badge img.rank-image {
+        display: none; /* Hide the images */
+      }
+  body
+        nav.flex.justify-between.shadow-md.shadow-gray-400.items-center.py-6.px-52
+      a(href="#")
+        img(src="../../../public/img/ibm-logo.png", alt="IBM Logo", class="h-12")
+      div
+        a(href="#" class="text-white bg-blue-500 hover:bg-blue-700 font-medium py-2 px-4 rounded") Courses
+        a(href="#" class="ml-4 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-4 rounded") Logout
+    .main-container
+      .sidebar
+        a(href="#" class="button hover:bg-blue-700") Add Friend
+        br
+        br
+        a(href="#" class="button hover:bg-blue-700") Leaderboard
+        br
+        br
+        a(href="#" class="button hover:bg-blue-700") Ranking
+        br
+        br
+        a(href="#" class="button hover:bg-blue-700") Friends
+        br
+        br
+        a(href="#" class="button hover:bg-blue-700") Upload Picture
+        br
+        br
+      .content
+        h1 Ranking Page
+        //name and points
+        table
+          tr
+            th Name
+            td #{user.name} // Display user's name
+          tr
+            th Points
+            td #{user.points} // Display user's points
+        .badge-container
+          each rank, index in [100, 500, 1000, 1500, 2000]
+            - let pointsNeeded = rank;
+            - let isUnlocked = userPoints >= pointsNeeded; // Check if rank is unlocked for the user
+            .badge(data-level=index + 1, style=`background-image: url('../../../public/img/rank#{index + 1}.png');`)
+              // Set data-level attribute to specify the level
+              p POINTS: #{pointsNeeded}
+              h2 Level #{index + 1}
+              p #{user.name} 
+              p #{isUnlocked ? 'Unlocked' : 'Locked'} // Display 'Unlocked' or 'Locked' based on points
