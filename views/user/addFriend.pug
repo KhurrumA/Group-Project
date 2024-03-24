@@ -1,0 +1,23 @@
+extends ../../views/base
+
+block content
+  include  ../../views/headerCourse
+   .main-container
+    include navUser 
+      .content
+        .welcome Friends
+        table.ranking
+          tr
+            th Username
+            th Name
+            th Rank
+            th
+          tr
+            td Monica53
+            td Monica
+            td 2
+            td
+              button.addfriend Add Friend
+        .search-container
+          input(type='text', placeholder='Search...', name='search')
+          button(type='submit') Search

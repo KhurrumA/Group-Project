@@ -194,6 +194,28 @@ exports.addFriend = catchAsync(async (req, res, next) => {
   });
 });
 
+// Search for user by username
+exports.searchUserByUsername = catchAsync(async (req, res, next) => {
+  // Extract the search query from the request parameters or query string
+  const { username } = req.params;
+
+  // Search for the user by username
+  const user = await User.findOne({ username: username }).select('username name _id Rank');
+
+  // If no user is found, return an error
+  if (!user) {
+    return next(new appError('No user found with that username', 404));
+  }
+
+  // If user is found, return the user details
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
+
+});
 //GET ANALYTICS: Total student, started, completed
 exports.analytics = catchAsync(async (req, res, next) => {
   const courseId = req.params.courseId; //getting the course ID

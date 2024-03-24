@@ -44,5 +44,6 @@ router.get(
   authController.restrictTo("admin"),
   userController.analytics
 );
-//GET FRIEND LEADERBOARD
+router.get('/search/:username', authController.protect, userController.searchUserByUsername);
+
 module.exports = router;
