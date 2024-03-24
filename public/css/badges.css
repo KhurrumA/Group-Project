@@ -633,23 +633,23 @@ h1 {
     margin: 0;
 }
 .level-1{
-    background-image: url('../img/levels/level-1.jpg');
+    background-image: url('../img/levels/level-1.png');
 }
 
 .level-2{
-    background-image: url('../img/levels/leevl-2.jpg');
+    background-image: url('../img/levels/level-2.png');
 }
 
 .level-3{
-    background-image: url('../img/levels/leevl-3.jpg');
+    background-image: url('../img/levels/level-3.png');
 }
 
 .level-4{
-    background-image: url('../img/levels/leevl-4.jpg');
+    background-image: url('../img/levels/level-4.png');
 }
 
 .level-5{
-    background-image: url('../img/levels/leevl-5.jpg');
+    background-image: url('../img/levels/level-5.png');
 }
 
 
