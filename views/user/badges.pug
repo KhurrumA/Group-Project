@@ -20,7 +20,7 @@ block content
           each rank, index in [100, 500, 1000, 1500, 2000]
             - let pointsNeeded = rank;
             - let isUnlocked = user.points >= pointsNeeded; 
-            .badge(class=`level-${index + 1}`)
+            .badge(class=`level-${index + 1}${!isUnlocked ? ' locked' : ''}`)
               p= `POINTS: ${pointsNeeded}`
               h2= `Level ${index + 1}`
               br

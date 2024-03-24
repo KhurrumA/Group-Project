@@ -652,4 +652,6 @@ h1 {
     background-image: url('../img/levels/level-5.png');
 }
 
-
+.locked {
+    filter: grayscale(100%);
+  }
