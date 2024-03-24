@@ -16,7 +16,7 @@ TESTED ON: 24th March
         [Actual] The badges that are unlocked are greyed out and are in full colour.
         [Test Result]  Pass ✅ 
              
-    -TEST #3 - Is the page only accessible if the user is logged in?
+    -TEST #4 - Is the page only accessible if the user is logged in?
         [Expected] The will not be able to access this page if they are not logged in
         [Actual] The access has been denied when tried to access the route wihtout logging in.
         [Test Result]   Pass ✅
