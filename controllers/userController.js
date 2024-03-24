@@ -208,14 +208,14 @@ exports.searchUserByUsername = catchAsync(async (req, res, next) => {
   }
 
   // If user is found, return the user details
-  res.status(200).json({
-    status: 'success',
-    data: {
-      user,
-    },
+  res.status(200).render('user/addFriend', { 
+    username: user.username,
+    name: user.name,
+    id: user._id,
+    rank: user.Rank
   });
-
 });
+
 //GET ANALYTICS: Total student, started, completed
 exports.analytics = catchAsync(async (req, res, next) => {
   const courseId = req.params.courseId; //getting the course ID
