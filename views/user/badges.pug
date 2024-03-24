@@ -53,7 +53,7 @@ html(lang='en')
           each rank, index in [100, 500, 1000, 1500, 2000]
             - let pointsNeeded = rank;
             - let isUnlocked = userPoints >= pointsNeeded; // Check if rank is unlocked for the user
-            .badge(data-level=index + 1, style=`background-image: url('../../../public/img/rank#{index + 1}.png');`)
+            .badge(data-level=index + 1, style=`background-image: url('../../../public/img/badges/rank#{index + 1}.png');`)
               // Set data-level attribute to specify the level
               p POINTS: #{pointsNeeded}
               h2 Level #{index + 1}
