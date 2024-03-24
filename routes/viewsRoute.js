@@ -43,11 +43,7 @@ router.get(
   viewsController.friendsLeaderboard
 );
 //GET FRIENDS
-router.get(
-  "/account/friends",
-  authController.protect,
-  viewsController.friends
-);
+router.get("/account/friends", authController.protect, viewsController.friends);
 //ADMIN
 
 //Get dashboard
@@ -66,9 +62,16 @@ router.get(
   viewsController.getAdminAccount
 );
 
+//Get the courses and details
+router.get(
+  "/admin/courses",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.adminCourses
+);
 //Get all comments
 router.get(
-  "/admin/comments",
+  "/admin/:slug",
   authController.protect,
   authController.restrictTo("admin"),
   viewsController.getAllReviews
@@ -81,8 +84,5 @@ router.delete(
   authController.restrictTo("admin"),
   viewsController.deleteReview
 );
-
-//Get the courses and details
-router.get("/admin/courses", viewsController.adminCourses);
 
 module.exports = router;
