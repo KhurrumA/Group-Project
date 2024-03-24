@@ -184,8 +184,12 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   );
 
   // Returning the sorted friends list, including their ranks
-  res.status(200).render("user/friendsLeaderboard", { leaderboard: sortedFriends });
-
+  res
+    .status(200)
+    .render("user/friendsLeaderboard", {
+      title: "Leaderboard",
+      leaderboard: sortedFriends,
+    });
 });
 //View Friends
 exports.friends = catchAsync(async (req, res, next) => {
@@ -201,8 +205,10 @@ exports.friends = catchAsync(async (req, res, next) => {
     return next(new AppError("User not found", 404));
   }
   // Returning the sorted friends list, including their ranks
-  res.status(200).render("user/friends", { friend: userWithFriends.friends });
-
+  res.status(200).render("user/friends", {
+    title: "Friends",
+    friend: userWithFriends.friends,
+  });
 });
 
 //ADMIN
@@ -223,9 +229,18 @@ exports.getAdminAccount = (req, res) => {
 
 //Get all the reviews
 exports.getAllReviews = catchAsync(async (req, res, next) => {
-  const reviews = await Review.find()
+  // Find the course by its slug
+  const slug = req.params.slug;
+  const course = await Course.findOne({ slug: slug });
+
+  if (!course) {
+    return next(new AppError("No course found with that slug", 404));
+  }
+
+  const reviews = await Review.find({ course: course._id })
     .populate("user", "name")
     .populate("course", "name");
+
   res.status(200).render("admin/reviews", {
     title: "Reviews",
     reviews,
@@ -236,7 +251,10 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
 exports.deleteReview = async (req, res) => {};
 
 exports.adminCourses = catchAsync(async (req, res, next) => {
+  const courses = await Course.find();
+
   res.status(200).render("admin/adminCourses", {
     title: "Admin",
+    courses,
   });
 });
