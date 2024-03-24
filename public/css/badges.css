@@ -632,3 +632,24 @@ h1 {
 .badge h2 {
     margin: 0;
 }
+.level-1{
+    background-image: url('../img/levels/level-1.jpg');
+}
+
+.level-2{
+    background-image: url('../img/levels/leevl-2.jpg');
+}
+
+.level-3{
+    background-image: url('../img/levels/leevl-3.jpg');
+}
+
+.level-4{
+    background-image: url('../img/levels/leevl-4.jpg');
+}
+
+.level-5{
+    background-image: url('../img/levels/leevl-5.jpg');
+}
+
+

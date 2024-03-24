@@ -211,6 +211,14 @@ exports.friends = catchAsync(async (req, res, next) => {
   });
 });
 
+
+//Get Level
+exports.getLevel = catchAsync(async (req, res, next) => {
+  res.status(200).render("user/badges", { title: "Achievements"});
+});
+
+
+
 //ADMIN
 
 //Admin Dashboard

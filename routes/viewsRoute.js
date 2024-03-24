@@ -44,6 +44,8 @@ router.get(
 );
 //GET FRIENDS
 router.get("/account/friends", authController.protect, viewsController.friends);
+//GET LEVEL
+router.get("/account/level", authController.protect,viewsController.getLevel);
 //ADMIN
 
 //Get dashboard
