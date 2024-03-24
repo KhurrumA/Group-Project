@@ -19,3 +19,23 @@ export const searchUserByUsername = async (username) => {
     showAlert("error", "User not found!");
   }
 };
+
+// Function to add a friend
+export const addFriend = async (friendId) => {
+  console.log("I am in addFriend");
+  try {
+    console.log("Attempting to add friend");
+    const res = await axios({
+      method: "PATCH",
+      url: `http://localhost:3000/v1/users/addFriend/${friendId}`,
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "Friend added successfully");
+      window.setTimeout(() => {
+        location.reload(); // Reload the page to update the friend list
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert("error", "Error adding friend!");
+  }
+};
