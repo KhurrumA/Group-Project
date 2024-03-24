@@ -11,11 +11,9 @@ export const deleteReviews = async (reviewId) => {
     });
     if (res.data.status === "success") {
       showAlert("success", "Review DELETED successfully");
-
-      console.log("i am in delete review after success");
       window.setTimeout(() => {
-        location.assign("/admin/comments");
-      }, 500); //take 1.5 sec to load the home page
+        location.assign("/admin/courses");
+      }, 500);
     }
   } catch (err) {
     console.log(err);
