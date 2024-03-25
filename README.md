@@ -138,11 +138,7 @@ This document outlines the routes available in the IBM SkillsBuild Project and t
 - `GET /admin/:slug`: Retrieves and renders all reviews for a course (protected, admin-only route).
 - `DELETE /reviews/:id`: Deletes a specific review (protected, admin-only route).
 
-Please ensure that you have the necessary authentication and authorization mechanisms in place to protect these routes as indicated.
-
-
-
-### Common Errors and Solutions
+# Common Errors and Solutions
 
 - **Database Connection Issues**: If you're experiencing connection issues on restricted networks like University Wi-Fi, try using mobile data or a VPN.
 - **JWT Malformed Error**: In developer mode, if you encounter this error, log in again.
