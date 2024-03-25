@@ -49,7 +49,7 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 
 To discuss progress made and what else that needs to be completed.
 
-### Meeting Outcomes
+### Tasks Assigned to Each Member
 
 - **Manpreet Kaur:**
   - Work on admin analytics page.
@@ -66,7 +66,7 @@ To discuss progress made and what else that needs to be completed.
 
 Main objective is to complete the frontend and backend for user stories.
 
-### Meeting 2 Outcomes
+### Meeting Outcomes
 
 - **Manpreet Kaur:**
   - Admin analytics page is now complete.
@@ -99,6 +99,18 @@ To discuss progress made and what else that needs to be completed.
 - **Backend team**
   - Manpreet : Finish error handling.
   - Khurrum and David Junior : Finish working on the leaderboard.
+
+### Meeting 2 Outcomes
+
+- **Frontend Team**
+  - Taran : Completed ranking and leaderboard page.
+  - Zainab : Completed remaining pages.
+  - Mahirul : Remaining pages complete.
+  - Maclain : Still working on frontend admin comments page.
+- **Backend team**
+  - Manpreet : Finished working on error handling.
+  - Khurrum and David Junior : Finished working on the leaderboard.
+
 
 ### Meeting 3 Notes
 
