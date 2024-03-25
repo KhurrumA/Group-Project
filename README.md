@@ -103,6 +103,45 @@ localhost:3000
 2. Connect to the database using the connection string provided in the `config.env` (DATABASE).
 3. Navigate to the 'group29' collection to manage and view data.
 
+# Application Routes Documentation
+
+This document outlines the routes available in the IBM SkillsBuild Project and their functionalities.
+
+## Public Routes
+
+- `GET /`: Renders the landing page.
+- `GET /login`: Renders the login form if the user is not logged in.
+- `GET /signup`: Renders the signup form.
+
+## User Routes
+
+- `GET /account`: Renders the user's account page (protected route).
+- `GET /dashboard`: Renders the user's dashboard (protected route).
+- `GET /courses`: Retrieves and renders the list of courses (protected route).
+- `GET /course/:slug`: Retrieves and renders a specific course based on the slug (protected route).
+- `GET /review/:slug`: Submits a review for a course (protected route).
+- `GET /ibmCourse/:slug`: Retrieves and renders the overview of an IBM course (protected route).
+- `GET /top-3-courses`: Retrieves and renders the top 3 courses (protected route).
+- `GET /account/uploadPhoto`: Renders the form to upload a photo (protected route).
+- `PATCH /account/uploadPhoto`: Endpoint to upload a photo (protected route).
+- `GET /account/friendsLeaderboard`: Retrieves and renders the friends leaderboard (protected route).
+- `GET /account/friends`: Retrieves and renders the user's friends list (protected route).
+- `GET /account/level`: Retrieves and renders the user's level (protected route).
+
+## Admin Routes
+
+- `GET /admin-dashboard`: Renders the admin dashboard (protected, admin-only route).
+- `GET /admin`: Renders the admin account page (protected, admin-only route).
+- `GET /admin/courses`: Retrieves and renders the list of courses with details for admin (protected, admin-only route).
+- `GET /admin/stats`: Retrieves and renders statistics for all courses (protected, admin-only route).
+- `GET /admin/stats/:slug`: Retrieves and renders statistics for a specific course (protected, admin-only route).
+- `GET /admin/:slug`: Retrieves and renders all reviews for a course (protected, admin-only route).
+- `DELETE /reviews/:id`: Deletes a specific review (protected, admin-only route).
+
+Please ensure that you have the necessary authentication and authorization mechanisms in place to protect these routes as indicated.
+
+
+
 ### Common Errors and Solutions
 
 - **Database Connection Issues**: If you're experiencing connection issues on restricted networks like University Wi-Fi, try using mobile data or a VPN.
