@@ -44,7 +44,7 @@ exports.enrollMe = catchAsync(async (req, res, next) => {
 // Get courses enrolled by user
 exports.getUserCourses = catchAsync(async (req, res, next) => {
   const { user } = req;
-  console.log(user);
+
   // Find all courses where the user is enrolled
   const courses = await Course.find({ users: user._id });
 
@@ -120,22 +120,19 @@ const filterObj = (obj, ...allowedFields) => {
 exports.analytics = catchAsync(async (req, res, next) => {
   const courseId = req.params.courseId; //getting the course ID
   const course = await Course.findById(courseId); //getting the course
-  console.log(course);
+
   const totUser = course.users.length; //total enrolled students in that course
-  console.log(totUser);
 
   //STUDENTS WHO STARTED THE COURSE
   const totStart = await Progress.countDocuments(courseId);
-  console.log(totStart);
 
   //STUDENTS WHO COMPLETED THE COURSE
-  console.log("This is the couseId", courseId);
+
   //counts the document that have got the timeCompleted field
   const totCompleted = await Progress.countDocuments({
     timeCompleted: { $exists: true },
     course: mongoose.Types.ObjectId(courseId),
   });
-  console.log(totCompleted);
 
   if (totUser == 0 && totCompleted == 0 && totStart == 0) {
     return res.status(200).json({ status: "success", data: 0 });

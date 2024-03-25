@@ -14,7 +14,7 @@ exports.dashboard = catchAsync(async (req, res, next) => {
   const userId = req.user._id;
 
   const courses = await Course.find({ users: userId }).populate("users");
-  console.log(courses._id);
+
   const progress = await Progress.find({
     user: userId,
   });
@@ -89,7 +89,6 @@ exports.getCourse = catchAsync(async (req, res, next) => {
 
 // Get login form
 exports.getLoginForm = (req, res) => {
-  console.log("I am in view controller");
   res.status(200).render("login", {
     title: "Log into your account",
   });

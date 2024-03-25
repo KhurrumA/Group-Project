@@ -56,7 +56,6 @@ exports.registerUser = catchAsync(async (req, res, next) => {
 
 //LOGIN
 exports.login = catchAsync(async (req, res, next) => {
-  console.log(req.body);
   const { email, password } = req.body; //using the desctructring
 
   //if there is no email or password --> return error

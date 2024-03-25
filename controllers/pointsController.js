@@ -4,18 +4,11 @@ const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 
 exports.addPoints = catchAsync(async (req, res, next) => {
-  console.log("I am in add points");
   const courseId = req.body.courseId;
   const userId = req.user._id;
-  //const user = req;
-  console.log(req.params.id);
-
-  //console.log("this is user" + user);
 
   // getting the course points from the Course model
-  //const courseA = courseId.tostring();
   const course = await Course.findById(courseId);
-  console.log(course);
 
   if (!course) {
     return next(new AppError("Course not found", 404));

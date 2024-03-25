@@ -28,7 +28,6 @@ exports.progressStart = catchAsync(async (req, res, next) => {
     res.status(200).json({ status: "success", data: progress });
   } catch (err) {
     // Handle any errors
-    // console.error("Error starting progress:", err);
     return next(new appError("Internal server error", 500));
   }
 });
@@ -46,7 +45,7 @@ const updateUserRank = async (userId) => {
     newRank = 3;
   } else if (user.points >= 500) {
     newRank = 2;
-  } else if(user.points >= 100) {
+  } else if (user.points >= 100) {
     newRank = 1;
   } else {
     newRank = 0;
