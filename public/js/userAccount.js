@@ -18,6 +18,6 @@ export const updateSettings = async (data, type) => {
     }
   } catch (err) {
     console.log(err);
-    showAlert("error", err.response.data.message);
+    showAlert("error", "This is not an image file.");
   }
 };
