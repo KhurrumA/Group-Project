@@ -200,49 +200,24 @@ exports.searchUserByUsername = catchAsync(async (req, res, next) => {
   const { username } = req.params;
 
   // Search for the user by username
-  const user = await User.findOne({ username: username }).select('username name _id Rank');
+  const user = await User.findOne({ username: username }).select(
+    "username name _id Rank"
+  );
 
   // If no user is found, return an error
   if (!user) {
-    return next(new appError('No user found with that username', 404));
+    return next(new appError("No user found with that username", 404));
   }
 
   // If user is found, return the user details
-  res.status(200).render('user/addFriend', { 
+  res.status(200).render("user/addFriend", {
     username: user.username,
     name: user.name,
     id: user._id,
-    rank: user.Rank
+    rank: user.Rank,
   });
 });
 
-//GET ANALYTICS: Total student, started, completed
-exports.analytics = catchAsync(async (req, res, next) => {
-  const courseId = req.params.courseId; //getting the course ID
-  const course = await Course.findById(courseId); //getting the course
-  const totUser = course.users.length; //total enrolled students in that course
-
-  //STUDENTS WHO STARTED THE COURSE
-  const totStart = await Progress.countDocuments(courseId);
-  console.log(totStart);
-
-  //STUDENTS WHO COMPLETED THE COURSE
-  console.log("This is the couseId", courseId);
-  //counts the document that have got the timeCompleted field
-  const totCompleted = await Progress.countDocuments({
-    timeCompleted: { $exists: true },
-    course: mongoose.Types.ObjectId(courseId),
-  });
-  console.log(totCompleted);
-
-  if (totUser == 0 && totCompleted == 0 && totStart == 0) {
-    return res.status(200).json({ status: "success", data: 0 });
-  } else {
-    return res
-      .status(200)
-      .json({ status: "success", data: { totUser, totCompleted, totStart } });
-  }
-});
 // /ME ENDPOINT
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;

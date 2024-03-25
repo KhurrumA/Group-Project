@@ -4,6 +4,7 @@ const Review = require("../models/reviewModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const Progress = require("../models/progressModel");
+const mongoose = require("mongoose");
 
 //USER
 
@@ -184,12 +185,10 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   );
 
   // Returning the sorted friends list, including their ranks
-  res
-    .status(200)
-    .render("user/friendsLeaderboard", {
-      title: "Leaderboard",
-      leaderboard: sortedFriends,
-    });
+  res.status(200).render("user/friendsLeaderboard", {
+    title: "Leaderboard",
+    leaderboard: sortedFriends,
+  });
 });
 //View Friends
 exports.friends = catchAsync(async (req, res, next) => {
@@ -211,15 +210,23 @@ exports.friends = catchAsync(async (req, res, next) => {
   });
 });
 
-
 //Get Level
 exports.getLevel = catchAsync(async (req, res, next) => {
-  res.status(200).render("user/badges", { title: "Achievements"});
+  res.status(200).render("user/badges", { title: "Achievements" });
 });
 
-
-
 //ADMIN
+
+//Function to determine the class colors
+const getClassByDifference = (diff) => {
+  if (diff === 0) {
+    return "green"; // All students have started or completed
+  } else if (diff === 1) {
+    return "yellow"; // Only one student hasn't started or completed
+  } else {
+    return "red"; // More than one student hasn't started or completed
+  }
+};
 
 //Admin Dashboard
 exports.adminDashboard = catchAsync(async (req, res, next) => {
@@ -264,5 +271,66 @@ exports.adminCourses = catchAsync(async (req, res, next) => {
   res.status(200).render("admin/adminCourses", {
     title: "Admin",
     courses,
+  });
+});
+
+//Page for the comments
+exports.adminCourses = catchAsync(async (req, res, next) => {
+  const courses = await Course.find();
+
+  res.status(200).render("admin/adminCourses", {
+    title: "Admin",
+    courses,
+  });
+});
+
+// Page for statiatics
+exports.adminStats = catchAsync(async (req, res, next) => {
+  const courses = await Course.find();
+
+  res.status(200).render("admin/adminStats", {
+    title: "Admin",
+    courses,
+  });
+});
+
+//Course statistics - Tot number od students, number of students who started the course and finished
+exports.courseStats = catchAsync(async (req, res, next) => {
+  const slug = req.params.slug;
+  const course = await Course.findOne({ slug: slug });
+  const totUser = course.users.length; //total enrolled students in that course
+
+  //STUDENTS WHO STARTED THE COURSE - Counts all the documents that has the course id
+  const totStart = await Progress.countDocuments({ course: course._id });
+
+  //STUDENTS WHO COMPLETED THE COURSE
+
+  //counts the document that have got the timeCompleted field
+  const totCompleted = await Progress.countDocuments({
+    timeCompleted: { $exists: true },
+    course: new mongoose.Types.ObjectId(course._id),
+  });
+
+  if (totUser == 0 && totCompleted == 0 && totStart == 0) {
+    (totUser = 0), (totCompleted = 0);
+    totStart = 0;
+  }
+
+  // Calculate the differences
+  const diffStart = totUser - totStart;
+  const diffCompleted = totUser - totCompleted;
+
+  // Determine the class based on the difference
+  const classForStart = getClassByDifference(diffStart);
+  const classForCompleted = getClassByDifference(diffCompleted);
+
+  res.status(200).render("admin/courseStats", {
+    title: "Statistics",
+    course,
+    totUser,
+    totStart,
+    totCompleted,
+    classForStart,
+    classForCompleted,
   });
 });
