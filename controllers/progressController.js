@@ -28,7 +28,6 @@ exports.progressStart = catchAsync(async (req, res, next) => {
     res.status(200).json({ status: "success", data: progress });
   } catch (err) {
     // Handle any errors
-    // console.error("Error starting progress:", err);
     return next(new appError("Internal server error", 500));
   }
 });
@@ -38,16 +37,18 @@ const updateUserRank = async (userId) => {
 
   // Calculates new rank based on current points
   let newRank;
-  if (user.points >= 100) {
+  if (user.points >= 2000) {
     newRank = 5;
-  } else if (user.points >= 75) {
+  } else if (user.points >= 1500) {
     newRank = 4;
-  } else if (user.points >= 50) {
+  } else if (user.points >= 1000) {
     newRank = 3;
-  } else if (user.points >= 25) {
+  } else if (user.points >= 500) {
     newRank = 2;
-  } else {
+  } else if (user.points >= 100) {
     newRank = 1;
+  } else {
+    newRank = 0;
   }
   // Updates user's rank
   if (user.Rank !== newRank) {

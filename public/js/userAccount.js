@@ -12,9 +12,12 @@ export const updateSettings = async (data, type) => {
     });
     if (res.data.status === "success") {
       showAlert("success", `${type.toUpperCase()} updated successfully`);
+      window.setTimeout(() => {
+        location.assign("/account/uploadPhoto");
+      }, 500);
     }
   } catch (err) {
     console.log(err);
-    showAlert("error", err.response.data.message);
+    showAlert("error", "This is not an image file.");
   }
 };

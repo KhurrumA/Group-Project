@@ -1,0 +1,15 @@
+extends ../../views/base
+
+block content
+    include ../../views/headerCourse
+    .main-container
+        include navAdmin
+        .content_delete
+            h1.title-stat Explore Course Insights
+            p.choose-course Select a course to unveil comprehensive statistics and gain actionable insights.
+            each course in courses
+                .course-card
+                    .course-info
+                        h2.course-title.cname= course.name
+                        img.course-image.admin_courses(src=`/img/courses/${course.imageCover}` alt='Course image')
+                        a.stats.check_btns(href=`/admin/stats/${course.slug}`) Check Statistics

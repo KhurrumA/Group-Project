@@ -12,7 +12,6 @@ const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
 const courseRoute = require("./routes/courseRoute");
 const viewRoute = require("./routes/viewsRoute");
-const progressRoute = require("./routes/progressRoute");
 const app = express();
 
 //Defining the view engine

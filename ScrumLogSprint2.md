@@ -41,15 +41,15 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 ## Week 2 Details
 
 - **Week:** 11/03/2024
-- **Meeting Date:** 11/03/2024, 13/03/2024
-- **Scrum Master:** Zainab Patel (zp81)(11/03/2024), Taran Singh (ts444)(13/04/2024)
+- **Meeting Date:** 11/03/2024
+- **Scrum Master:** Zainab Patel (zp81)
 - **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Purpose of the Meeting
 
 To discuss progress made and what else that needs to be completed.
 
-### Meeting Outcomes
+### Tasks Assigned to Each Member
 
 - **Manpreet Kaur:**
   - Work on admin analytics page.
@@ -66,7 +66,7 @@ To discuss progress made and what else that needs to be completed.
 
 Main objective is to complete the frontend and backend for user stories.
 
-### Meeting 2 Outcomes
+### Meeting Outcomes
 
 - **Manpreet Kaur:**
   - Admin analytics page is now complete.
@@ -79,6 +79,13 @@ Main objective is to complete the frontend and backend for user stories.
 - **Zainab:**
   - Completed leaderboard page and friends page.
 - Backend has been completed and the remaining front end will be completed before Wednesday. 
+
+## Week 2 Details
+
+- **Week:** 13/03/2024
+- **Meeting Date:** 13/03/2024
+- **Scrum Master:** Taran Singh (ts444)
+- **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Meeting 2 Notes
 
@@ -99,6 +106,18 @@ To discuss progress made and what else that needs to be completed.
 - **Backend team**
   - Manpreet : Finish error handling.
   - Khurrum and David Junior : Finish working on the leaderboard.
+
+### Meeting 2 Outcomes
+
+- **Frontend Team**
+  - Taran : Completed ranking and leaderboard page.
+  - Zainab : Completed remaining pages.
+  - Mahirul : Remaining pages complete.
+  - Maclain : Still working on frontend admin comments page.
+- **Backend team**
+  - Manpreet : Finished working on error handling.
+  - Khurrum and David Junior : Finished working on the leaderboard.
+
 
 ### Meeting 3 Notes
 
@@ -136,3 +155,39 @@ To work on missing front end pages & integration.
 ### Meeting Notes
 
 To try and have the user manual and integration completed by next Monday (25/03/2024)
+
+## Week 4 Details
+
+- **Week:** 25/03/2024
+- **Meeting Dates:** 25/03/2024
+- **Scrum Master:** Maclain Apsley-Turner(mat53)
+- **Missing Member(s):** None
+
+### Purpose of the Meeting
+
+To finalise all tasks and once everything is completed do the demo.
+
+### Meeting 1 Outcomes
+
+- **Manpreet Kaur:**
+  - Finished all.
+- **David Sarkodie Junior:**
+  - Completing add friends & analytics section. 
+- **Mahirul Islam:**
+  - Working on points, start and completion time for the user manual.
+- **Khurrum Arif:**
+  - Completed levels page (frontend and backend routing), finished pug template for badges, finished testing.
+- **Zainab Patel:**
+  -Finished contributions to the manual for the admin pages.
+- **Taran Singh:** 
+  - Working on the user manual for the login and register sections.
+- **Maclain Apsley-Turner:**
+  -  Finished admin remove reviews page.
+- **Favour Cole:**
+  - Finished all.
+
+
+### Meeting Notes
+
+Main objective this week is to finish everything off and finish the demo.
+

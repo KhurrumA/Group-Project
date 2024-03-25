@@ -617,3 +617,41 @@ h1 {
     color: #555;
     margin: 5px 0;
 }
+.badge {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjustments to text inside the badges */
+.badge p,
+.badge h2 {
+    margin: 0;
+}
+.level-1{
+    background-image: url('../img/levels/level-1.png');
+}
+
+.level-2{
+    background-image: url('../img/levels/level-2.png');
+}
+
+.level-3{
+    background-image: url('../img/levels/level-3.png');
+}
+
+.level-4{
+    background-image: url('../img/levels/level-4.png');
+}
+
+.level-5{
+    background-image: url('../img/levels/level-5.png');
+}
+
+.locked {
+    filter: grayscale(100%);
+  }
