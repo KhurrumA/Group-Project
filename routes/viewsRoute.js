@@ -45,7 +45,7 @@ router.get(
 //GET FRIENDS
 router.get("/account/friends", authController.protect, viewsController.friends);
 //GET LEVEL
-router.get("/account/level", authController.protect,viewsController.getLevel);
+router.get("/account/level", authController.protect, viewsController.getLevel);
 //ADMIN
 
 //Get dashboard
@@ -71,6 +71,22 @@ router.get(
   authController.restrictTo("admin"),
   viewsController.adminCourses
 );
+
+//Get the courses and details for stats
+router.get(
+  "/admin/stats",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.adminStats
+);
+//Get statistics per course
+router.get(
+  "/admin/stats/:slug",
+  authController.protect,
+  authController.restrictTo("admin"),
+  viewsController.courseStats
+);
+
 //Get all comments
 router.get(
   "/admin/:slug",
