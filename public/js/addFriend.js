@@ -12,7 +12,6 @@ export const searchUserByUsername = async (username) => {
     });
     if (res.data.status === "success") {
       showAlert("success", "User found successfully");
-      // Handle the user data as needed
       console.log("User Data:", res.data.data.user);
     }
   } catch (err) {
