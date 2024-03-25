@@ -80,6 +80,8 @@ Main objective is to complete the frontend and backend for user stories.
   - Completed leaderboard page and friends page.
 - Backend has been completed and the remaining front end will be completed before Wednesday. 
 
+- Scrum Master:** Taran Singh (ts444)(13/04/2024):
+
 ### Meeting 2 Notes
 
 Most of backend is completed. Next scrum master has also been agreed.
