@@ -136,3 +136,39 @@ To work on missing front end pages & integration.
 ### Meeting Notes
 
 To try and have the user manual and integration completed by next Monday (25/03/2024)
+
+## Week 4 Details
+
+- **Week:** 25/03/2024
+- **Meeting Dates:** 25/03/2024
+- **Scrum Master:** Maclain Apsley-Turner(mat53)
+- **Missing Member(s):** None
+
+### Purpose of the Meeting
+
+To finalise all tasks and once everything is completed do the demo.
+
+### Meeting 1 Outcomes
+
+- **Manpreet Kaur:**
+  - Finished all.
+- **David Sarkodie Junior:**
+  - Completing add friends & analytics section. 
+- **Mahirul Islam:**
+  - Working on points, start and completion time for the user manual.
+- **Khurrum Arif:**
+  - Completed levels page (frontend and backend routing), finished pug template for badges, finished testing.
+- **Zainab Patel:**
+  -Finished contributions to the manual for the admin pages.
+- **Taran Singh:** 
+  - Working on the user manual for the login and register sections.
+- **Maclain Apsley-Turner:**
+  -  Finished admin remove reviews page.
+- **Favour Cole:**
+  - Finished all.
+
+
+### Meeting Notes
+
+Main objective this week is to finish everything off and finish the demo.
+
