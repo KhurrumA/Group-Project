@@ -17,6 +17,7 @@ const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
 const deleteReview = document.querySelectorAll(".delete_btns");
+// const cookie = document.querySelector(".alert-primary");
 
 /***************************  USER  ************************************** */
 if (loginForm) {
@@ -128,6 +129,14 @@ if (uploadPhoto) {
     updateSettings(form, "photo");
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const okButton = document.querySelector(".alertb button");
+  okButton.addEventListener("click", () => {
+    const alertb = okButton.parentElement;
+    alertb.style.display = "none";
+  });
+});
 
 /***************************  ADMIN  ************************************** */
 
