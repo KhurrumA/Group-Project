@@ -42,7 +42,7 @@ Next Meeting will be held on Wednesday 13/02/2024 where everyone will be asked t
 
 - **Week:** 11/03/2024
 - **Meeting Date:** 11/03/2024
-- **Scrum Master:** Zainab Patel (zp81)(11/03/2024)
+- **Scrum Master:** Zainab Patel (zp81)
 - **Missing Member(s):** Maclain Apsley-Turner (mat53), Taran Singh (ts444), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Purpose of the Meeting
@@ -84,7 +84,7 @@ Main objective is to complete the frontend and backend for user stories.
 
 - **Week:** 13/03/2024
 - **Meeting Date:** 13/03/2024
-- **Scrum Master:** Taran Singh (ts444)(13/04/2024)
+- **Scrum Master:** Taran Singh (ts444)
 - **Missing Member(s):** Maclain Apsley-Turner (mat53), Favour Cole(fc182), Mahirul Islam(mi210)
 
 ### Meeting 2 Notes
