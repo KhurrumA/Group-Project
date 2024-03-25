@@ -8,16 +8,16 @@ Welcome to the Group 29 repository for the IBM SkillsBuild Project! This project
 
 To get started with the IBM SkillsBuild Project, clone this repository to your local machine and perform basic operations by running the following commands in your terminal:
 
-\```bash
+```bash
 # Clone the repository on your local machine
 git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
-\```
+```
 
 ### Useful Git Commands
 
 Here are some useful Git commands to help you manage your contributions to the project:
 
-\```bash
+```bash
 # Stage your changes for a single file
 git add filename.extension
 
@@ -35,7 +35,7 @@ git push origin branchName
 
 # Pull the latest changes from the remote repository
 git pull
-\```
+```
 
 ## Website Setup Documentation
 
@@ -52,50 +52,50 @@ Before you begin, ensure you have the following software and tools installed:
 
 #### 1. Clone the Git Repository
 To clone the repository to your local machine, use the following command:
-\```bash
+```bash
 git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
-\```
+```
 
 #### 2. Open the Project in Visual Studio Code
 Navigate to the cloned repository folder and open it with Visual Studio Code.
 
 #### 3. Install Dependencies
 Within Visual Studio Code, open a terminal and execute:
-\```bash
+```bash
 npm install
-\```
+```
 Ignore any deprecated warnings.
 
 #### 4. Build JavaScript Files
 Run the following command to build the JavaScript files:
-\```bash
+```bash
 npm run build:js
-\```
+```
 Terminate the process with `Ctrl+C` once complete.
 
 #### 5. Watch JavaScript Files
 In a new terminal, start watching the JavaScript files with:
-\```bash
+```bash
 npm run watch:js
-\```
+```
 Keep this process running during development.
 
 #### 6. Start the Server
 Open another terminal to start the server:
 - For development mode:
-\```bash
+```bash
 npm start
-\```
+```
 - For production mode:
-\```bash
+```bash
 npm run start:prod
-\```
+```
 
 #### 7. Access the Website
 With the server running and the database connected, open your web browser and go to:
-\```
+```
 localhost:3000
-\```
+```
 
 ### Database Management with MongoDB Compass
 
