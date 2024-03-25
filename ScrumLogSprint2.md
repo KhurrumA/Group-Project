@@ -80,6 +80,8 @@ Main objective is to complete the frontend and backend for user stories.
   - Completed leaderboard page and friends page.
 - Backend has been completed and the remaining front end will be completed before Wednesday. 
 
+## Week 2 Details
+
 - **Week:** 13/03/2024
 - **Meeting Date:** 13/03/2024
 - **Scrum Master:** Taran Singh (ts444)(13/04/2024)
