@@ -27,4 +27,4 @@
 - **Actual:** The access has been denied when tried to access the route without logging in.
 - **Test Result:** Pass ✅
 
-- **Image:** images/issue_7/image-11.png
+- **Image:** images/issue_5/issue_5.png
