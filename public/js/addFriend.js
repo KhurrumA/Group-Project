@@ -3,9 +3,7 @@ import { showAlert } from "./alerts";
 
 // Function to add a friend
 export const addFriend = async (friendId) => {
-  console.log("I am in addFriend");
   try {
-    console.log("Attempting to add friend");
     const res = await axios({
       method: "PATCH",
       url: `http://localhost:3000/v1/users/addFriend/${friendId}`,
@@ -13,13 +11,14 @@ export const addFriend = async (friendId) => {
     console.log(res);
     console.log(" i am above if");
     if (res.data.status === "success") {
-        showAlert("success", "Friend added successfully");
-        console.log("i am in if");
+      showAlert("success", "Friend added successfully");
+      console.log("i am in if");
       window.setTimeout(() => {
-        location.assign("/user/addFriend");
+        location.assign("/user/friends");
       }, 5000);
     }
   } catch (err) {
-    showAlert("error", "Error adding friend!");
+    console.error("Error adding friend:", err);
+    showAlert("error", "Error adding friend: " + err.message);
   }
 };

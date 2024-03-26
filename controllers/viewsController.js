@@ -235,7 +235,7 @@ exports.searchFriend = catchAsync(async (req, res, next) => {
     }
   }
 
-  // Render the page with the users array and any message
+  // Render the page with the users array and the message
   return res.status(200).render("user/addFriend", {
     title: "Search Friend",
     users,

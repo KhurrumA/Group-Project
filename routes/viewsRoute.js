@@ -44,8 +44,6 @@ router.get(
   viewsController.searchFriend
 );
 
-//Add Friend
-
 //GET FRIEND LEADERBOARD
 router.get(
   "/account/friendsLeaderboard",
