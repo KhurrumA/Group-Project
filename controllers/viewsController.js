@@ -171,7 +171,7 @@ exports.friendsLeaderboard = catchAsync(async (req, res, next) => {
   // Find the user with their friends' details populated
   const userWithFriends = await User.findById(userId).populate(
     "friends",
-    "name points Rank"
+    "name username points Rank"
   );
 
   if (!userWithFriends) {
