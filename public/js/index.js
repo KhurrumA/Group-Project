@@ -128,13 +128,17 @@ if (uploadPhoto) {
     updateSettings(form, "photo");
   });
 }
-//Cookie alert
 document.addEventListener("DOMContentLoaded", () => {
-  const okButton = document.querySelector(".alertb button");
-  okButton.addEventListener("click", () => {
-    const alertb = okButton.parentElement;
-    alertb.style.display = "none";
-  });
+  // Select the button using a more specific selector if necessary
+  const okButton = document.querySelector(".alertb .btn");
+
+  // Check if the button exists to avoid null reference errors
+  if (okButton) {
+    okButton.addEventListener("click", function () {
+      // Use 'this' to refer to the button that was clicked
+      this.closest(".alertb").style.display = "none";
+    });
+  }
 });
 
 //Add friend
