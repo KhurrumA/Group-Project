@@ -16,7 +16,7 @@ block content
                 .stat-card.students-completed(class=classForCompleted)
                     h3 Students Completed
                     p.stat-number= totCompleted
-                if course.ratingsAverage < 3.0
+                if course.ratingsAverage <= 3.0
                     .stat-card.low-rating
                         h3 Rating Avg/Qty.
                         p.stat-number= `${course.ratingsAverage}/${course.ratingsQuantity}`
