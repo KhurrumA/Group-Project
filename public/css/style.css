@@ -1010,7 +1010,17 @@ h2{
 .addFriend:hover {
   background-color: #286090;
 }
+img.ibm{
+  max-width: 50%;
+}
 
+a.ibmLink{
+  font-size: larger;
+  color: blue;
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
