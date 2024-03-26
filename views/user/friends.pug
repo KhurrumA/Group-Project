@@ -11,6 +11,7 @@ block content
         thead
           tr
             th Username
+            th Name
             th Rank
         tbody
           if friend.length === 0
@@ -19,6 +20,7 @@ block content
           else
             each user in friend
               tr
+                td #{user.username}
                 td #{user.name}
                 td #{user.Rank}
 

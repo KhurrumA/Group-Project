@@ -196,7 +196,7 @@ exports.friends = catchAsync(async (req, res, next) => {
   // Find the user with their friends' details populated
   const userWithFriends = await User.findById(userId).populate(
     "friends",
-    "name Rank"
+    "username name Rank"
   );
 
   if (!userWithFriends) {
