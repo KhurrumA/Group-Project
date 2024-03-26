@@ -8,12 +8,19 @@ block content
       .table-title Leaderboard
       br
       table#Leaderboard_table
-        tr
-          th Username
-          th Points
-          th Rank
-        each user in leaderboard
+        thead 
           tr
-            td= user.name
-            td= user.points
-            td= user.Rank
+            th Username
+            th Points
+            th Rank
+        tbody
+          if leaderboard.length === 0
+            tr
+              td(colspan="3") No friends in the leaderboard
+          else
+            each user in leaderboard
+              tr
+                td= user.name
+                td= user.points
+                td= user.Rank
+
