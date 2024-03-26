@@ -13,8 +13,8 @@ export const addFriend = async (friendId) => {
     console.log(res);
     console.log(" i am above if");
     if (res.data.status === "success") {
-      console.log("i am in if");
-      showAlert("success", "Friend added successfully");
+        showAlert("success", "Friend added successfully");
+        console.log("i am in if");
       window.setTimeout(() => {
         location.assign("/user/addFriend");
       }, 5000);

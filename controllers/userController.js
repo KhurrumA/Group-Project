@@ -164,30 +164,41 @@ exports.addFriend = catchAsync(async (req, res, next) => {
     return next(new appError("Friend not found", 404));
   }
 
-  // Check if the user is already a friend
+  // Check if the user is already a friend for both users
   const user = await User.findById(userId);
   const isAlreadyFriend = user.friends.some(
     (friend) => friend.toString() === friendId
   );
-  if (isAlreadyFriend) {
+
+  const friendAlreadyAdded = friendExists.friends.some(
+    (friend) => friend.toString() === userId.toString()
+  );
+
+  if (isAlreadyFriend && friendAlreadyAdded) {
     return next(new appError("This user is already your friend", 400));
   }
 
-  // Add friend to the user's friends list
-  const updatedUser = await User.findByIdAndUpdate(
-    userId,
-    { $addToSet: { friends: friendId } }, // $addToSet adds a value to an array unless the value is already present
-    { new: true }
-  );
+   // Add friend to the user's friends list if not already added
+  if (!isAlreadyFriend) {
+    await User.findByIdAndUpdate(
+      userId,
+      { $addToSet: { friends: friendId } }, // $addToSet adds a value to an array unless the value is already present
+      { new: true }
+    );
+  }
+
+  // Similarly, add the current user to the friend's friends list if not already added
+  if (!friendAlreadyAdded) {
+    await User.findByIdAndUpdate(
+      friendId,
+      { $addToSet: { friends: userId } },
+      { new: true }
+    );
+  }
+
   res.status(201).json({
     status: "success",
-    data: {
-      user: {
-        id: updatedUser._id,
-        name: updatedUser.name,
-        friends: updatedUser.friends, // This will return the updated list of friends
-      },
-    },
+    message: "Friend added successfully",
   });
 });
 
