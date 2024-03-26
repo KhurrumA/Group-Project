@@ -12,7 +12,13 @@ block content
           tr
             th Username
             th Rank
-          each user in friend
+        tbody
+          if friend.length === 0
             tr
-              td #{user.name}
-              td #{user.Rank} 
+              td(colspan="2") No friends to display
+          else
+            each user in friend
+              tr
+                td #{user.name}
+                td #{user.Rank}
+
