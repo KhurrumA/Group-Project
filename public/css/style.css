@@ -551,7 +551,8 @@ h2{
 }
 
 .heading{
-  font-weight: 100;
+  font-weight: 400;
+  padding: 20px;
   display: flex;
   justify-content: center;
 
