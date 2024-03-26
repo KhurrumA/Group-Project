@@ -19,6 +19,7 @@ const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
 const deleteReview = document.querySelectorAll(".delete_btns");
 const friend = document.querySelector(".addFriend");
+const url = document.querySelector(".ibmLink");
 
 /***************************  USER  ************************************** */
 if (loginForm) {
@@ -146,6 +147,13 @@ if (friend) {
   friend.addEventListener("click", () => {
     const userId = friend.dataset.userId;
     addFriend(userId);
+  });
+}
+
+if (url) {
+  url.addEventListener("click", () => {
+    var win = window.open("https://skillsbuild.org/college-students", "_blank");
+    win.focus();
   });
 }
 
