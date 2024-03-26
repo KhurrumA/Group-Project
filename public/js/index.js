@@ -5,6 +5,7 @@ import { login, logout, reviews, complete, start } from "./login";
 import { signup, enroll } from "./register";
 import { updateSettings } from "./userAccount";
 import { deleteReviews } from "./adminAccount";
+import { addFriend } from "./addFriend";
 
 //DOM ELEMENTS
 console.log("i am in index");
@@ -17,7 +18,7 @@ const finishCourse = document.querySelector(".finish");
 const startCourse = document.querySelectorAll(".startCourse");
 const uploadPhoto = document.querySelector(".form-user-data");
 const deleteReview = document.querySelectorAll(".delete_btns");
-// const cookie = document.querySelector(".alert-primary");
+const friend = document.querySelector(".addFriend");
 
 /***************************  USER  ************************************** */
 if (loginForm) {
@@ -90,7 +91,6 @@ if (reviewForm) {
     ).value;
     const courseId = submit.dataset.courseId;
     reviews(review, selectedRating, courseId);
-    // Do something with the review data
   });
 }
 
@@ -109,7 +109,6 @@ if (startCourse) {
   for (const btn of startCourse) {
     btn.addEventListener("click", () => {
       const courseId = btn.dataset.courseId;
-
       start(courseId);
     });
   }
@@ -129,7 +128,7 @@ if (uploadPhoto) {
     updateSettings(form, "photo");
   });
 }
-
+//Cookie alert
 document.addEventListener("DOMContentLoaded", () => {
   const okButton = document.querySelector(".alertb button");
   okButton.addEventListener("click", () => {
@@ -137,6 +136,14 @@ document.addEventListener("DOMContentLoaded", () => {
     alertb.style.display = "none";
   });
 });
+
+//Add friend
+if (friend) {
+  friend.addEventListener("click", () => {
+    const userId = friend.dataset.userId;
+    addFriend(userId);
+  });
+}
 
 /***************************  ADMIN  ************************************** */
 
