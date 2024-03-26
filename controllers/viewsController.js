@@ -214,6 +214,35 @@ exports.getLevel = catchAsync(async (req, res, next) => {
   res.status(200).render("user/badges", { title: "Achievements" });
 });
 
+//Search for Friends
+exports.searchFriend = catchAsync(async (req, res, next) => {
+  const username = req.query.search;
+
+  // Initialize an empty array for users
+  let users = [];
+  let text;
+
+  // Only search for the user if a username is provided
+  if (username) {
+    console.log("i am username", username);
+    const user = await User.findOne({ username: username });
+
+    if (user) {
+      users.push(user);
+    } else {
+      // If no user is found, set a message to be displayed
+      text = `No user with username "${username}" found. System is case sensitive!`;
+    }
+  }
+
+  // Render the page with the users array and any message
+  return res.status(200).render("user/addFriend", {
+    title: "Search Friend",
+    users,
+    text,
+  });
+});
+
 //ADMIN
 
 //Function to determine the class colors
@@ -241,7 +270,7 @@ exports.getAdminAccount = (req, res) => {
   });
 };
 
-//Get all the reviews
+// Get all the reviews
 exports.getAllReviews = catchAsync(async (req, res, next) => {
   // Find the course by its slug
   const slug = req.params.slug;
