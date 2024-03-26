@@ -127,6 +127,7 @@ This document outlines the routes available in the IBM SkillsBuild Project and t
 - `GET /account/friendsLeaderboard`: Retrieves and renders the friends leaderboard (protected route).
 - `GET /account/friends`: Retrieves and renders the user's friends list (protected route).
 - `GET /account/level`: Retrieves and renders the user's level (protected route).
+- `GET /account/searchFriend`: Endpoint to search friends and add them into the friends list.
 
 ## Admin Routes
 
