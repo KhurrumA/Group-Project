@@ -1,24 +1,6 @@
 import axios from "axios";
 import { showAlert } from "./alerts";
 
-// Function to search for a user by username
-export const searchUserByUsername = async (username) => {
-  console.log("I am in searchUserByUsername");
-  try {
-    console.log("Attempting to search for user");
-    const res = await axios({
-      method: "GET",
-      url: `http://localhost:3000/v1/users/search/${username}`,
-    });
-    if (res.data.status === "success") {
-      showAlert("success", "User found successfully");
-      console.log("User Data:", res.data.data.user);
-    }
-  } catch (err) {
-    showAlert("error", "User not found!");
-  }
-};
-
 // Function to add a friend
 export const addFriend = async (friendId) => {
   console.log("I am in addFriend");
@@ -28,11 +10,14 @@ export const addFriend = async (friendId) => {
       method: "PATCH",
       url: `http://localhost:3000/v1/users/addFriend/${friendId}`,
     });
+    console.log(res);
+    console.log(" i am above if");
     if (res.data.status === "success") {
+      console.log("i am in if");
       showAlert("success", "Friend added successfully");
       window.setTimeout(() => {
-        location.reload(); // Reload the page to update the friend list
-      }, 1000);
+        location.assign("/user/addFriend");
+      }, 5000);
     }
   } catch (err) {
     showAlert("error", "Error adding friend!");
