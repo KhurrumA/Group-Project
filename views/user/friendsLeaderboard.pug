@@ -12,6 +12,7 @@ block content
           tr
             th Position
             th Username
+            th Name
             th Points
             th Level
         tbody
@@ -24,6 +25,7 @@ block content
               - i++;
               tr
                 td=  i
+                td= user.username
                 td= user.name
                 td= user.points
                 td= user.Rank
