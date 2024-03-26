@@ -144,6 +144,6 @@ This document outlines the routes available in the IBM SkillsBuild Project and t
 - **Database Connection Issues**: If you're experiencing connection issues on restricted networks like University Wi-Fi, try using mobile data or a VPN.
 - **JWT Malformed Error**: In developer mode, if you encounter this error, log in again.
 - **Access Denied**: If you're receiving permission errors, make sure you're using the correct routes for your user level; admin routes require admin access.
-
+- **Can't find /bundle.js.map on this server**: If you get this error, go into public/js/bundle.js file and at the end of the file have this "/# sourceMappingURL=/js/bundle.js.map" 
 
 
