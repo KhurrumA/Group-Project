@@ -36,6 +36,16 @@ router.patch(
   authController.protect,
   viewsController.uploadPhoto
 );
+
+//Get search friend page
+router.get(
+  "/account/searchFriend",
+  authController.protect,
+  viewsController.searchFriend
+);
+
+//Add Friend
+
 //GET FRIEND LEADERBOARD
 router.get(
   "/account/friendsLeaderboard",
@@ -46,6 +56,7 @@ router.get(
 router.get("/account/friends", authController.protect, viewsController.friends);
 //GET LEVEL
 router.get("/account/level", authController.protect, viewsController.getLevel);
+
 //ADMIN
 
 //Get dashboard
