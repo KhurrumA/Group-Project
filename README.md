@@ -97,6 +97,19 @@ With the server running and the database connected, open your web browser and go
 localhost:3000
 ```
 
+#### 8. Login with exsisting credentials
+
+###### Login as User
+```
+Email: junior@example.com
+Password: test1234
+```
+###### Login as ADMIN
+```
+Email: admin@example.com
+Password: test1234
+```
+
 ### Database Management with MongoDB Compass
 
 1. Open MongoDB Compass.
@@ -110,10 +123,11 @@ This document outlines the routes available in the IBM SkillsBuild Project and t
 ## Public Routes
 
 - `GET /`: Renders the landing page.
-- `GET /login`: Renders the login form if the user is not logged in.
+- `GET /login`: Renders the login form.
 - `GET /signup`: Renders the signup form.
 
-## User Routes
+## User Routes 
+All the following routes are protected therefore you must be logged in to have access to them.
 
 - `GET /account`: Renders the user's account page (protected route).
 - `GET /dashboard`: Renders the user's dashboard (protected route).
@@ -127,10 +141,10 @@ This document outlines the routes available in the IBM SkillsBuild Project and t
 - `GET /account/friendsLeaderboard`: Retrieves and renders the friends leaderboard (protected route).
 - `GET /account/friends`: Retrieves and renders the user's friends list (protected route).
 - `GET /account/level`: Retrieves and renders the user's level (protected route).
-- `GET /account/searchFriend`: Endpoint to search friends and add them into the friends list.
+- `GET /account/searchFriend`: Endpoint to search friends and add them into the friends list.(protected route)
 
 ## Admin Routes
-
+The following routes are protected, therefore you must be logged in as ADMIN 
 - `GET /admin-dashboard`: Renders the admin dashboard (protected, admin-only route).
 - `GET /admin`: Renders the admin account page (protected, admin-only route).
 - `GET /admin/courses`: Retrieves and renders the list of courses with details for admin (protected, admin-only route).
