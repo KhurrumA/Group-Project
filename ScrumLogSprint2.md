@@ -158,8 +158,8 @@ To try and have the user manual and integration completed by next Monday (25/03/
 
 ## Week 4 Details
 
-- **Week:** 25/03/2024
-- **Meeting Dates:** 25/03/2024
+- **Week:** 25/03/2024, 26/02/2024
+- **Meeting Dates:** 25/03/2024, 26/03/2024
 - **Scrum Master:** Maclain Apsley-Turner(mat53)
 - **Missing Member(s):** None
 
@@ -190,4 +190,8 @@ To finalise all tasks and once everything is completed do the demo.
 ### Meeting Notes
 
 Main objective this week is to finish everything off and finish the demo.
+
+### Meeting 2 Outcomes
+
+Demo has been recorded and everything is ready to be submitted
 
