@@ -2,41 +2,6 @@
 
 Welcome to the Group 29 repository for the IBM SkillsBuild Project! This project is designed to provide a gamification experience to users, engaging them in a dynamic learning environment.
 
-## Getting Started
-
-### Clone the Repository Locally
-
-To get started with the IBM SkillsBuild Project, clone this repository to your local machine and perform basic operations by running the following commands in your terminal:
-
-```bash
-# Clone the repository on your local machine
-git clone https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29.git
-```
-
-### Useful Git Commands
-
-Here are some useful Git commands to help you manage your contributions to the project:
-
-```bash
-# Stage your changes for a single file
-git add filename.extension
-
-# Stage all changes
-git add .
-
-# Commit your changes with a brief description
-git commit -m "Brief description of the changes"
-
-# Push the changes to the main branch
-git push
-
-# Push to a specific branch
-git push origin branchName
-
-# Pull the latest changes from the remote repository
-git pull
-```
-
 ## Website Setup Documentation
 
 Follow these steps to set up the IBM SkillsBuild Project website:
@@ -113,8 +78,9 @@ Password: test1234
 ### Database Management with MongoDB Compass
 
 1. Open MongoDB Compass.
-2. Connect to the database using the connection string provided in the `config.env` (DATABASE).
-3. Navigate to the 'group29' collection to manage and view data.
+2. Copy the connection string provide in the `config.env` file under the variable named `DATABASE`
+3. Paste the copied string into the URI section and click on `Connect` as shown [here](https://campus.cs.le.ac.uk/gitlab/co2201-2024/group-29/-/blob/main/Tests/MongoDB_Connection.png?ref_type=heads)
+4. Navigate to the 'group29' collection to manage and view data.
 
 # Application Routes Documentation
 
